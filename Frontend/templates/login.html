@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <title>Login page</title>
+</head>
+<body>
+    <div class="backgrond-image-camera">
+        <form class="login">
+            <p class="title">
+                <img src="/static/camera-icon.png">
+            </p>
+            <input type="text" placeholder="Username" autofocus/>
+            <i class="fa fa-user"></i>
+            <input type="password" placeholder="Password" />
+            <i class="fa fa-key"></i>
+            <button href="{{ url_for('index') }}">
+                <span class="state">Log in</span>
+            </button>
+        </form>
+    </div>
+</body>
+</html>

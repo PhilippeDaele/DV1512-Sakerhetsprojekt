@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/page1.css')}}">
+{% endblock %}
+
+{% block body %}
+<table class="rwd-table">
+    <tr class="table-header">
+        <th>Camera name</th>
+        <th>IP Address</th>
+        <th>Port</th>
+        <th>On/Off</th>
+        <th>Status</th>
+    </tr>
+    <tr class="table-entry"> <!--add id for identifying object-->
+        <td data-th="Camera name">CAM-01</td>
+        <td data-th="IP Address">127.0.0.1</td>
+        <td data-th="port">5000</td>
+        <td data-th="On/Off" class="button-values">
+            <input class="tgl tgl-flat" id="cb1" type="checkbox"/>
+            <label class="tgl-btn" for="cb1"></label>
+        </td>
+        <td data-th="Status">ON</td>
+    </tr>
+    <tr class="table-entry">
+        <td data-th="Camera name">CAM-02</td>
+        <td data-th="IP Address">127.0.0.1</td>
+        <td data-th="port">5000</td>
+        <td data-th="On/Off">
+            <input class="tgl tgl-flat" id="cb2" type="checkbox"/>
+            <label class="tgl-btn" for="cb2"></label>
+        </td>
+        <td data-th="Status">ON</td>
+    </tr>
+    <tr class="table-entry">
+        <td data-th="Camera name">CAM-03</td>
+        <td data-th="IP Address">127.0.0.1</td>
+        <td data-th="port">5000</td>
+        <td class="test" data-th="On/Off">
+            <input class="tgl tgl-flat" id="cb3" type="checkbox"/>
+            <label class="tgl-btn" for="cb3"></label>
+        </td>
+        <td data-th="Status">OFF</td>
+    </tr>
+    <tr class="table-entry">
+        <td data-th="Camera name">CAM-04</td>
+        <td data-th="IP Address">127.0.0.1</td>
+        <td data-th="port">5000</td>
+        <td data-th="On/Off">
+            <input class="tgl tgl-flat" id="cb4" type="checkbox"/>
+            <label class="tgl-btn" for="cb4"></label>
+        </td>
+        <td data-th="Status">ON</td>
+    </tr>
+    </table>
+{% endblock %}
