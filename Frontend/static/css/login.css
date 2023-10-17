@@ -42,8 +42,8 @@ position: relative;
 padding-bottom: 80px;
 box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
 border-radius: 25px;
-
-&.loading {
+}
+.login,.loading {
     button {
     max-height: 100%;
     padding-top: 50px;
@@ -54,7 +54,7 @@ border-radius: 25px;
     }  
 }
 
-&.ok {
+.login,.ok {
     button {
     background-color: #8bc34a;
     .spinner{
@@ -68,7 +68,7 @@ border-radius: 25px;
     }
 }
 
-input {
+.login input {
     display: block;
     padding: 15px 10px;
     margin-bottom: 10px;
@@ -77,30 +77,24 @@ input {
     transition: border-width 0.2s ease;
     border-radius: 2px;
     color: #ccc;
-    
-    &+ i.fa {
-        color: #fff;
-    font-size: 1em;
-    position: absolute;
-    margin-top: -47px;
-    opacity: 0;
-    left: 0;
-    transition: all 0.1s ease-in;
-    }
-    
-    &:focus {
-    &+ i.fa {
-        opacity: 1;
-        left: 30px;
-    transition: all 0.25s ease-out;
-    }
-    outline: none;
-    color: #444;
-    border-color: lightgreen;
-    border-left-width: 35px;
-    }
-    
 }
+.login input i.fa {
+    color: #fff;
+font-size: 1em;
+position: absolute;
+margin-top: -47px;
+opacity: 0;
+left: 0;
+transition: all 0.1s ease-in;
+}
+
+input:focus,i.fa {
+outline: none;
+color: #444;
+border-color: lightgreen;
+border-left-width: 35px;
+}
+    
 
 a {
     font-size: 0.8em;   
@@ -145,12 +139,10 @@ button {
     border-bottom-width: 7px;
 }
 
-    &:not(.loading) button:hover {
-    box-shadow: 0px 1px 3px purple;
-    }
-    &:not(.loading) button:focus {
-    border-bottom-width: 4px;
-    }
-    
-
+.login button:hover {
+box-shadow: 0px 1px 3px purple;
 }
+.login button:focus {
+border-bottom-width: 4px;
+}
+    
