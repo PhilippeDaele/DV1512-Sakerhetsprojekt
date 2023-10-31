@@ -1,44 +1,36 @@
 {% extends 'base.html' %}
 
-{% block head %}{% endblock %}
+<!--
+{% block head %}
+{% endblock %}
+-->
 
 {% block body %}    
-<div class="title">
-    <h1>Overview</h1>
-</div>
-<div class="camera-list">
-    <div class="device-container">
-        <div class="video-block">
-            <img src="/static/screenshot-28.jpg">
-        </div>
-        <h2>CAM-01</h2>
-        <input class="tgl tgl-flat" id="cb1"type="checkbox"/>
-        <label class="tgl-btn" for="cb1"></label>
-    </div>
-    <div class="device-container">
-        <div class="video-block">
-            <img src="/static/screenshot-28.jpg">
-        </div>
-        <h2>CAM-02</h2>
-        <input class="tgl tgl-flat" id="cb2" type="checkbox"/>
-        <label class="tgl-btn" for="cb2"></label>
-    </div>
-    <div class="device-container">
-        <div class="video-block">
-            <img src="/static/screenshot-28.jpg">
-        </div>
-        <h2>CAM-03</h2>
-        <input class="tgl tgl-flat" id="cb3" type="checkbox"/>
-        <label class="tgl-btn" for="cb3"></label>
-    </div>
-    <div class="device-container">
-        <div class="video-block">
-            <img src="/static/screenshot-28.jpg">
-        </div>
-        <h2>CAM-04</h2>
-        <input class="tgl tgl-flat" id="cb4" type="checkbox"/>
-        <label class="tgl-btn" for="cb4"></label>
-    </div>
 
+
+<div class="grid">
+    <div class="title">
+        <h1>Overview</h1>
+    </div>
+    {% for cam_info in cameras %}
+
+    <div class="device-container">
+        <div class="video-block">
+            <img src="/static/screenshot-28.jpg">
+        </div>
+        <h2>{{cam_info.name}}</h2>
+        <div id="status-{{ cam_info.port }}"></div>
+        <div class="middle-button">
+            {% if user == 'admin' %}
+                <input class="tgl tgl-flat" id="cb{{ loop.index }}" type="checkbox" {% if cam_info.status == 'Active' %}checked{% endif %}>
+                <label class="tgl-btn{% if cam_info.status == 'Inactive' %} red{% endif %}" for="cb{{ loop.index }}"></label>
+            {% else %}
+                <p class="sidepanel-urls">{{ cam_info.status }}!</p>
+            {% endif %}
+        </div>
+        
+    </div>
+    {% endfor %}
 </div>
+<script src="{{ url_for('static', filename='control.js') }}"></script>
 {% endblock %}
