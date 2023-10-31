@@ -8,22 +8,25 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
     </style> 
-    <title>Document</title>
+    <title>IP camera hub</title>
     {% block head %}{% endblock %}
 </head>
 <body>
-    <div class="background">
-        <div class="sidepanel">
-            <img class="sidepanel-logo" src="http://ncsmadison.com/wp-content/uploads/2018/01/Security-Icon-2.png">
-            <a class="sidepanel-urls" href="/">Home</a>
-            <a class="sidepanel-urls" href="{{ url_for('page1')}}">List</a>
-            <a class="sidepanel-urls" href="{{ url_for('logger')}}">Log</a>
-            <a class="sidepanel-urls">Test3</a>
-        </div>
-        <div class="main-container">
-            {% block body %}{% endblock %}
-        </div>
+    <div class="sidepanel">
+        <img class="sidepanel-logo" src="http://ncsmadison.com/wp-content/uploads/2018/01/Security-Icon-2.png">
+        <p class="sidepanel-urls">Welcome, {{ user }}!</p>
+        <a class="sidepanel-urls" href="{{ url_for('home') }}">Home</a>
+        {% if user == 'admin' %}
+        <a class="sidepanel-urls" href="{{ url_for('detailed_view') }}">List</a>
+        <a class="sidepanel-urls" href="log">Log</a>
+        {% endif %}
+        
+        <a class="sidepanel-urls" href="logout">Logout</a>
     </div>
-    
+    <div class="main-container">
+        
+        {% block body %}{% endblock %}
+        
+    </div>
 </body>
 </html>

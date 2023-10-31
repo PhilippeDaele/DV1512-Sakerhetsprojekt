@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="grid">
+    <body>
+        <h1 class="title">Log Viewer</h1>
+        <pre id="log-content" class="log">{{ log }}</pre>
+    </body>
+</div>
+{% endblock %}
+<script src="{{ url_for('static', filename='log.js') }}"></script>
+
+

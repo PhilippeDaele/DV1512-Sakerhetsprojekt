@@ -1,0 +1,81 @@
+2023-10-30 20:28:49,117 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-10-30 20:28:49,118 [INFO] [33mPress CTRL+C to quit[0m
+2023-10-30 20:28:49,119 [INFO]  * Restarting with stat
+2023-10-30 20:28:49,508 [WARNING]  * Debugger is active!
+2023-10-30 20:28:49,513 [INFO]  * Debugger PIN: 140-454-465
+2023-10-30 20:28:53,635 [INFO] Username: admin, Password: admin, <Request 'http://localhost:5000/camera_hub' [POST]>
+2023-10-30 20:28:53,646 [INFO] 127.0.0.1 - - [30/Oct/2023 20:28:53] "POST /camera_hub HTTP/1.1" 200 -
+2023-10-30 20:28:53,765 [INFO] 127.0.0.1 - - [30/Oct/2023 20:28:53] "GET /static/css/main.css HTTP/1.1" 200 -
+2023-10-30 20:28:53,898 [INFO] 127.0.0.1 - - [30/Oct/2023 20:28:53] "GET /static/screenshot-28.jpg HTTP/1.1" 200 -
+2023-10-30 20:28:53,994 [INFO] 127.0.0.1 - - [30/Oct/2023 20:28:53] "GET /static/control.js HTTP/1.1" 200 -
+2023-10-30 20:29:01,197 [INFO] Username: 1312, Password: admin123, <Request 'http://localhost:5000/camera_hub' [POST]>
+2023-10-30 20:29:01,197 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:01] "[32mPOST /camera_hub HTTP/1.1[0m" 302 -
+2023-10-30 20:29:01,206 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:01] "GET /login HTTP/1.1" 200 -
+2023-10-30 20:29:01,551 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:01] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2023-10-30 20:29:01,551 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:01] "[36mGET /static/camera-icon.png HTTP/1.1[0m" 304 -
+2023-10-30 20:29:01,816 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:01] "[36mGET /static/background-camera.jpg HTTP/1.1[0m" 304 -
+2023-10-30 20:29:05,250 [INFO] Username: admin, Password: admin, <Request 'http://localhost:5000/camera_hub' [POST]>
+2023-10-30 20:29:05,251 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:05] "POST /camera_hub HTTP/1.1" 200 -
+2023-10-30 20:29:05,552 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:05] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2023-10-30 20:29:05,584 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:05] "[36mGET /static/screenshot-28.jpg HTTP/1.1[0m" 304 -
+2023-10-30 20:29:05,585 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:05] "[36mGET /static/control.js HTTP/1.1[0m" 304 -
+2023-10-30 20:29:10,624 [INFO] Username: admin, Password: admin, <Request 'http://localhost:5000/camera_hub' [POST]>
+2023-10-30 20:29:10,626 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:10] "POST /camera_hub HTTP/1.1" 200 -
+2023-10-30 20:29:10,651 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:10] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2023-10-30 20:29:10,878 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:10] "[36mGET /static/control.js HTTP/1.1[0m" 304 -
+2023-10-30 20:29:10,974 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:10] "[36mGET /static/screenshot-28.jpg HTTP/1.1[0m" 304 -
+2023-10-30 20:29:18,707 [INFO] Username: admin, Password: admin, <Request 'http://localhost:5000/camera_hub' [POST]>
+2023-10-30 20:29:18,709 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:18] "POST /camera_hub HTTP/1.1" 200 -
+2023-10-30 20:29:18,738 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:18] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2023-10-30 20:29:18,963 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:18] "[36mGET /static/screenshot-28.jpg HTTP/1.1[0m" 304 -
+2023-10-30 20:29:19,058 [INFO] 127.0.0.1 - - [30/Oct/2023 20:29:19] "[36mGET /static/control.js HTTP/1.1[0m" 304 -
+2023-10-31 22:09:45,426 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-10-31 22:09:45,427 [INFO] [33mPress CTRL+C to quit[0m
+2023-10-31 22:09:45,431 [INFO]  * Restarting with stat
+2023-10-31 22:09:45,904 [WARNING]  * Debugger is active!
+2023-10-31 22:09:45,910 [INFO]  * Debugger PIN: 140-454-465
+2023-10-31 22:09:50,039 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:50] "[32mGET / HTTP/1.1[0m" 302 -
+2023-10-31 22:09:50,121 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:50] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2023-10-31 22:09:50,393 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2023-10-31 22:09:50,483 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2023-10-31 22:09:50,815 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:50] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-10-31 22:09:51,070 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:51] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-10-31 22:09:55,036 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:55] "[32mGET / HTTP/1.1[0m" 302 -
+2023-10-31 22:09:55,081 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:55] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2023-10-31 22:09:55,354 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:55] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2023-10-31 22:09:55,433 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:55] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2023-10-31 22:09:55,761 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:55] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-10-31 22:09:57,659 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:57] "[32mGET / HTTP/1.1[0m" 302 -
+2023-10-31 22:09:58,002 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:58] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2023-10-31 22:09:58,041 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:58] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2023-10-31 22:09:58,229 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:58] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2023-10-31 22:09:58,560 [INFO] 127.0.0.1 - - [31/Oct/2023 22:09:58] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-10-31 22:10:37,678 [INFO]  * Detected change in 'c:\\Users\\sanqian\\Desktop\\tmpflask\\Frontend\\server.py', reloading
+2023-10-31 22:10:37,744 [INFO]  * Restarting with stat
+2023-10-31 22:10:38,298 [WARNING]  * Debugger is active!
+2023-10-31 22:10:38,303 [INFO]  * Debugger PIN: 140-454-465
+2023-10-31 22:10:41,193 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:41] "GET /login HTTP/1.1" 200 -
+2023-10-31 22:10:41,366 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:41] "[36mGET /static/css/login.css HTTP/1.1[0m" 304 -
+2023-10-31 22:10:41,456 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:41] "[36mGET /static/camera-icon.png HTTP/1.1[0m" 304 -
+2023-10-31 22:10:41,675 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:41] "[36mGET /static/background-camera.jpg HTTP/1.1[0m" 304 -
+2023-10-31 22:10:45,589 [INFO] Username: admin, Password: admin, <Request 'http://localhost:5000/camera_hub' [POST]>
+2023-10-31 22:10:45,598 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:45] "POST /camera_hub HTTP/1.1" 200 -
+2023-10-31 22:10:45,629 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:45] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2023-10-31 22:10:45,843 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:45] "[36mGET /static/control.js HTTP/1.1[0m" 304 -
+2023-10-31 22:10:45,953 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:45] "[36mGET /static/screenshot-28.jpg HTTP/1.1[0m" 304 -
+2023-10-31 22:10:53,404 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-10-31 22:10:53,404 [INFO] [33mPress CTRL+C to quit[0m
+2023-10-31 22:10:53,406 [INFO]  * Restarting with stat
+2023-10-31 22:10:53,923 [WARNING]  * Debugger is active!
+2023-10-31 22:10:53,929 [INFO]  * Debugger PIN: 140-454-465
+2023-10-31 22:10:57,684 [INFO] Username: admin, Password: admin, <Request 'http://localhost:5000/camera_hub' [POST]>
+2023-10-31 22:10:57,693 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:57] "POST /camera_hub HTTP/1.1" 200 -
+2023-10-31 22:10:57,830 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:57] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2023-10-31 22:10:57,950 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:57] "[36mGET /static/screenshot-28.jpg HTTP/1.1[0m" 304 -
+2023-10-31 22:10:58,047 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:58] "[36mGET /static/control.js HTTP/1.1[0m" 304 -
+2023-10-31 22:10:59,940 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:59] "GET /detailed_view HTTP/1.1" 200 -
+2023-10-31 22:10:59,986 [INFO] 127.0.0.1 - - [31/Oct/2023 22:10:59] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2023-10-31 22:11:00,188 [INFO] 127.0.0.1 - - [31/Oct/2023 22:11:00] "[36mGET /static/control.js HTTP/1.1[0m" 304 -
