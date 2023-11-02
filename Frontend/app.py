@@ -52,12 +52,18 @@ def home():
 
 @app.route('/detailed_view')
 def detailed_view():
+    if not session.get('loggedin_as'):
+        return show_login_page()
     Cameras = fetch_all_camera_from_db()
     return render_template('detailedView.html',cameras=Cameras, user=session.get('loggedin_as')[2])
 
 @app.route('/log')
 def log():
-    return render_template('log.html')
+    if not session.get('loggedin_as'):
+        return show_login_page()
+    with open('output.log', 'r') as log_file:
+        log_content = log_file.read()
+    return render_template('log.html', log=log_content, user=session.get('loggedin_as')[2])
 
 @app.route('/logout')
 def logout():
@@ -79,7 +85,7 @@ def login_user():
     data = cursor.fetchall()
     if len(data) != 0:
         session['loggedin_as'] = data[0]
-        return render_template('index.html', user=session.get('loggedin_as')[2])
+        return redirect('/')
     else:
         return show_login_page()
 
