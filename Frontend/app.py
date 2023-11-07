@@ -7,6 +7,7 @@ app.config['SECRET_KEY'] = 'SmartSec'
 connect = sqlite3.connect('database.db') 
 connect.execute('CREATE TABLE IF NOT EXISTS t_users (uname TEXT, password TEXT, privilege TEXT)') 
 connect.execute('CREATE TABLE IF NOT EXISTS t_cameras (cname TEXT, port INTEGER, status TEXT)') 
+connect.close()
 # connect.execute("INSERT INTO t_users VALUES ('admin', 'admin', 'admin'),('user','user','user')")
 # connect.execute("INSERT INTO t_cameras VALUES ('Cam1', 5001, 'Inactive'),\
 #        ('Cam2', 5002, 'Inactive'),\
@@ -28,7 +29,6 @@ connect.execute('CREATE TABLE IF NOT EXISTS t_cameras (cname TEXT, port INTEGER,
 #        ('Cam18', 50018, 'Active')") 
 # connect.commit()
 
-
 def dict_factory(cursor, row):
     d = {}
     for idx, col in enumerate(cursor.description):
@@ -41,6 +41,7 @@ def fetch_all_camera_from_db():
     cursor.row_factory = dict_factory
     cursor.execute('SELECT * FROM t_cameras')     
     Cameras = cursor.fetchall()
+    connect.close()
     return Cameras
 
 @app.route('/') 
@@ -53,16 +54,16 @@ def home():
 @app.route('/detailed_view')
 def detailed_view():
     if not session.get('loggedin_as'):
-        return show_login_page()
+        return redirect('/')
     Cameras = fetch_all_camera_from_db()
     return render_template('detailedView.html',cameras=Cameras, user=session.get('loggedin_as')[2])
 
 @app.route('/log')
 def log():
     if not session.get('loggedin_as'):
-        return show_login_page()
+        return redirect('/')
     with open('output.log', 'r') as log_file:
-        log_content = log_file.read()
+        log_content = log_file.readlines()
     return render_template('log.html', log=log_content, user=session.get('loggedin_as')[2])
 
 @app.route('/logout')
@@ -81,8 +82,9 @@ def login_user():
 
     connect = sqlite3.connect('database.db') 
     cursor = connect.cursor() 
-    cursor.execute('SELECT * FROM t_users WHERE `uname` = ? AND `password` = ?',(uname,password))     
+    cursor.execute('SELECT * FROM t_users WHERE `uname` = ? AND `password` = ?',(uname,password))  
     data = cursor.fetchall()
+    connect.close()
     if len(data) != 0:
         session['loggedin_as'] = data[0]
         return redirect('/')
@@ -90,4 +92,4 @@ def login_user():
         return show_login_page()
 
 if __name__ == '__main__': 
-    app.run(debug=True) 
+    app.run(debug=True)

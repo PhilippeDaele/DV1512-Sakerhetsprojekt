@@ -106,10 +106,8 @@ body {
 }
 
 .log{
-
-    text-align: center;
     font-family: 'Lato', sans-serif;
-    color: white;
+    color: #d4d4d4;
     margin-top: 50px;
 }
 
@@ -234,3 +232,24 @@ body {
     }
 }
 
+#log-content p{
+    margin: 0;
+    border: 1px outset #e2c6b8;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    padding: 6px 3px 6px 3px;
+    background: linear-gradient(90deg, #2380f6d6, #a0b8eba8, #e9d2d224);
+    box-shadow: -2px 2px 2px 0px #73739c7a;
+}
+#log-content p.warning{
+    background: linear-gradient(90deg, #fb4d4dd6, #e863636e, #eeb8b824);
+    box-shadow: -2px 2px 2px 0px #bdbde345; 
+}
+.fa, .fas{
+    padding: 2px;
+    margin-right: 8px;
+    margin-left: 6px;
+    text-shadow: 1px 1px 2px #1d1d19;
+    color: #dcf2d6;
+}

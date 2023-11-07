@@ -9,6 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
     </style> 
     <title>IP camera hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-...">
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -18,10 +19,10 @@
         <a class="sidepanel-urls" href="{{ url_for('home') }}">Home</a>
         {% if user == 'admin' %}
         <a class="sidepanel-urls" href="{{ url_for('detailed_view') }}">List</a>
-        <a class="sidepanel-urls" href="log">Log</a>
+        <a class="sidepanel-urls" href="{{ url_for('log') }}">Log</a>
         {% endif %}
         
-        <a class="sidepanel-urls" href="logout">Logout</a>
+        <a class="sidepanel-urls" href="{{ url_for('logout') }}">Logout</a>
     </div>
     <div class="main-container">
         
