@@ -4,7 +4,7 @@ body {
 
 
 .sidepanel{
-    background-color: #EEEEEE;
+    background-color: #F5F7F8;
     width: 15%;
     height: 100vh;
     
@@ -24,16 +24,31 @@ body {
 .sidepanel-urls{
     width: 100%;
     display: block;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 140%;
     margin-top: 15%;
-    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
     white-space: normal;
     position: relative;
     float: none;
+    transition: 0.2s;
     outline: 0;
+    text-decoration: none;
+    color: #495E57;
 }
-
+p.sidepanel-urls {
+    text-align: center;
+    color: #45474B;
+}
+.sidepanel-urls:hover {
+    box-shadow: 0px 1px 3px #a2a2e980;
+}
+.sidepanel-urls span{
+    padding: 0 20px 0 20px;
+    position: relative;
+    display: inline-block;
+}
 .logout-url {
     width: 100%;
     display: block;
@@ -106,10 +121,8 @@ body {
 }
 
 .log{
-
-    text-align: center;
     font-family: 'Lato', sans-serif;
-    color: white;
+    color: #f2eaea;
     margin-top: 50px;
 }
 
@@ -234,3 +247,57 @@ body {
     }
 }
 
+#log-content p{
+    margin: 0;
+    border: 1px outset #e2c6b8;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    padding: 6px 3px 6px 3px;
+    background: linear-gradient(90deg, #2380f64f, #a0b8eba8, #e9d2d224);
+    box-shadow: -2px 2px 2px 0px #45350b1f;
+}
+#log-content p.warning{
+    background: linear-gradient(90deg, #fb4d4dd6, #e863636e, #eeb8b824);
+    box-shadow: -2px 2px 2px 0px #bdbde345; 
+}
+.fa, .fas{
+    padding: 2px;
+    margin-right: 8px;
+    margin-left: 6px;
+    text-shadow: 1px 1px 2px #1d1d19;
+    color: #dcf2d6;
+}
+.sidepanel-urls .fa, .sidepanel-urls .fas{
+    margin-right: 25px;
+    text-shadow: 1px 1px 2px #bebe6d;
+    color: #45474B;
+}
+
+body::before{
+    content: ' ';
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    filter: blur(10px) opacity(0.9);
+    background: url(https://limestart-assets.retiehe.com/wallpapers/Default4.jpg);
+    background-attachment: fixed;
+    background-position-y: -160px;
+    z-index: -1;
+
+}
+body::after{
+    content: ' ';
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: gray;
+    z-index: -1;
+    filter: opacity(0.6);
+}

@@ -5,7 +5,9 @@
 <div class="grid">
     <body>
         <h1 class="title">Log Viewer</h1>
-        <pre id="log-content" class="log">{{ log }}</pre>
+        <pre id="log-content" class="log">{% for l in log %}
+            <p {% if l.count("[WARNING]") %} class="warning" {% endif %}>{% if l.count("[WARNING]") %}<i class="fa fa-exclamation-triangle"></i>{% else %}<i class="fa fa-info"></i>{% endif %}{{l}}</p>
+            {% endfor %}</pre>
     </body>
 </div>
 {% endblock %}
