@@ -9,20 +9,21 @@
         @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
     </style> 
     <title>IP camera hub</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-...">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% block head %}{% endblock %}
 </head>
 <body>
     <div class="sidepanel">
         <img class="sidepanel-logo" src="http://ncsmadison.com/wp-content/uploads/2018/01/Security-Icon-2.png">
         <p class="sidepanel-urls">Welcome, {{ user }}!</p>
-        <a class="sidepanel-urls" href="{{ url_for('home') }}">Home</a>
+        <hr>
+        <a class="sidepanel-urls" href="{{ url_for('home') }}"><span><i class="fa fa-home"></i>Home</span></a>
         {% if user == 'admin' %}
-        <a class="sidepanel-urls" href="{{ url_for('detailed_view') }}">List</a>
-        <a class="sidepanel-urls" href="{{ url_for('log') }}">Log</a>
+        <a class="sidepanel-urls" href="{{ url_for('detailed_view') }}"><span><i class="fa fa-th-list" aria-hidden="true"></i>List</span></a>
+        <a class="sidepanel-urls" href="{{ url_for('log') }}"><span><i class="fa fa-book" aria-hidden="true"></i>Log</span></a>
         {% endif %}
         
-        <a class="sidepanel-urls" href="{{ url_for('logout') }}">Logout</a>
+        <a class="sidepanel-urls" href="{{ url_for('logout') }}"><span><i class="fa fa-sign-out"></i>Logout</span></a>
     </div>
     <div class="main-container">
         

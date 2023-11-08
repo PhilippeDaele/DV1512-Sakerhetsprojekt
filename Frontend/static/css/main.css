@@ -4,7 +4,7 @@ body {
 
 
 .sidepanel{
-    background-color: #EEEEEE;
+    background-color: #F5F7F8;
     width: 15%;
     height: 100vh;
     
@@ -24,16 +24,31 @@ body {
 .sidepanel-urls{
     width: 100%;
     display: block;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 140%;
     margin-top: 15%;
-    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
     white-space: normal;
     position: relative;
     float: none;
+    transition: 0.2s;
     outline: 0;
+    text-decoration: none;
+    color: #495E57;
 }
-
+p.sidepanel-urls {
+    text-align: center;
+    color: #45474B;
+}
+.sidepanel-urls:hover {
+    box-shadow: 0px 1px 3px #a2a2e980;
+}
+.sidepanel-urls span{
+    padding: 0 20px 0 20px;
+    position: relative;
+    display: inline-block;
+}
 .logout-url {
     width: 100%;
     display: block;
@@ -252,6 +267,11 @@ body {
     margin-left: 6px;
     text-shadow: 1px 1px 2px #1d1d19;
     color: #dcf2d6;
+}
+.sidepanel-urls .fa, .sidepanel-urls .fas{
+    margin-right: 25px;
+    text-shadow: 1px 1px 2px #bebe6d;
+    color: #45474B;
 }
 
 body::before{
