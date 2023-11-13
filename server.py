@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, flash, render_template, request, redirect, session
 import sqlite3
 import logging
 
@@ -15,18 +15,18 @@ app.config['PERMANENT_SESSION_LIFETIME'] = 600
 connect = sqlite3.connect('database.db') 
 connect.execute('CREATE TABLE IF NOT EXISTS t_users (uname TEXT, password TEXT, privilege TEXT)')
 connect.execute('CREATE TABLE IF NOT EXISTS t_cameras (cname TEXT, port INTEGER, status TEXT, lat FLOAT, lng FLOAT)') 
-#connect.execute('DROP TABLE IF EXISTS t_cameras')
+# connect.execute('DROP TABLE IF EXISTS t_cameras')
 # connect.execute("INSERT INTO t_users VALUES ('admin', 'admin', 'admin'),('user','user','user')")
-#connect.execute("INSERT INTO t_cameras VALUES ('Cam1', 5001, 'Inactive', 56.181872002369225, 15.591392032746274),\
-       #('Cam2', 5002, 'Inactive', 56.181298760504475, 15.592301301593377),\
-       #('Cam3', 5003, 'Active', 56.181142013179894, 15.59325616798587),\
-       #('Cam4', 5004, 'Active', 56.18227356514871, 15.590906552911559),\
-       #('Cam5', 5005, 'Inactive', 56.18267661649659, 15.590370111113307),\
-       #('Cam6', 5006, 'Active', 56.18329462033708, 15.5901394411406),\
-       #('Cam7', 5007, 'Active', 56.18285574906873, 15.591367892855724),\
-       #('Cam8', 5008, 'Inactive', 56.18066130753176, 15.590654472780827),\
-       #('Cam9', 5009, 'Active', 56.182109347917304, 15.593304495257986)")
-#connect.commit()
+# connect.execute("INSERT INTO t_cameras VALUES ('Cam1', 5001, 'Inactive', 56.181872002369225, 15.591392032746274),\
+#        ('Cam2', 5002, 'Inactive', 56.181298760504475, 15.592301301593377),\
+#        ('Cam3', 5003, 'Active', 56.181142013179894, 15.59325616798587),\
+#        ('Cam4', 5004, 'Active', 56.18227356514871, 15.590906552911559),\
+#        ('Cam5', 5005, 'Inactive', 56.18267661649659, 15.590370111113307),\
+#        ('Cam6', 5006, 'Active', 56.18329462033708, 15.5901394411406),\
+#        ('Cam7', 5007, 'Active', 56.18285574906873, 15.591367892855724),\
+#        ('Cam8', 5008, 'Inactive', 56.18066130753176, 15.590654472780827),\
+#        ('Cam9', 5009, 'Active', 56.182109347917304, 15.593304495257986)")
+# connect.commit()
 
 
 def dict_factory(cursor, row):
@@ -63,7 +63,7 @@ def home():
     if not session.get('loggedin_as'):
         return redirect('/login')
     Cameras = fetch_all_camera_from_db()
-    return render_template('new_index.html',cameras=Cameras, user=session.get('loggedin_as')[2])
+    return render_template('index.html',cameras=Cameras, user=session.get('loggedin_as')[2])
 
 
 @app.route('/detailed_view')
@@ -80,7 +80,7 @@ def log():
     if not session.get('loggedin_as'):
         return redirect('/login')
     with open('output.log', 'r') as log_file:
-        log_content = log_file.read()
+        log_content = log_file.readlines()
     return render_template('log.html', log=log_content, user=session.get('loggedin_as')[2])
 
 @app.route('/logout')
@@ -104,8 +104,10 @@ def login_user():
     data = cursor.fetchall()
     if len(data) != 0:
         session['loggedin_as'] = data[0]
+        
         return redirect('/')
     else:
+        flash("Wrong username or password")
         return show_login_page()
 
 if __name__ == '__main__':
