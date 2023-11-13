@@ -10,15 +10,28 @@ body {
 
 .sidepanel{
     background-color: #EEEEEE;
-    width: 15%;
+    width: 16%;
     height: 100vh;
     position: fixed;
     top: 0%;
     left: 0%;
     box-shadow: 0px 20px 20px;
     z-index: 1;
+    background-color: #F5F7F8;
+    overflow: hidden;
 }
 
+.sidepanel .footer{
+    width: 100%;
+    position: absolute;
+    top: 93%;
+}
+.sidepanel .footer p{
+    font-family: Lato, sans-serif;
+    color: grey;
+    font-weight: 400;
+    text-align: center;
+}
 .sidepanel-logo{
     width: 75%;
     margin: auto;
@@ -30,14 +43,28 @@ body {
     width: 100%;
     display: block;
     font-family: 'Oswald', sans-serif;
-    text-decoration: none;
     color: black;
-    font-size: 30px;
+    font-size: 20px;
     margin: 0%;
     margin-top: 15%;
-    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: #495E57;
+    text-wrap: nowrap;
 }
 
+p.sidepanel-urls {
+    text-align: center;
+    color: #45474B;
+}
+
+.sidepanel-urls span{
+    padding: 0 20px 0 20px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
 
 
 #log-content p{
@@ -54,17 +81,21 @@ body {
     background: linear-gradient(90deg, #fb4d4dd6, #e863636e, #eeb8b824);
     box-shadow: -2px 2px 2px 0px #bdbde345; 
 }
-.fa, .fas{
+.fa, .fas, .svg-inline--fa{
     padding: 2px;
     margin-right: 8px;
     margin-left: 6px;
     text-shadow: 1px 1px 2px #1d1d19;
     color: #dcf2d6;
 }
-.sidepanel-urls .fa, .sidepanel-urls .fas{
-    margin-right: 25px;
+.sidepanel-urls .fa, .sidepanel-urls .fas, 
+.sidepanel-urls .svg-inline--fa{
+    margin-right: 20px;
     text-shadow: 1px 1px 2px #bebe6d;
     color: #45474B;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 
@@ -100,8 +131,7 @@ body::after{
 
 #style-3 {
 	position: relative;
-    text-decoration: none;
-    color: lightslategray;
+
 
 	&::before {
 		content: '';
@@ -250,4 +280,77 @@ body::after{
     background-color: white;
 }
 
+
+
+.tgl {
+	display: none;
+	/* add default box-sizing for this scope */
+	&,
+    &:after,
+    &:before,
+	& *,
+    & *:after,
+    & *:before,
+	& + .tgl-btn {
+		box-sizing: border-box;
+		&::selection {
+			background: none;
+		}
+	}
+
+	+ .tgl-btn {
+		outline: 0;
+		display: block;
+		width: 4em;
+		height: 2em;
+		position: relative;
+		cursor: pointer;
+    user-select: none;
+		&:after,
+    &:before {
+			position: relative;
+			display: block;
+			content: "";
+			width: 50%;
+			height: 100%;
+		}
+    
+		&:after {
+			left: 0;
+		}
+    
+		&:before {
+			display: none;
+		}
+	}
+
+	&:checked + .tgl-btn:after {
+		left: 50%;
+	}
+}
+
+.tgl-flat {
+	+ .tgl-btn {
+		padding: 2px;
+		transition: all .2s ease;
+		background: #fff;
+		border: 2px solid #9f0f0f;
+		border-radius: 2em;
+        margin: 0px;
+		&:after {
+			transition: all .2s ease;
+			background: #9f0f0f ;
+			content: "";
+			border-radius: 1em;
+		}
+	}
+
+	&:checked + .tgl-btn {
+    border: 2px solid #7FC6A6;
+    &:after {
+        left: 50%;
+        background: #7FC6A6;
+    }   
+    }
+}
 

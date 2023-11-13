@@ -43,9 +43,6 @@ async function initMap() {
             }
         
             if (currentHighlightedMarker && currentHighlightedMarker === markerElement) {
-                //console.log("YOOO");
-                //toggleHighlight(markerElement, property);
-                //currentHighlightedMarker = null;
                 return;
             } else {
                 toggleHighlight(markerElement, property);
@@ -109,9 +106,18 @@ function attachLightSwitchEventListener(markerElement, property) {
                     checkbox.checked = property.status === 'Active';
                 }
             } else {
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(4)').nextElementSibling;
+                if (statusElement) {
+                    statusElement.innerHTML = "Status: Inactive";
+                }
+
+                // Update checkbox checked attribute
+                const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
+                if (checkbox) {
+                    checkbox.checked = property.status === 'Inactive';
+                }
                 // Handle non-successful response (status outside the range 200-299)
                 console.log(`Failed to fetch data. Status: ${response.status}`);
-                // You can throw an error, return a default value, or perform other actions
             }
         } catch (error) {
             console.error(`Error during fetch: ${error.message}`);

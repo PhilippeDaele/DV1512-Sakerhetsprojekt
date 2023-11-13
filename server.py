@@ -97,15 +97,16 @@ def show_login_page():
 def login_user():
     uname = request.form['username'] 
     password = request.form['password'] 
-    app.logger.info(f"Username: {uname}, Password: {password}, Sent from: {request.remote_addr}, {request}")
     connect = sqlite3.connect('database.db') 
     cursor = connect.cursor() 
     cursor.execute('SELECT * FROM t_users WHERE `uname` = ? AND `password` = ?',(uname,password))     
     data = cursor.fetchall()
     if len(data) != 0:
+        app.logger.info(f"Username: {uname}, Password: {password}, Sent from: {request.remote_addr}, {request}")
         session['loggedin_as'] = data[0]
         return redirect('/')
     else:
+        app.logger.warning(f"Username: {uname}, Password: {password}, Sent from: {request.remote_addr}, {request}")
         flash("Wrong username or password")
         return show_login_page()
 

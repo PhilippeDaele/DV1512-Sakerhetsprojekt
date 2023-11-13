@@ -10,23 +10,24 @@
         </style> 
         <title>IP camera hub</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
         {% block head %}{% endblock %}
     </head>
 <body>
     <div class="sidepanel">
         <img class="sidepanel-logo" src="{{ url_for('static', filename='new-logo-black.png')}}">
         <p style="margin-top: -10%;" class="sidepanel-urls">Welcome, {{ user }}!</p>
-        <p class="sidepanel-urls"><a id="style-3" href="{{ url_for('home') }}">Home</a></p>
+        <hr>
+        <a id = "style-3" class="sidepanel-urls" href="{{ url_for('home') }}"><span> <i class="fa fa-home" ></i>Home</span></a>
         {% if user == 'admin' %}
-        <p class="sidepanel-urls"><a id="style-3" href="{{ url_for('add') }}">Add camera</a></p>
-        <p class="sidepanel-urls"><a id="style-3" href="{{ url_for('log') }}">Log</a></p>
+        <a id="style-3" class="sidepanel-urls" href="{{ url_for('add') }}"><span> <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>Add camera</span></a>
+        <a id = "style-3" class="sidepanel-urls" href="{{ url_for('log') }}"><span> <i class="fa fa-book" aria-hidden="true"></i>Log</span></a>
         {% endif %}
-        <p class="sidepanel-urls"><a id="style-3" href="{{ url_for('logout') }}">Logout</a></p>
+        <a id = "style-3" class="sidepanel-urls" href="{{ url_for('logout') }}"><span> <i class="fa fa-sign-out"></i>Logout</span></a>
+        <div class="footer"><p>© 2023 | SmartSec</p></div>
     </div>
     <div class="main-container">
-        
         {% block body %}{% endblock %}
-        
     </div>
 </body>
 </html>

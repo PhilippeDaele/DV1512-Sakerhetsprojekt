@@ -1,4 +1,4 @@
-.background-camera{
+.background-camera {
     width: 100%;
     height: 100vh;
     position: relative;
@@ -12,11 +12,205 @@
     background-position: 40ch;
 }
 
-.box-window{
+.box-window {
     position: absolute;
     width: 600px;
     height: 600px;
     background-color: lightgreen;
     border-radius: 20px;
+    font-family: 'Oswald';
 }
 
+.box-window {
+    max-width: 800px;
+    background: white;
+    width: 800px;
+    padding: 25px 40px 10px 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+}
+
+.box-title {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Oswald';
+    p {
+        color: black;
+        size: 50px;
+    }
+}
+
+.input-data {
+    width: 100%;
+    height: 70px;
+    position: relative;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+
+.input-coordinates {
+    display: flex;
+}
+
+.box-window .text {
+    text-align: center;
+    font-size: 41px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    -webkit-text-fill-color: transparent;
+}
+
+.box-window form {
+    padding: 30px 0 0 0;
+    opacity: 1;
+}
+
+.box-window form .form-row {
+    display: flex;
+    margin: 32px 0;
+}
+
+form .form-row .input-data {
+    width: 100%;
+    height: 40px;
+    margin: 0 20px;
+    position: relative;
+}
+
+.input-data input{
+    display: block;
+    width: 100%;
+    height: 50%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+.input-data input:focus~label,
+.input-data input:valid~label{
+    transform: translateY(-40px);
+    font-size: 14px;
+    color: #3498db;
+}
+
+.textarea textarea {
+    resize: none;
+    padding-top: 10px;
+}
+
+.input-data label {
+    position: absolute;
+    pointer-events: none;
+    bottom: 35px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-data .underline {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    margin-bottom: 31px;
+    width: 100%;
+}
+
+.input-coordinates{
+    width: 100%;
+}
+
+.input-coordinates-left{
+    width: 50%;
+}
+.input-coordinates-right{
+    margin-left: 10%;
+    width: 50%;
+}
+
+.input-data .underline:before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: #3498db;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.input-data input:focus~.underline:before,
+.input-data input:valid~.underline:before{
+    transform: scale(1);
+}
+
+/* CSS */
+.button-28 {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+
+.button-28:disabled {
+    pointer-events: none;
+}
+
+.button-28:hover {
+    color: #fff;
+    background-color: #0F4C75;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.button-28:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+
+
+@media (max-width: 700px) {
+    .box-window .text {
+        font-size: 30px;
+    }
+
+    .box-window form {
+        padding: 10px 0 0 0;
+    }
+
+    .box-window form .form-row {
+        display: block;
+    }
+
+    form .form-row .input-data {
+        margin: 35px 0 !important;
+    }
+
+    .submit-btn .input-data {
+        width: 40% !important;
+    }
+}
