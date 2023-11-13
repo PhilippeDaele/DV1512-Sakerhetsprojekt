@@ -1,5 +1,5 @@
 
-# Project Title
+# DV1512 Security project in group, focus on system development
 In today's digital landscape, security is paramount for any software development project, especially when it involves web applications. This project will delve into a software development project with a primary focus on security. The project aims to create a website that simulates surveillance cameras and provides users the ability to switch them on and off at will. However, the unique aspect of this project lies in its emphasis on identifying and mitigating potential security vulnerabilities through attack simulations.
 
 ## Features
