@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<!--
+{% block head %}
+{% endblock %}
+-->
+
+{% block body %}    
+
+
+<div class="grid">
+    <div class="title">
+        <h1>Overview</h1>
+    </div>
+    <div class="device-container">
+        <div class="video-block">
+            <img src="/static/screenshot-28.jpg">
+        </div>
+        <h2>CAM 01</h2>
+        
+    </div>
+
+</div>
+<script src="{{ url_for('static', filename='control.js') }}"></script>
+{% endblock %}

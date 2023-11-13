@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add.css')}}">
+{% endblock %}
+
+{% block body %}
+<div class="background-camera">
+    <div class="box-window">
+        <div class="box-title">
+            <p>ADD CAMERA INFO</p>
+        </div>
+        <form> <!--Here starts the form for camera-->
+            <div class="input-data">
+                <input type="text" required>
+                <div class="underline"></div>
+                <label for="">CAMERA NAME</label>
+            </div>
+            <div class ="input-coordinates">
+                <div class="input-coordinates-left">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label for="">IP ADDRESS</label>
+                    </div>
+                </div>
+                <div class="input-coordinates-right">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label for="">PORT</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class ="input-coordinates">
+                <div class="input-coordinates-left">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label for="">LONGITUDE</label>
+                    </div>
+                </div>
+                <div class="input-coordinates-right">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label for="">LATITUDE</label>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="submit-btn">
+                <div class="input-data">
+                    <div class="inner"></div>
+                    <!--<input type="submit" value="submit">-->
+                    <button type="submit" class="button-28" role="button">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
