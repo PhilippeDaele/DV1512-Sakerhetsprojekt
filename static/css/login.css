@@ -157,3 +157,18 @@ button {
 }
 
 
+#error-message{
+    color: #ba3939;
+    font-size: 12px;
+    font-weight: bolder;
+    position: absolute;
+    right: 0;
+    width: 0;
+    transition: width 0.2s ease-in-out;
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+#error-message.showing{
+    width: 100%;
+    left: 20px;
+}

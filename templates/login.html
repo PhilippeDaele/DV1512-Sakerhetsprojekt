@@ -20,11 +20,33 @@
             <button type="submit">
                 <span class="state">Log in</span>
             </button>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <script>
+                        let tmp = document.createElement("p");
+                        tmp.innerText="{{message}}";
+                        tmp.id = "error-message";
+                        document.getElementsByTagName("form")[0].appendChild(tmp);
+                        
+                        setTimeout(function(){
+                            tmp.className="showing";
+                        },200);
+                        setTimeout(function(){
+                            tmp.className="";  
+                                setTimeout(function(){
+                                tmp.remove();                        
+                            },200);                  
+                        },3000);
+                        
+                        document.getElementsByTagName("script")[0].remove();
+                    </script>
+                    
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         </form>
     </div>
 </body>
 
 </html>
-
-
-

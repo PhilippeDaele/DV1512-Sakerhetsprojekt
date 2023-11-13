@@ -4,9 +4,9 @@ async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const { LatLng } = await google.maps.importLibrary("core");
-    const center = new LatLng(56.18149984961032, 15.591348772323101);
+    const center = new LatLng(56.18221384356372, 15.594398836523856);
     const map = new Map(document.getElementById("map"), {
-        zoom: 16,
+        zoom: 17,
         center,
         mapId: "4504f8b37365c3d0",
     });
@@ -27,17 +27,26 @@ async function initMap() {
         });
 
         property.markerElement = markerElement;
-
-        attachLightSwitchEventListener(markerElement, property);
+        if (userData == 'admin')
+        {
+            attachLightSwitchEventListener(markerElement, property);
+        }
+        
+        attachClosedButtonEventListener(markerElement, property);
+        
 
         markerElement.addListener("click", () => {
+            
+
             if (currentHighlightedMarker && currentHighlightedMarker !== markerElement) {
                 return;
             }
         
             if (currentHighlightedMarker && currentHighlightedMarker === markerElement) {
-                toggleHighlight(markerElement, property);
-                currentHighlightedMarker = null;
+                //console.log("YOOO");
+                //toggleHighlight(markerElement, property);
+                //currentHighlightedMarker = null;
+                return;
             } else {
                 toggleHighlight(markerElement, property);
                 currentHighlightedMarker = markerElement;
@@ -46,6 +55,16 @@ async function initMap() {
     }
 }
 
+function attachClosedButtonEventListener(markerElement, property) {
+    const closeButton = markerElement.content.querySelector(".close-button");
+    if (closeButton) {
+        closeButton.addEventListener("click", (event) => {
+            toggleHighlight(markerElement, property);
+            currentHighlightedMarker = null;
+            event.stopPropagation(); // Prevent the click event from propagating to the map
+        });
+    }
+}
 
 function toggleHighlight(markerView, property) {
     const highlightZIndex = 1; // Set a value higher than other markers
@@ -62,67 +81,85 @@ function attachLightSwitchEventListener(markerElement, property) {
     const lightSwitch = markerElement.content.querySelector(".tgl");
     lightSwitch.addEventListener("click", (event) => {
         event.stopPropagation(); // Prevent the click event from propagating to the card
-        console.log("Light switch clicked!");
+        
+        const newStatus = toggleStatus(property.status);
+        //console.log(`Light switch clicked! Status changed from ${property.status} to ${newStatus}`);
+        //console.log(property.port);
+        const url = `http://localhost:${property.port}/set_status?new_status=${newStatus}`;
+        fetch(url)
+            .then(response => response.text())
+        // Update property status
+        property.status = newStatus;
+        let statusElement = markerElement.content.querySelector('.details h3:nth-child(4)').nextElementSibling;
+        if (statusElement) {
+            statusElement.innerHTML = "Status: "+newStatus;
+        }
+
+        // Update checkbox checked attribute
+        const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
+        if (checkbox) {
+            checkbox.checked = property.status === 'Active';
+        }
     });
 }
+
+
+function toggleStatus(status) {
+    return status === 'Active' ? 'Inactive' : 'Active';
+}
+
 
 function buildContent(property) {
     const content = document.createElement("div");
 
     content.classList.add("property");
-    content.innerHTML = `
-    <div class="icon">
-            <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
-            <span class="fa-sr-only">${property.type}</span>
-    </div>
-    <div class="details">
-            <div class="text-container">
-                <h3>Name: ${property.description}</h3>
-                <h3>IP Address: 192.168.0.1</h3>
-                <h3>Port: 5000</h3>
-                <h3>Status: ${property.status}</h3>
-                <div class="middle-button">
-                <input class="tgl tgl-flat" type="checkbox" id="cb${property.id}" ${property.status === 'Active' ? 'checked' : ''}>
-                <label class="tgl-btn${property.status === 'Inactive' ? ' red' : ''}" for="cb${property.id}"></label>
-            </div>
-            </div>
-            <div class="videofeed">
-                <img class="fade-in" src="/static/video-evidence-900.jpg">
-            </div>
-    </div>
-    `;
-/* 
-<div class="icon">
-            <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
-            <span class="fa-sr-only">${property.type}</span>
-    </div>
-    <div class="details">
-            <div class="test">
-                <h1>${property.description}</h1>
-                <h1>${property.status}</h1>
-                <button class="my-button">Click Me</button>
-            </div>
-    </div>
-*/
-
-
-/*
-<div class="icon">
-            <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
-            <span class="fa-sr-only">${property.type}</span>
-    </div>
+    if (userData == 'admin') {
+        content.innerHTML = `
+        <div class="icon">
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <span class="fa-sr-only">${property.type}</span>
+        </div>
         <div class="details">
-            <div class="text-container">
-                <h3>Name: CAM_01</h3>
-                <h3>IP Address: 192.168.0.1</h3>
-                <h3>Port: 5000</h3>
-                <h3>Status: Active</h3>
-            </div>
-            <div class="videofeed">
-                <img src="/static/screenshot-28.jpg">
-            </div>
-        </div> */
-
+                <div class="text-container">
+                    <div class="button-fade-in">
+                        <button class="close-button">X</button>
+                        <h3>Name: ${property.description}</h3>
+                        <h3>IP Address: 192.168.0.1</h3>
+                        <h3>Port: ${property.port}</h3>
+                        <h3>Status: ${property.status}</h3>
+                        <input class="tgl tgl-flat" type="checkbox" id="cb${property.id}" ${property.status === 'Active' ? 'checked' : ''}>
+                        <label class="tgl-btn${property.status === 'Inactive' ? ' red' : ''}" for="cb${property.id}"></label>
+                    </div>
+                </div>
+                <div class="videofeed">
+                    <img class="fade-in" src="/static/video-evidence-900.jpg">
+                </div>
+        </div>
+        `;
+    }
+    else {
+        content.innerHTML = `
+        <div class="icon">
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <span class="fa-sr-only">${property.type}</span>
+        </div>
+        <div class="details">
+                <div class="text-container">
+                    <div class="button-fade-in">
+                        <button class="close-button">X</button>
+                        <h3>Name: ${property.description}</h3>
+                        <h3>IP Address: 192.168.0.1</h3>
+                        <h3>Port: ${property.port}</h3>
+                        <h3>Status: ${property.status}</h3>
+                    </div>
+                </div>
+                <div class="videofeed">
+                    <img class="fade-in" src="/static/video-evidence-900.jpg">
+                </div>
+        </div>
+        `;
+    }
+    
 
     return content;
 }
@@ -139,10 +176,12 @@ for (const [index, data] of camerasData.entries()) {
             lat: data.lat,
             lng: data.lng,
         },
-        status: data.status
+        status: data.status,
+        port: data.port
     };
 
     properties.push(property);
 }
+
 
 initMap();
