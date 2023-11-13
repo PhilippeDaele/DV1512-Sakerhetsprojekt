@@ -22,9 +22,8 @@
 
 <script>
     const camerasData = {{ cameras | tojson }};
-    console.log("hello world")
     const userData = {{ user | tojson }};
 </script>
 
-<script type="module" src="{{ url_for('static', filename='mapping.js') }}"></script>
+<script src="{{ url_for('static', filename='mapping.js') }}"></script>
 {% endblock %}
