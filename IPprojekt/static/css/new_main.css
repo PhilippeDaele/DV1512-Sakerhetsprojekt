@@ -1,0 +1,325 @@
+:root {
+    --building-color: #FF9800;
+    --house-color: #0288D1;
+    --shop-color: #7B1FA2;
+    --warehouse-color: #558B2F;
+}
+
+/*
+   * Optional: Makes the sample page fill the window.
+   */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+   * Always set the map height explicitly to define the size of the div element
+   * that contains the map.
+   */
+#map {
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+/*
+   * Property styles in unhighlighted state.
+   */
+.property {
+    align-items: center;
+    background-color: #15007b;
+    border-radius: 50%;
+    color: #263238;
+    display: flex;
+    font-size: 14px;
+    gap: 15px;
+    height: 30px;
+    justify-content: center;
+    padding: 4px;
+    position: relative;
+    position: relative;
+    transition: all 0.3s ease-out;
+    width: 30px;
+}
+
+.property::after {
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid #15007b;
+    content: "";
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 95%;
+    transform: translate(-50%, 0);
+    transition: all 0.3s ease-out;
+    width: 0;
+    z-index: 1;
+}
+
+.property .icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.property .icon svg {
+    height: 20px;
+    width: auto;
+}
+
+.property .details {
+    display: none;
+    flex-direction: row;
+    flex: 1;
+}
+
+.property .details .text-container{ /*Own added function*/
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.property .details .videofeed{ /*Own added function*/
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+.property .details .videofeed img{ /*Own added function*/
+    width: 250px;
+    height: 200px;
+}
+
+@keyframes fadeInOutAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in{
+    cursor: pointer;
+    animation: fadeInOutAnimation 1.5s step-end;
+    animation-direction:normal;
+    animation-timing-function: ease-in;
+}
+
+.button-fade-in{
+    cursor: pointer;
+    animation: fadeInOutAnimation 1s step-end;
+    animation-direction:normal;
+    animation-timing-function: ease-in;
+}
+
+.property .address {
+    color: #9E9E9E;
+    font-size: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.property .features {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.property .features>div {
+    align-items: center;
+    background: #F5F5F5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: flex;
+    font-size: 10px;
+    gap: 5px;
+    padding: 5px;
+}
+
+/*
+   * Property styles in highlighted state.
+   */
+.property.highlight {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    height: 200px;
+    padding: 8px 15px;
+    width: 500px;
+    z-index: 1;
+}
+
+.property.highlight::after {
+    border-top: 9px solid #FFFFFF;
+}
+
+.property.highlight .details {
+    display: flex;
+}
+
+.property.highlight .icon svg {
+    display: none;
+    width: 50px;
+    height: 50px;
+}
+
+.property .bed {
+    color: #FFA000;
+}
+
+.property .bath {
+    color: #03A9F4;
+}
+
+.property .size {
+    color: #388E3C;
+}
+
+/*
+   * House icon colors.
+   */
+.property.highlight:has(.fa-house) .icon {
+    color: var(--house-color);
+}
+
+.property:not(.highlight):has(.fa-house) {
+    background-color: var(--house-color);
+}
+
+.property:not(.highlight):has(.fa-house)::after {
+    border-top: 9px solid var(--house-color);
+}
+
+/*
+   * Building icon colors.
+   */
+.property.highlight:has(.fa-building) .icon {
+    color: var(--building-color);
+}
+
+.property:not(.highlight):has(.fa-building) {
+    background-color: var(--building-color);
+}
+
+.property:not(.highlight):has(.fa-building)::after {
+    border-top: 9px solid var(--building-color);
+}
+
+/*
+   * Warehouse icon colors.
+   */
+.property.highlight:has(.fa-warehouse) .icon {
+    color: var(--warehouse-color);
+}
+
+.property:not(.highlight):has(.fa-warehouse) {
+    background-color: var(--warehouse-color);
+}
+
+.property:not(.highlight):has(.fa-warehouse)::after {
+    border-top: 9px solid var(--warehouse-color);
+}
+
+/*
+   * Shop icon colors.
+   */
+.property.highlight:has(.fa-shop) .icon {
+    color: var(--shop-color);
+}
+
+.property:not(.highlight):has(.fa-shop) {
+    background-color: var(--shop-color);
+}
+
+.property:not(.highlight):has(.fa-shop)::after {
+    border-top: 9px solid var(--shop-color);
+}
+
+.tgl {
+	display: none;
+	/* add default box-sizing for this scope */
+	&,
+    &:after,
+    &:before,
+	& *,
+    & *:after,
+    & *:before,
+	& + .tgl-btn {
+		box-sizing: border-box;
+		&::selection {
+			background: none;
+		}
+	}
+
+	+ .tgl-btn {
+		outline: 0;
+		display: block;
+		width: 4em;
+		height: 2em;
+		position: relative;
+		cursor: pointer;
+    user-select: none;
+		&:after,
+    &:before {
+			position: relative;
+			display: block;
+			content: "";
+			width: 50%;
+			height: 100%;
+		}
+    
+		&:after {
+			left: 0;
+		}
+    
+		&:before {
+			display: none;
+		}
+	}
+
+	&:checked + .tgl-btn:after {
+		left: 50%;
+	}
+}
+
+.tgl-flat {
+	+ .tgl-btn {
+		padding: 2px;
+		transition: all .2s ease;
+		background: #fff;
+		border: 2px solid #9f0f0f;
+		border-radius: 2em;
+        margin: 0px;
+		&:after {
+			transition: all .2s ease;
+			background: #9f0f0f ;
+			content: "";
+			border-radius: 1em;
+		}
+	}
+
+	&:checked + .tgl-btn {
+    border: 2px solid #7FC6A6;
+    &:after {
+        left: 50%;
+        background: #7FC6A6;
+    }   
+    }
+}
+
+.close-button {
+    position: center;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}

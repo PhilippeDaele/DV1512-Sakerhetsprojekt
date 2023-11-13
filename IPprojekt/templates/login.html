@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <title>Login page</title>
+</head>
+
+<body>
+    <div class="backgrond-image-camera">
+        <form class="login" action="{{ url_for('login_user') }}" method="post">
+            <p class="title">
+                <img src="/static/camera-icon.png">
+            </p>
+            <input type="text" name="username" placeholder="Username" autofocus/>
+            <i class="fa fa-user"></i>
+            <input type="password" name="password" placeholder="Password" />
+            <i class="fa fa-key"></i>
+            <button type="submit">
+                <span class="state">Log in</span>
+            </button>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <script>
+                        let tmp = document.createElement("p");
+                        tmp.innerText="{{message}}";
+                        tmp.id = "error-message";
+                        document.getElementsByTagName("form")[0].appendChild(tmp);
+                        
+                        setTimeout(function(){
+                            tmp.className="showing";
+                        },200);
+                        setTimeout(function(){
+                            tmp.className="";  
+                                setTimeout(function(){
+                                tmp.remove();                        
+                            },200);                  
+                        },3000);
+                        
+                        document.getElementsByTagName("script")[0].remove();
+                    </script>
+                    
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </form>
+    </div>
+</body>
+
+</html>
