@@ -25,5 +25,5 @@
     const userData = {{ user | tojson }};
 </script>
 
-<script src="{{ url_for('static', filename='mapping.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='mapping.js') }}"></script>
 {% endblock %}

@@ -79,29 +79,47 @@ function toggleHighlight(markerView, property) {
 
 function attachLightSwitchEventListener(markerElement, property) {
     const lightSwitch = markerElement.content.querySelector(".tgl");
-    lightSwitch.addEventListener("click", (event) => {
+    lightSwitch.addEventListener("click", async (event) => {
         event.stopPropagation(); // Prevent the click event from propagating to the card
-        
-        const newStatus = toggleStatus(property.status);
-        //console.log(`Light switch clicked! Status changed from ${property.status} to ${newStatus}`);
-        //console.log(property.port);
-        const url = `http://localhost:${property.port}/set_status?new_status=${newStatus}`;
-        fetch(url)
-            .then(response => response.text())
-        // Update property status
-        property.status = newStatus;
-        let statusElement = markerElement.content.querySelector('.details h3:nth-child(4)').nextElementSibling;
-        if (statusElement) {
-            statusElement.innerHTML = "Status: "+newStatus;
-        }
 
-        // Update checkbox checked attribute
-        const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
-        if (checkbox) {
-            checkbox.checked = property.status === 'Active';
+        const newStatus = toggleStatus(property.status);
+        const url = `http://localhost:${property.port}/set_status?new_status=${newStatus}`;
+
+        try {
+            const response = await fetch(url);
+
+            if (response.ok) {
+                // HTTP status code is in the range 200-299
+                const responseText = await response.text();
+                // Handle the response or update UI as needed
+                console.log(responseText);
+
+                // Update property status
+                property.status = newStatus;
+
+                // Update status element
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(4)').nextElementSibling;
+                if (statusElement) {
+                    statusElement.innerHTML = "Status: " + newStatus;
+                }
+
+                // Update checkbox checked attribute
+                const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
+                if (checkbox) {
+                    checkbox.checked = property.status === 'Active';
+                }
+            } else {
+                // Handle non-successful response (status outside the range 200-299)
+                console.log(`Failed to fetch data. Status: ${response.status}`);
+                // You can throw an error, return a default value, or perform other actions
+            }
+        } catch (error) {
+            console.error(`Error during fetch: ${error.message}`);
+            // Handle the error (e.g., show an error message to the user)
         }
     });
 }
+
 
 
 function toggleStatus(status) {
@@ -134,6 +152,7 @@ function buildContent(property) {
                 <div class="videofeed">
                     <img class="fade-in" src="/static/video-evidence-900.jpg">
                 </div>
+
         </div>
         `;
     }
@@ -163,6 +182,8 @@ function buildContent(property) {
 
     return content;
 }
+
+
 
 const properties = [];
 
