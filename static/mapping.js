@@ -30,9 +30,11 @@ async function initMap() {
         if (userData == 'admin')
         {
             attachLightSwitchEventListener(markerElement, property);
+            attachRefreshButtonEventListener(markerElement, property);
         }
         
         attachClosedButtonEventListener(markerElement, property);
+        
         
 
         markerElement.addListener("click", () => {
@@ -48,6 +50,22 @@ async function initMap() {
                 toggleHighlight(markerElement, property);
                 currentHighlightedMarker = markerElement;
             }
+        });
+    }
+}
+
+function attachRefreshButtonEventListener(markerElement, property) {
+    const refreshButton = markerElement.content.querySelector(".refresh-button");
+    let lightSwitch = markerElement.content.querySelector(".tgl");
+    let url = `http://localhost:${property.port}/reset-rate-limit`;
+    
+    if (refreshButton) {
+        refreshButton.addEventListener("click", (event) => {
+            fetch(url);
+            lightSwitch.removeAttribute('disabled');
+            property.rebooted = true;
+            alert(property.description + " have been rebooted, you can now turn on the camera again!");
+            event.stopPropagation(); // Prevent the click event from propagating to the map
         });
     }
 }
@@ -84,19 +102,21 @@ function attachLightSwitchEventListener(markerElement, property) {
 
         try {
             const response = await fetch(url);
-
-            if (response.ok) {
+            if (response.ok && property.rebooted === true) {
                 // HTTP status code is in the range 200-299
                 const responseText = await response.text();
                 // Handle the response or update UI as needed
-                console.log(responseText);
-
                 // Update property status
                 property.status = newStatus;
-
                 // Update status element
-                let statusElement = markerElement.content.querySelector('.details h3:nth-child(4)').nextElementSibling;
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
+                let imageElement = markerElement.content.querySelector('.videofeed img');
                 if (statusElement) {
+                    if (property.status === 'Inactive') {
+                        imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
+                    } else {
+                        imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                    }
                     statusElement.innerHTML = "Status: " + newStatus;
                 }
 
@@ -106,18 +126,18 @@ function attachLightSwitchEventListener(markerElement, property) {
                     checkbox.checked = property.status === 'Active';
                 }
             } else {
-                let statusElement = markerElement.content.querySelector('.details h3:nth-child(4)').nextElementSibling;
-                if (statusElement) {
-                    statusElement.innerHTML = "Status: Inactive";
-                }
-
-                // Update checkbox checked attribute
+                
+                property.rebooted = false;
+                property.status = 'Inactive';
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
+                let imageElement = markerElement.content.querySelector('.videofeed img');
+                imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
+                statusElement.innerHTML = "Status: " + property.status;
                 const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
                 if (checkbox) {
-                    checkbox.checked = property.status === 'Inactive';
+                    checkbox.checked = property.status === 'Active';
                 }
-                // Handle non-successful response (status outside the range 200-299)
-                console.log(`Failed to fetch data. Status: ${response.status}`);
+                lightSwitch.setAttribute('disabled', 'true');
             }
         } catch (error) {
             console.error(`Error during fetch: ${error.message}`);
@@ -147,6 +167,9 @@ function buildContent(property) {
                 <div class="text-container">
                     <div class="button-fade-in">
                         <button class="close-button">X</button>
+                        <button class="refresh-button"> 
+                            <img src="/static/reboot.png" alt="Image Alt Text">
+                        </button>
                         <h3>Name: ${property.description}</h3>
                         <h3>IP Address: 192.168.0.1</h3>
                         <h3>Port: ${property.port}</h3>
@@ -156,9 +179,8 @@ function buildContent(property) {
                     </div>
                 </div>
                 <div class="videofeed">
-                    <img class="fade-in" src="/static/video-evidence-900.jpg">
+                    <img class="fade-in" src="${property.status === 'Active' ? '/static/video-evidence-900.jpg' : '/static/cameraoffline.jpg'}">
                 </div>
-
         </div>
         `;
     }
@@ -179,7 +201,7 @@ function buildContent(property) {
                     </div>
                 </div>
                 <div class="videofeed">
-                    <img class="fade-in" src="/static/video-evidence-900.jpg">
+                    <img class="fade-in" src="${property.status === 'Active' ? '/static/video-evidence-900.jpg' : '/static/cameraoffline.jpg'}">
                 </div>
         </div>
         `;
@@ -204,7 +226,8 @@ for (const [index, data] of camerasData.entries()) {
             lng: data.lng,
         },
         status: data.status,
-        port: data.port
+        port: data.port,
+        rebooted: true
     };
 
     properties.push(property);

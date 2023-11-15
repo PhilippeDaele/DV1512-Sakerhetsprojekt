@@ -323,3 +323,19 @@ body {
     font-size: 1.5em;
     cursor: pointer;
 }
+
+.refresh-button {
+    position: left;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+
+}
+
+.refresh-button img {
+    width: 20px; /* Specify the desired width */
+    height: 20px; /* Specify the desired height */
+}
