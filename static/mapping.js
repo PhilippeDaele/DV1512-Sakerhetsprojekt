@@ -54,6 +54,29 @@ async function initMap() {
     }
 }
 
+function showPopup(message, property) {
+    const propertyId = property.id;
+    const popupId = 'customPopup' + propertyId;
+    // Accessing the element with the dynamically generated ID
+    const popupElement = document.getElementById(popupId);
+    const popupText = document.getElementById('popupText'+ propertyId);
+    popupText.textContent = message;
+    popupElement.style.display = 'block';
+  
+    // Close the popup after 2 seconds
+    setTimeout(() => {
+      closePopup(property);
+    }, 2000);
+  }
+
+function closePopup(property) {
+    const propertyId = property.id;
+    const popupId = 'customPopup' + propertyId;
+    // Accessing the element with the dynamically generated ID
+    const popup = document.getElementById(popupId);
+    popup.style.display = 'none';
+}
+
 function attachRefreshButtonEventListener(markerElement, property) {
     const refreshButton = markerElement.content.querySelector(".refresh-button");
     let lightSwitch = markerElement.content.querySelector(".tgl");
@@ -64,7 +87,8 @@ function attachRefreshButtonEventListener(markerElement, property) {
             fetch(url);
             lightSwitch.removeAttribute('disabled');
             property.rebooted = true;
-            alert(property.description + " have been rebooted, you can now turn on the camera again!");
+            showPopup(property.description + " have been rebooted, you can now turn on the camera again!", property);
+            //alert(property.description + " have been rebooted, you can now turn on the camera again!");
             event.stopPropagation(); // Prevent the click event from propagating to the map
         });
     }
@@ -109,7 +133,7 @@ function attachLightSwitchEventListener(markerElement, property) {
                 // Update property status
                 property.status = newStatus;
                 // Update status element
-                let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
                 if (statusElement) {
                     if (property.status === 'Inactive') {
@@ -129,7 +153,7 @@ function attachLightSwitchEventListener(markerElement, property) {
                 
                 property.rebooted = false;
                 property.status = 'Inactive';
-                let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
                 imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
                 statusElement.innerHTML = "Status: " + property.status;
@@ -166,6 +190,11 @@ function buildContent(property) {
         <div class="details">
                 <div class="text-container">
                     <div class="button-fade-in">
+                    <div class="popup" id="customPopup${property.id}">
+                        <div class="popup-content">
+                            <p id="popupText${property.id}"></p>
+                        </div>
+                    </div>
                         <button class="close-button">X</button>
                         <button class="refresh-button"> 
                             <img src="/static/reboot.png" alt="Image Alt Text">

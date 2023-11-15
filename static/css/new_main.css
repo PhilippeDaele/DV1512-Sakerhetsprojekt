@@ -339,3 +339,23 @@ body {
     width: 20px; /* Specify the desired width */
     height: 20px; /* Specify the desired height */
 }
+
+/* Styling for the popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 9999;
+    font-family: 'Oswald', sans-serif;
+    color: black;
+    font-size: 20px;
+}
+
+.popup-content {
+    text-align: center;
+}
