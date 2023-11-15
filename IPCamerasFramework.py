@@ -33,7 +33,7 @@ def create_app(port):
 
     # Rate limiting configuration
     RATE_LIMIT_PERIOD = 60  # 60 seconds
-    MAX_REQUESTS = 5  # Maximum requests allowed in the given period
+    MAX_REQUESTS = 10  # Maximum requests allowed in the given period
     tokens = MAX_REQUESTS
     last_request_time = time()
 
@@ -43,11 +43,11 @@ def create_app(port):
             return False
 
         current_time = time()
-        elapsed_time = current_time - last_request_time
+        #elapsed_time = current_time - last_request_time
 
         # Refill tokens based on elapsed time
-        tokens += elapsed_time * (MAX_REQUESTS / RATE_LIMIT_PERIOD)
-        tokens = min(MAX_REQUESTS, tokens)
+        #tokens += elapsed_time * (MAX_REQUESTS / RATE_LIMIT_PERIOD)
+        #tokens = min(MAX_REQUESTS, tokens)
 
         # Check if there are enough tokens for the request
         if tokens >= 1:
@@ -92,8 +92,9 @@ def create_app(port):
             cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
             connect.commit()
             connect.close()
-            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive")
+            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive.")
             return "Rate limit exceeded. Please try again later.\n", 429
+        app.logger.warning(f"Sent from: {request.remote_addr}, {request}")
         return f"The path / does not exist or is not handled."
     
     @app.route('/<path:path>', methods=['GET', 'POST'])  # Catch-all route for undefined paths
@@ -108,8 +109,9 @@ def create_app(port):
             cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
             connect.commit()
             connect.close()
-            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive")
+            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive.")
             return "Rate limit exceeded. Please try again later.\n", 429
+        app.logger.warning(f"Sent from: {request.remote_addr}, {request}")
         return f"The path '{path}' does not exist or is not handled."
             
     
@@ -127,7 +129,7 @@ def create_app(port):
             cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
             connect.commit()
             connect.close()
-            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive")
+            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive.")
             return "Rate limit exceeded. Please try again later.\n", 429
         else:
             new_status = request.args.get('new_status')

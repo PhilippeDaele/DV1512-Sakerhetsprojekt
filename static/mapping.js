@@ -88,7 +88,6 @@ function attachRefreshButtonEventListener(markerElement, property) {
             lightSwitch.removeAttribute('disabled');
             property.rebooted = true;
             showPopup(property.description + " have been rebooted, you can now turn on the camera again!", property);
-            //alert(property.description + " have been rebooted, you can now turn on the camera again!");
             event.stopPropagation(); // Prevent the click event from propagating to the map
         });
     }

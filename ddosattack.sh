@@ -2,9 +2,6 @@
 
 for port in {5001..5009};
 do
-    for i in {1..10}; 
-    do
-        curl "http://127.0.0.1:$port/set_status?new_status=Active"
-    done
+    python3 pyflooder.py 127.0.0.1 $port 10
 done
 
