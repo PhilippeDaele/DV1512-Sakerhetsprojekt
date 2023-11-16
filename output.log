@@ -1412,3 +1412,390 @@
 2023-11-15 18:20:46,093 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5006/set_status?new_status=Active' [GET]>
 2023-11-15 19:04:06,856 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
 2023-11-15 19:10:24,167 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5007/set_status?new_status=Active' [GET]>
+2023-11-15 21:07:14,070 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-15 21:15:07,924 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:15:07,938 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5002/set_status?new_status=Active' [GET]>
+2023-11-15 21:15:07,952 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5003/set_status?new_status=Active' [GET]>
+2023-11-15 21:15:07,961 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5004/set_status?new_status=Active' [GET]>
+2023-11-15 21:15:07,967 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5005/set_status?new_status=Active' [GET]>
+2023-11-15 21:15:07,973 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5006/set_status?new_status=Active' [GET]>
+2023-11-15 21:15:07,981 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5007/set_status?new_status=Active' [GET]>
+2023-11-15 21:15:07,990 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5008/set_status?new_status=Active' [GET]>
+2023-11-15 21:15:07,996 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5009/set_status?new_status=Active' [GET]>
+2023-11-15 21:18:08,426 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-15 21:23:42,858 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-15 21:23:43,552 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:23:43,949 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-15 21:23:44,277 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-15 21:24:45,206 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:24:45,833 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-15 21:24:46,067 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:24:46,267 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-15 21:24:46,446 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:24:46,663 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-15 21:25:44,407 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-15 21:26:35,091 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:26:35,650 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-15 21:26:36,025 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:26:36,338 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-15 21:26:36,600 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-15 21:26:44,525 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:26:46,155 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-15 21:27:03,716 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-15 21:27:09,612 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:13:31,978 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 10:13:41,863 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:42,037 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:42,192 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:42,325 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:42,472 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:42,623 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:42,779 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:42,929 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:43,101 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:43,249 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:43,428 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:13:54,848 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:55,497 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:55,910 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:56,265 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:56,522 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:56,793 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:57,006 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:57,215 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:57,409 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:13:57,569 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:13:57,741 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:16:23,795 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:16:24,981 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:16:25,829 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:16:26,137 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:16:26,440 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:16:26,745 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:16:32,137 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:19:53,475 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/P~`}D' [GET]>
+2023-11-16 10:19:53,485 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/7sHuO' [GET]>
+2023-11-16 10:19:53,496 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/RW)fr' [GET]>
+2023-11-16 10:19:53,514 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:19:53,522 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:19:53,533 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:19:53,544 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:19:53,554 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:19:53,566 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:19:53,584 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:19:53,623 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/tz+f@' [GET]>
+2023-11-16 10:19:53,632 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/AS?,Z' [GET]>
+2023-11-16 10:19:53,645 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/D&T,`' [GET]>
+2023-11-16 10:19:53,657 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/T5!ep' [GET]>
+2023-11-16 10:19:53,667 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/ox4=~' [GET]>
+2023-11-16 10:19:53,677 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/;g>rG' [GET]>
+2023-11-16 10:19:53,688 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/"5^<q' [GET]>
+2023-11-16 10:19:53,700 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/K&' [GET]>
+2023-11-16 10:19:53,713 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/A-F)4' [GET]>
+2023-11-16 10:19:53,723 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/ydFDO' [GET]>
+2023-11-16 10:19:53,753 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/g!Xbk' [GET]>
+2023-11-16 10:19:53,764 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/7nFXf' [GET]>
+2023-11-16 10:19:53,776 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/%q9:n' [GET]>
+2023-11-16 10:19:53,787 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/smbMT' [GET]>
+2023-11-16 10:19:53,798 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/<BjQ@' [GET]>
+2023-11-16 10:19:53,817 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/|~"n{' [GET]>
+2023-11-16 10:19:53,828 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/]49Cb' [GET]>
+2023-11-16 10:19:53,839 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/<.gBC' [GET]>
+2023-11-16 10:19:53,849 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/KvxC0' [GET]>
+2023-11-16 10:19:53,862 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/<7LJ0' [GET]>
+2023-11-16 10:19:53,892 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/9*BWN' [GET]>
+2023-11-16 10:19:53,902 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/Q>p{!' [GET]>
+2023-11-16 10:19:53,912 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/G`kx3' [GET]>
+2023-11-16 10:19:53,922 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/HEfZ"' [GET]>
+2023-11-16 10:19:53,933 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/*{C+)' [GET]>
+2023-11-16 10:19:53,945 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/7)Yu<' [GET]>
+2023-11-16 10:19:53,956 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/5=j\\3' [GET]>
+2023-11-16 10:19:53,969 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/$w3(8' [GET]>
+2023-11-16 10:19:53,981 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/0iZ3f' [GET]>
+2023-11-16 10:19:53,995 [WARNING] Sent from: 127.0.0.1, <Request "http://127.0.0.1/?']RT" [GET]>
+2023-11-16 10:19:54,030 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/h=Zg^' [GET]>
+2023-11-16 10:19:54,040 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/?j12a' [GET]>
+2023-11-16 10:19:54,051 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/$3Zmq' [GET]>
+2023-11-16 10:19:54,085 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/d3FoS' [GET]>
+2023-11-16 10:19:54,097 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/$kT,`' [GET]>
+2023-11-16 10:19:54,108 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/26pC9' [GET]>
+2023-11-16 10:19:54,121 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/oD^AX' [GET]>
+2023-11-16 10:19:54,132 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/UN*R%' [GET]>
+2023-11-16 10:19:54,142 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/_(g4B' [GET]>
+2023-11-16 10:19:54,153 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/m4>_x' [GET]>
+2023-11-16 10:19:54,183 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/2^n/>' [GET]>
+2023-11-16 10:19:54,192 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/Ts@j<' [GET]>
+2023-11-16 10:19:54,202 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/bU2m' [GET]>
+2023-11-16 10:19:54,213 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/1fGtS' [GET]>
+2023-11-16 10:19:54,224 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/CcqGM' [GET]>
+2023-11-16 10:19:54,235 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/<c>Jh' [GET]>
+2023-11-16 10:19:54,245 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/K(3+t' [GET]>
+2023-11-16 10:19:54,257 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/-]vjR' [GET]>
+2023-11-16 10:19:54,267 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/V+Cke' [GET]>
+2023-11-16 10:19:54,277 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/.%As9' [GET]>
+2023-11-16 10:19:54,310 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/]h38\\' [GET]>
+2023-11-16 10:19:54,321 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/:q7Jw' [GET]>
+2023-11-16 10:19:54,340 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/"xGbI' [GET]>
+2023-11-16 10:19:54,350 [WARNING] Sent from: 127.0.0.1, <Request "http://127.0.0.1/>i+'x" [GET]>
+2023-11-16 10:19:54,361 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/vIKT>' [GET]>
+2023-11-16 10:19:54,371 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/+t5Zv' [GET]>
+2023-11-16 10:19:54,382 [WARNING] Sent from: 127.0.0.1, <Request "http://127.0.0.1/`CY'B" [GET]>
+2023-11-16 10:19:54,398 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/6O5UZ' [GET]>
+2023-11-16 10:19:54,409 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/Hbp0(' [GET]>
+2023-11-16 10:19:54,420 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/|T]i@' [GET]>
+2023-11-16 10:19:54,451 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/4{p/u' [GET]>
+2023-11-16 10:19:54,463 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/_R:Tp' [GET]>
+2023-11-16 10:19:54,474 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/c>RDy' [GET]>
+2023-11-16 10:19:54,484 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/Nq' [GET]>
+2023-11-16 10:19:54,494 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/=>a/;' [GET]>
+2023-11-16 10:19:54,504 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/y*wo/' [GET]>
+2023-11-16 10:19:54,516 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/)5%u]' [GET]>
+2023-11-16 10:19:54,527 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/5UIYR' [GET]>
+2023-11-16 10:19:54,537 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/(<y:|' [GET]>
+2023-11-16 10:19:54,549 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/3*k=$' [GET]>
+2023-11-16 10:19:54,578 [WARNING] Sent from: 127.0.0.1, <Request "http://127.0.0.1/w'H1&" [GET]>
+2023-11-16 10:19:54,588 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/ym@oA' [GET]>
+2023-11-16 10:19:54,600 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/YI[:X' [GET]>
+2023-11-16 10:19:54,610 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/D3GFJ' [GET]>
+2023-11-16 10:19:54,621 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/F\\=IJ' [GET]>
+2023-11-16 10:19:54,632 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/+pBG_' [GET]>
+2023-11-16 10:19:54,642 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/s\\' [GET]>
+2023-11-16 10:19:54,653 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/q0{%l' [GET]>
+2023-11-16 10:19:54,664 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/7%wuG' [GET]>
+2023-11-16 10:19:54,674 [WARNING] Sent from: 127.0.0.1, <Request 'http://127.0.0.1/CLQOA' [GET]>
+2023-11-16 10:21:56,259 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,269 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,281 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,291 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,301 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,314 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,326 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,336 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,364 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,379 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:56,413 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,421 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,433 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,444 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,457 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,468 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,478 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,490 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,503 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,514 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:56,552 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,557 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,568 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,579 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,589 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,600 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,611 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,621 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,632 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,645 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:56,680 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,687 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,698 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,708 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,719 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,729 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,743 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,753 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,764 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,775 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:56,809 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,818 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,829 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,839 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,850 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,860 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,871 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,881 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,898 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,911 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:56,944 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:56,952 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:56,965 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:56,996 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:56,998 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:57,013 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:57,024 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:57,037 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:57,048 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:57,058 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:57,093 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,103 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,114 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,124 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,135 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,148 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,165 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,176 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,187 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,197 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:57,232 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,238 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,249 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,259 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,274 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,284 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,295 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,306 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,317 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,328 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:57,361 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,367 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,377 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,389 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,401 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,412 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,422 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,433 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,444 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:57,454 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:21:58,962 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:58,975 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:58,985 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:58,996 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:59,007 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:59,017 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:59,028 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:59,038 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:59,052 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:59,062 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:21:59,092 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,102 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,114 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,124 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,134 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,145 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,156 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,169 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,179 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,190 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:21:59,219 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,230 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,241 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,252 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,262 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,272 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,285 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,296 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,307 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,325 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:21:59,360 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,369 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,380 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,390 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,401 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,412 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,427 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,437 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,448 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,458 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:21:59,491 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,501 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,511 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,522 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,534 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,544 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,556 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,566 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,577 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,587 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:21:59,619 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,629 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,640 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,650 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,660 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,671 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,685 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,695 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,705 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,715 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:21:59,745 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,755 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,766 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,777 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,788 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,799 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,809 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,820 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,830 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,844 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:21:59,881 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,892 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,902 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,914 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,924 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,936 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,946 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,957 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,967 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:21:59,978 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:22:00,008 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,018 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,029 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,039 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,050 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,069 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,080 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,091 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,101 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:00,111 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:22:46,770 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:22:46,780 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:22:46,786 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:22:46,792 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:22:46,797 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:22:46,802 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:22:46,807 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:22:46,813 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:22:46,817 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:24:13,036 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:24:13,042 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam2 is set to Inactive.
+2023-11-16 10:24:13,049 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam3 is set to Inactive.
+2023-11-16 10:24:13,054 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam4 is set to Inactive.
+2023-11-16 10:24:13,059 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam5 is set to Inactive.
+2023-11-16 10:24:13,065 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam6 is set to Inactive.
+2023-11-16 10:24:13,072 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam7 is set to Inactive.
+2023-11-16 10:24:13,077 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-11-16 10:24:13,082 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam9 is set to Inactive.
+2023-11-16 10:24:47,141 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:24:47,151 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5002/set_status?new_status=Active' [GET]>
+2023-11-16 10:24:47,161 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5003/set_status?new_status=Active' [GET]>
+2023-11-16 10:24:47,175 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5004/set_status?new_status=Active' [GET]>
+2023-11-16 10:24:47,184 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5005/set_status?new_status=Active' [GET]>
+2023-11-16 10:24:47,193 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5006/set_status?new_status=Active' [GET]>
+2023-11-16 10:24:47,207 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5007/set_status?new_status=Active' [GET]>
+2023-11-16 10:24:47,221 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5008/set_status?new_status=Active' [GET]>
+2023-11-16 10:24:47,241 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5009/set_status?new_status=Active' [GET]>
+2023-11-16 10:25:06,239 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5008/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:28:33,370 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:28:34,452 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:28:34,847 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:28:35,204 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:28:35,521 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:28:35,858 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:28:36,178 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:28:36,493 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:28:36,759 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-16 10:28:37,043 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-16 10:28:43,046 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-16 10:29:01,517 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 10:39:41,785 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 10:51:16,993 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 11:01:42,772 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 11:13:38,343 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 11:24:03,012 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 12:09:26,108 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 12:20:07,647 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 12:34:08,291 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 12:44:26,222 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 13:14:03,852 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 13:24:07,602 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 13:34:33,954 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 13:34:42,024 [INFO] Username: user, Password: user, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 13:36:21,374 [INFO] Username: user, Password: user, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 13:36:31,821 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>
+2023-11-16 13:47:20,407 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5000/login' [POST]>

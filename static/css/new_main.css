@@ -359,3 +359,7 @@ body {
 .popup-content {
     text-align: center;
 }
+
+.popup ul {
+    list-style-type: none; /* Remove default bullets */
+}

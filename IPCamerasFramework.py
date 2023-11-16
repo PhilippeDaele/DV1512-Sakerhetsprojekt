@@ -6,6 +6,7 @@ import sqlite3
 import cv2
 from time import sleep, time
 from io import BytesIO
+import json
 
 logging.basicConfig(filename='output.log', level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
@@ -39,7 +40,7 @@ def create_app(port):
 
     def is_rate_limited(endpoint):
         nonlocal tokens, last_request_time
-        if endpoint == '/reset-rate-limit':
+        if endpoint == '/reset-rate-limit' or endpoint == '/get_status':
             return False
 
         current_time = time()
@@ -78,7 +79,17 @@ def create_app(port):
             cam_name = cam_info['cname']
             cam_status = cam_info['status']
             if port == cam_port:
-                return f"Name: {cam_name}, Port: {port}, Status: {cam_status}" 
+                data = {
+                "Name": cam_name,
+                "Port": port,
+                "Status": cam_status
+                }
+
+                # Convert the dictionary to a JSON object
+                json_data = json.dumps(data)
+                
+                return json_data
+                #return f"Name: {cam_name}, Port: {port}, Status: {cam_status}" 
 
     @app.route('/')
     def index():
