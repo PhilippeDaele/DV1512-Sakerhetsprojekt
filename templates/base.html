@@ -20,7 +20,7 @@
         <hr>
         <a id = "style-3" class="sidepanel-urls" href="{{ url_for('home') }}"><span> <i class="fa fa-home" ></i>Home</span></a>
         {% if user == 'admin' %}
-        <a id="style-3" class="sidepanel-urls" href="{{ url_for('add') }}"><span> <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>Add camera</span></a>
+        <a id="style-3" class="sidepanel-urls" href="{{ url_for('show_add_page') }}"><span> <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>Add camera</span></a>
         <a id = "style-3" class="sidepanel-urls" href="{{ url_for('log') }}"><span> <i class="fa fa-book" aria-hidden="true"></i>Log</span></a>
         {% endif %}
         <a id = "style-3" class="sidepanel-urls" href="{{ url_for('logout') }}"><span> <i class="fa fa-sign-out"></i>Logout</span></a>

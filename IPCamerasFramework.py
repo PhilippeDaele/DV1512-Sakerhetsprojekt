@@ -7,6 +7,7 @@ import cv2
 from time import sleep, time
 from io import BytesIO
 import json
+import time as tm
 
 logging.basicConfig(filename='output.log', level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
@@ -157,15 +158,31 @@ def create_app(port):
 
     app.run(debug=False, port=port)
 
-if __name__ == '__main__':
-    Cameras = fetch_all_camera_from_db()
-    threads = []
+def start_camera(port):
+    create_app(port)
 
+if __name__ == '__main__':
+    running_camera_ports = set()  # Store running camera ports
+
+    def monitor_database_for_new_cameras():
+        while True:
+            cameras = fetch_all_camera_from_db()
+            new_cameras = [cam for cam in cameras if cam['port'] not in running_camera_ports]
+            for cam_info in new_cameras:
+                port = cam_info['port']
+                thread = threading.Thread(target=start_camera, args=(port,))
+                thread.start()
+                running_camera_ports.add(port)
+
+            # Check for new cameras every 10 seconds (adjust as needed)
+            tm.sleep(10)
+
+    # Start a thread to monitor the database for new cameras
+    db_monitor_thread = threading.Thread(target=monitor_database_for_new_cameras)
+    db_monitor_thread.start()
+
+    # Start Flask apps for existing cameras
+    Cameras = fetch_all_camera_from_db()
     for cam_info in Cameras:
         port = cam_info['port']
-        thread = threading.Thread(target=create_app, args=(port,))
-        threads.append(thread)
-        thread.start()
-
-    for thread in threads:
-        thread.join()
+        start_camera(port)

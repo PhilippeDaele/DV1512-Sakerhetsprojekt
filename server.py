@@ -50,13 +50,26 @@ def redirect_to_home():
         return redirect('/login')
     return redirect('/camera_hub')
 
+
 @app.route('/add')
-def add():
+def show_add_page():
     if not session.get('loggedin_as'):
         return redirect('/login')
     Cameras = fetch_all_camera_from_db()
     return render_template('add.html',cameras=Cameras, user=session.get('loggedin_as')[2])
 
+@app.route('/add',methods=['POST'])
+def add_camera():
+    cname = request.form['cname'] 
+    port = request.form['port'] 
+    longitude = request.form['longitude'] 
+    latitude = request.form['latitude'] 
+    connect = sqlite3.connect('database.db') 
+    print(f"INSERT INTO t_cameras VALUES ('{cname}', {port}, 'Inactive', {latitude}, {longitude})")
+    connect.execute(f"INSERT INTO t_cameras VALUES ('{cname}', {port}, 'Inactive', {latitude}, {longitude})")
+    connect.commit()
+    connect.close()
+    return redirect('/')
 
 @app.route('/camera_hub')
 def home(): 
