@@ -66,7 +66,7 @@ def create_app(port):
         nonlocal tokens, last_request_time
         tokens = MAX_REQUESTS
         last_request_time = time()
-        return "Rate limit reset successfully", 200
+        return "Rate limit reset successfully\n", 200
     
     @app.route('/get_status')
     def get_status():

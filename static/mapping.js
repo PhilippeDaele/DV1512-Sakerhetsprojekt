@@ -94,7 +94,7 @@ async function initMap() {
                 })
                 .then(data => {
                     
-                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
+                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
                     if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
                         property.status = JSON.parse(data).Status;
                         const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
@@ -276,7 +276,7 @@ function attachLightSwitchEventListener(markerElement, property) {
                 // Update property status
                 property.status = newStatus;
                 // Update status element
-                let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
                 if (statusElement) {
                     if (property.status === 'Inactive') {
@@ -295,7 +295,7 @@ function attachLightSwitchEventListener(markerElement, property) {
             } else {
                 property.rebooted = false;
                 property.status = 'Inactive';
-                let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
                 imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
                 statusElement.innerHTML = "Status: " + property.status;
@@ -332,17 +332,16 @@ function buildContent(property) {
         <div class="details">
                 <div class="text-container">
                     <div class="button-fade-in">
-                    <div class="popup" id="customPopup${property.id}">
-                        <div class="popup-content">
-                            <p id="popupText${property.id}"></p>
+                        <div class="popup" id="customPopup${property.id}">
+                            <div class="popup-content">
+                                <p id="popupText${property.id}"></p>
+                            </div>
                         </div>
-                    </div>
                         <button class="close-button">X</button>
                         <button class="refresh-button"> 
                             <img src="/static/reboot.png" alt="Image Alt Text">
                         </button>
                         <h3>Name: ${property.description}</h3>
-                        <h3>IP Address: 192.168.0.1</h3>
                         <h3>Port: ${property.port}</h3>
                         <h3>Status: ${property.status}</h3>
                         <input class="tgl tgl-flat" type="checkbox" id="cb${property.id}" ${property.status === 'Active' ? 'checked' : ''}>
@@ -366,7 +365,6 @@ function buildContent(property) {
                     <div class="button-fade-in">
                         <button class="close-button">X</button>
                         <h3>Name: ${property.description}</h3>
-                        <h3>IP Address: 192.168.0.1</h3>
                         <h3>Port: ${property.port}</h3>
                         <h3>Status: ${property.status}</h3>
                     </div>

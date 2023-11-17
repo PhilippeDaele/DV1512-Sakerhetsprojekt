@@ -43,6 +43,7 @@ body {
     position: relative;
     transition: all 0.3s ease-out;
     width: 30px;
+    font-family: 'Oswald';
 }
 
 .property::after {
@@ -82,6 +83,8 @@ body {
     float: left;
     width: 50%;
     height: 100%;
+    color: white;
+    font-family: 'Oswald';
 }
 
 .property .details .videofeed{ /*Own added function*/
@@ -147,10 +150,10 @@ body {
    * Property styles in highlighted state.
    */
 .property.highlight {
-    background-color: #FFFFFF;
+    background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));;
     border-radius: 8px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
-    height: 200px;
+    height: 350px;
     padding: 8px 15px;
     width: 500px;
     z-index: 1;
@@ -315,29 +318,33 @@ body {
 }
 
 .close-button {
-    position: center;
+    /*position: right;*/
     top: 0;
     right: 0;
     background-color: transparent;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
 }
 
 .refresh-button {
-    position: left;
+    /*position: left;*/
     top: 0;
     right: 0;
     background-color: transparent;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
 
 }
 
 .refresh-button img {
-    width: 20px; /* Specify the desired width */
-    height: 20px; /* Specify the desired height */
+    width: 17px; /* Specify the desired width */
+    height: 17px; /* Specify the desired height */
 }
 
 /* Styling for the popup */

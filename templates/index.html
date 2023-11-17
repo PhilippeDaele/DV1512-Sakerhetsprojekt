@@ -23,7 +23,7 @@
 
 <script>
     const camerasData = {{ cameras | tojson }};
-    const userData = {{ user | tojson }};
+    const userData = {{ user[2] | tojson }};
 </script>
 
 <script type="module" src="{{ url_for('static', filename='mapping.js') }}"></script>
