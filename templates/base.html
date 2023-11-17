@@ -6,10 +6,14 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap');
         </style> 
         <title>IP camera hub</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
         {% block head %}{% endblock %}
     </head>
 <body>
@@ -17,18 +21,16 @@
         <img class="sidepanel-logo" src="{{ url_for('static', filename='new-logo-black.png')}}">
         <p style="margin-top: -10%;" class="sidepanel-urls">Welcome, {{ user }}!</p>
         <hr>
-        <a id = "style-3" class="sidepanel-urls" href="{{ url_for('home') }}"><span><i class="fa fa-home"></i>Home</span></a>
+        <a id = "style-3" class="sidepanel-urls" href="{{ url_for('home') }}"><span> <i class="fa fa-home" ></i>Home</span></a>
         {% if user == 'admin' %}
         <a id="style-3" class="sidepanel-urls" href="{{ url_for('show_add_page') }}"><span> <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>Add camera</span></a>
         <a id = "style-3" class="sidepanel-urls" href="{{ url_for('log') }}"><span><i class="fa fa-book" aria-hidden="true"></i>Log</span></a>
         {% endif %}
-        <a id = "style-3" class="sidepanel-urls" href="{{ url_for('logout') }}"><span><i class="fa fa-sign-out"></i>Logout</span></a>
+        <a id = "style-3" class="sidepanel-urls" href="{{ url_for('logout') }}"><span> <i class="fa fa-sign-out"></i>Logout</span></a>
         <div class="footer"><p>© 2023 | SmartSec</p></div>
     </div>
     <div class="main-container">
-        
         {% block body %}{% endblock %}
-        
     </div>
 </body>
 </html>
