@@ -114,6 +114,7 @@ def login_user():
     cursor = connect.cursor() 
     cursor.execute('SELECT * FROM t_users WHERE `uname` = ? AND `password` = ?',(uname,password))     
     data = cursor.fetchall()
+    connect.close()
     if len(data) != 0:
         app.logger.info(f"Username: {uname}, Password: {password}, Sent from: {request.remote_addr}, {request}")
         session['loggedin_as'] = data[0]
