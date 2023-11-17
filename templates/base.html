@@ -21,13 +21,8 @@
         <img class="sidepanel-logo" src="{{ url_for('static', filename='new-logo-black.png')}}">
         <p style="margin-top: -10%;" class="sidepanel-urls">Welcome, {{ user[0] }}!</p>
         <hr>
-<<<<<<< HEAD
         <a id = "style-3" class="sidepanel-urls" href="{{ url_for('home') }}"><span><i class="fa fa-home"></i>Home</span></a>
         {% if user[2] == 'admin' %}
-=======
-        <a id = "style-3" class="sidepanel-urls" href="{{ url_for('home') }}"><span> <i class="fa fa-home" ></i>Home</span></a>
-        {% if user == 'admin' %}
->>>>>>> f436c008d54ff53a38c856690ff85b41bcd562e3
         <a id="style-3" class="sidepanel-urls" href="{{ url_for('show_add_page') }}"><span> <i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i>Add camera</span></a>
         <a id = "style-3" class="sidepanel-urls" href="{{ url_for('log') }}"><span><i class="fa fa-book" aria-hidden="true"></i>Log</span></a>
         {% endif %}
