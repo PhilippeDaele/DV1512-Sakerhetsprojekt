@@ -1,8 +1,13 @@
-from flask import Flask, request
+from flask import Flask, request, Response
 from flask_cors import CORS
 import threading
 import logging
 import sqlite3
+import cv2
+from time import sleep, time
+from io import BytesIO
+import json
+import time as tm
 
 logging.basicConfig(filename='output.log', level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
@@ -26,24 +31,121 @@ def fetch_all_camera_from_db():
 
 def create_app(port):
     app = Flask(f'client_{port}')
-    #app.config['SECRET_KEY'] = 'SmartSec'
-    
     CORS(app, resources={r"/*": {"origins": "*"}})
+
+    # Rate limiting configuration
+    RATE_LIMIT_PERIOD = 60  # 60 seconds
+    MAX_REQUESTS = 10  # Maximum requests allowed in the given period
+    tokens = MAX_REQUESTS
+    last_request_time = time()
+
+    def is_rate_limited(endpoint):
+        nonlocal tokens, last_request_time
+        if endpoint == '/reset-rate-limit' or endpoint == '/get_status':
+            return False
+
+        current_time = time()
+        #elapsed_time = current_time - last_request_time
+
+        # Refill tokens based on elapsed time
+        #tokens += elapsed_time * (MAX_REQUESTS / RATE_LIMIT_PERIOD)
+        #tokens = min(MAX_REQUESTS, tokens)
+
+        # Check if there are enough tokens for the request
+        if tokens >= 1:
+            tokens -= 1
+            last_request_time = current_time
+            return False  # Not rate-limited
+        else:
+            return True  # Rate-limited
+        
+
+    # Example usage in Flask route handling the button click
+    @app.route('/reset-rate-limit')
+    def reset_rate_limit_route():
+        nonlocal tokens, last_request_time
+        tokens = MAX_REQUESTS
+        last_request_time = time()
+        return "Rate limit reset successfully", 200
+    
     @app.route('/get_status')
     def get_status():
+        # Check rate limit before processing the request
+        if is_rate_limited('/get_status'):
+            return "Rate limit exceeded. Please try again later.", 429
+
         Cameras = fetch_all_camera_from_db()
         for cam_info in Cameras:
             cam_port = cam_info['port']
             cam_name = cam_info['cname']
             cam_status = cam_info['status']
             if port == cam_port:
-                return f"Name: {cam_name}, Port: {port}, Status: {cam_status}"
+                data = {
+                "Name": cam_name,
+                "Port": port,
+                "Status": cam_status
+                }
+
+                # Convert the dictionary to a JSON object
+                json_data = json.dumps(data)
+                
+                return json_data
+                #return f"Name: {cam_name}, Port: {port}, Status: {cam_status}" 
+
+    @app.route('/')
+    def index():
+        Cameras = fetch_all_camera_from_db()
+        for cam_info in Cameras:
+            if port == cam_info['port']:
+                cam_name = cam_info['cname']
+        if is_rate_limited('/'):
+            connect = sqlite3.connect('database.db')
+            cursor = connect.cursor()
+            cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
+            connect.commit()
+            connect.close()
+            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive.")
+            return "Rate limit exceeded. Please try again later.\n", 429
+        app.logger.warning(f"Sent from: {request.remote_addr}, {request}")
+        return f"The path / does not exist or is not handled."
+    
+    @app.route('/<path:path>', methods=['GET', 'POST'])  # Catch-all route for undefined paths
+    def catch_all(path):
+        Cameras = fetch_all_camera_from_db()
+        for cam_info in Cameras:
+            if port == cam_info['port']:
+                cam_name = cam_info['cname']
+        if is_rate_limited('/<path:path>'):
+            connect = sqlite3.connect('database.db')
+            cursor = connect.cursor()
+            cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
+            connect.commit()
+            connect.close()
+            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive.")
+            return "Rate limit exceeded. Please try again later.\n", 429
+        app.logger.warning(f"Sent from: {request.remote_addr}, {request}")
+        return f"The path '{path}' does not exist or is not handled."
+            
+    
 
     @app.route('/set_status', methods=['GET'])
     def set_status():
+        # Check rate limit before processing the request
         Cameras = fetch_all_camera_from_db()
-        new_status = request.args.get('new_status')
         for cam_info in Cameras:
+            if port == cam_info['port']:
+                cam_name = cam_info['cname']
+        if is_rate_limited('/set_status'):
+            connect = sqlite3.connect('database.db')
+            cursor = connect.cursor()
+            cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
+            connect.commit()
+            connect.close()
+            app.logger.warning(f"Sent from: {request.remote_addr}, Rate limit exceeded. {cam_name} is set to Inactive.")
+            return "Rate limit exceeded. Please try again later.\n", 429
+        else:
+            new_status = request.args.get('new_status')
+            #for cam_info in Cameras:
             cam_info['status'] = new_status
             connect = sqlite3.connect('database.db')
             cursor = connect.cursor()
@@ -51,19 +153,36 @@ def create_app(port):
             connect.commit()
             connect.close()
             app.logger.info(f"Sent from: {request.remote_addr}, {request}")
-            response = f"""\nStatus have changed \n Name: {cam_info['cname']} \n Port: {port} \n Status: {cam_info['status']} \n"""
+            response = f"""\nStatus have changed \nName: {cam_name} \nPort: {port} \nStatus: {new_status} \n"""
             return response
+
     app.run(debug=False, port=port)
 
-if __name__ == '__main__':
+def start_camera(port):
+    create_app(port)
 
+if __name__ == '__main__':
+    running_camera_ports = set()  # Store running camera ports
+
+    def monitor_database_for_new_cameras():
+        while True:
+            cameras = fetch_all_camera_from_db()
+            new_cameras = [cam for cam in cameras if cam['port'] not in running_camera_ports]
+            for cam_info in new_cameras:
+                port = cam_info['port']
+                thread = threading.Thread(target=start_camera, args=(port,))
+                thread.start()
+                running_camera_ports.add(port)
+
+            # Check for new cameras every 10 seconds (adjust as needed)
+            tm.sleep(10)
+
+    # Start a thread to monitor the database for new cameras
+    db_monitor_thread = threading.Thread(target=monitor_database_for_new_cameras)
+    db_monitor_thread.start()
+
+    # Start Flask apps for existing cameras
     Cameras = fetch_all_camera_from_db()
-    threads = []
     for cam_info in Cameras:
         port = cam_info['port']
-        thread = threading.Thread(target=create_app, args=(port,))
-        threads.append(thread)
-        thread.start()
-
-    for thread in threads:
-        thread.join()
+        start_camera(port)

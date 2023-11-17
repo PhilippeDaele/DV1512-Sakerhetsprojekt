@@ -10,7 +10,8 @@ body {
 
 .sidepanel{
     background-color: #EEEEEE;
-    width: 16%;
+    font-family: 'Oswald';
+    width: 15%;
     height: 100vh;
     position: fixed;
     top: 0%;
@@ -60,7 +61,7 @@ p.sidepanel-urls {
 }
 
 .sidepanel-urls span{
-    padding: 0 20px 0 20px;
+    margin-left: 20%;
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -86,18 +87,20 @@ p.sidepanel-urls {
     margin-right: 8px;
     margin-left: 6px;
     text-shadow: 1px 1px 2px #1d1d19;
-    color: #dcf2d6;
+    color: #ffffff;
 }
+
 .sidepanel-urls .fa, .sidepanel-urls .fas, 
 .sidepanel-urls .svg-inline--fa{
     margin-right: 20px;
-    text-shadow: 1px 1px 2px #bebe6d;
+    text-shadow: 1px 1px 2px #ffffff;
     color: #45474B;
     font-size: 30px;
     width: 30px;
     height: 30px;
 }
 
+/*
 
 body::before{
     content: ' ';
@@ -107,8 +110,9 @@ body::before{
     height: 100vh;
     margin: 0;
     padding: 0;
-    filter: blur(10px) opacity(0.9);
-    background: url(https://limestart-assets.retiehe.com/wallpapers/Default4.jpg);
+    filter: blur(3px) opacity(0.9);
+    background-image: url('/static/background2.jpg');
+    background-size: cover;
     background-attachment: fixed;
     background-position-y: -160px;
     z-index: -1;
@@ -127,7 +131,7 @@ body::after{
     filter: opacity(0.6);
 }
 
-
+*/
 
 #style-3 {
 	position: relative;

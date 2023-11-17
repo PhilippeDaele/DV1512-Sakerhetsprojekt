@@ -18,7 +18,11 @@ In today's digital landscape, security is paramount for any software development
 Download/clone the project and run in terminal
 
 ```bash
-  python3 server.py
+  make
+```
+To turn off
+```
+make clean
 ```
     
 ## Acknowledgements
