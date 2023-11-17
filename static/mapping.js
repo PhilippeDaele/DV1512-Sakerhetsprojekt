@@ -343,7 +343,6 @@ function buildContent(property) {
                             <img src="/static/reboot.png" alt="Image Alt Text">
                         </button>
                         <h3>Name: ${property.description}</h3>
-                        <h3>IP Address: 192.168.0.1</h3>
                         <h3>Port: ${property.port}</h3>
                         <h3>Status: ${property.status}</h3>
                         <input class="tgl tgl-flat" type="checkbox" id="cb${property.id}" ${property.status === 'Active' ? 'checked' : ''}>
