@@ -87,12 +87,12 @@ p.sidepanel-urls {
     margin-right: 8px;
     margin-left: 6px;
     text-shadow: 1px 1px 2px #1d1d19;
-    color: #dcf2d6;
+    color: #ffffff;
 }
 .sidepanel-urls .fa, .sidepanel-urls .fas, 
 .sidepanel-urls .svg-inline--fa{
     margin-right: 20px;
-    text-shadow: 1px 1px 2px #bebe6d;
+    text-shadow: 1px 1px 2px #ffffff;
     color: #45474B;
     font-size: 30px;
     width: 30px;
