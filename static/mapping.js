@@ -28,7 +28,7 @@ async function initMap() {
             if (event && event.hasOwnProperty("latLng")) {
             if (currentContextMenu) {
                 // Close the previous context menu if it exists
-                currentContextMenu.style.display = "none";
+                currentContextMenu.remove();
             }
         
             const customContextMenu = createContextMenu(event);
@@ -36,8 +36,8 @@ async function initMap() {
             
         
             // Set position based on clientX and clientY relative to the map container
-            customContextMenu.style.left = (event.pixel.x + 200) + "px";
-            customContextMenu.style.top = (event.pixel.y - 25) + "px";
+            customContextMenu.style.left = (event.pixel.x + 275) + "px";
+            customContextMenu.style.top = (event.pixel.y) + "px";
             customContextMenu.style.display = "block";
 
             // Store the current context menu reference
@@ -189,7 +189,7 @@ function addCamera(clickedLat, clickedLng) {
     localStorage.setItem('longitude', clickedLng);
     
     if (currentContextMenu) {
-        currentContextMenu.style.display = "none";
+        currentContextMenu.remove();
         currentContextMenu = null; // Reset currentContextMenu reference
     }
 
@@ -293,7 +293,6 @@ function attachLightSwitchEventListener(markerElement, property) {
                     checkbox.checked = property.status === 'Active';
                 }
             } else {
-                
                 property.rebooted = false;
                 property.status = 'Inactive';
                 let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
