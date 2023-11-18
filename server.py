@@ -51,6 +51,15 @@ def redirect_to_home():
         return redirect('/login')
     return redirect('/camera_hub')
 
+@app.route('/delete_camera',methods=['POST'])
+def delete_camera():
+    cname = request.form['cname']
+    connect = sqlite3.connect('database.db') 
+    connect.execute("DELETE FROM t_cameras WHERE cname = ?", (cname,))
+    connect.commit()
+    connect.close()
+    return redirect('/')
+
 
 @app.route('/add')
 def show_add_page():
@@ -112,7 +121,7 @@ def login_user():
     password = request.form['password'] 
     connect = sqlite3.connect('database.db') 
     cursor = connect.cursor() 
-    cursor.execute(f"SELECT * FROM t_users WHERE `uname` = '{uname}' AND `password` = '{password}'")     
+    cursor.execute(f"SELECT * FROM t_users WHERE `uname` = '{uname}' AND `password` = '{password}'")
     data = cursor.fetchall()
     connect.close()
     if len(data) != 0:

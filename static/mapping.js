@@ -69,6 +69,7 @@ async function initMap() {
         {
             attachLightSwitchEventListener(markerElement, property);
             attachRefreshButtonEventListener(markerElement, property);
+            deleteCamera(markerElement, property);
         }
         
         attachClosedButtonEventListener(markerElement, property);
@@ -94,7 +95,7 @@ async function initMap() {
                 })
                 .then(data => {
                     
-                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
+                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                     if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
                         property.status = JSON.parse(data).Status;
                         const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
@@ -276,7 +277,7 @@ function attachLightSwitchEventListener(markerElement, property) {
                 // Update property status
                 property.status = newStatus;
                 // Update status element
-                let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
                 if (statusElement) {
                     if (property.status === 'Inactive') {
@@ -295,7 +296,7 @@ function attachLightSwitchEventListener(markerElement, property) {
             } else {
                 property.rebooted = false;
                 property.status = 'Inactive';
-                let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
+                let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
                 imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
                 statusElement.innerHTML = "Status: " + property.status;
@@ -317,6 +318,38 @@ function attachLightSwitchEventListener(markerElement, property) {
 function toggleStatus(status) {
     return status === 'Active' ? 'Inactive' : 'Active';
 }
+
+function deleteCamera(markerElement, property) {
+    const deleteButton = markerElement.content.querySelector(".delete-button");
+    if (deleteButton) {
+        deleteButton.addEventListener("click", (event) => {
+            if (confirm('Are you sure you want to delete this camera?')) {
+                // Send a POST request to the Flask route with the camera name to delete
+                fetch('/delete_camera', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `cname=${encodeURIComponent(property.description)}`,
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // If deletion is successful, reload the page or handle as needed
+                        window.location.reload();
+                    } else {
+                        // Handle errors or show a message
+                        console.error('Error deleting camera');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+            event.stopPropagation(); // Prevent the click event from propagating to the map
+        });
+    }
+}
+
 
 
 function buildContent(property) {
@@ -341,6 +374,7 @@ function buildContent(property) {
                         <button class="refresh-button"> 
                             <img src="/static/reboot.png" alt="Image Alt Text">
                         </button>
+                        <button class="delete-button">Delete</button>
                         <h3>Name: ${property.description}</h3>
                         <h3>Port: ${property.port}</h3>
                         <h3>Status: ${property.status}</h3>

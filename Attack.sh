@@ -9,5 +9,5 @@ PORT_END=10000
 
 for port in {5001..5009};
 do
-    curl "http://$IP_ADDRESS:$port/set_status?new_status=Inactive"
+    curl "http://$IP_ADDRESS:$port/set_status?new_status=Active"
 done

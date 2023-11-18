@@ -60,7 +60,7 @@ def create_app(port):
             return True  # Rate-limited
         
 
-    # Example usage in Flask route handling the button click
+    
     @app.route('/reset-rate-limit')
     def reset_rate_limit_route():
         nonlocal tokens, last_request_time
@@ -145,7 +145,6 @@ def create_app(port):
             return "Rate limit exceeded. Please try again later.\n", 429
         else:
             new_status = request.args.get('new_status')
-            #for cam_info in Cameras:
             cam_info['status'] = new_status
             connect = sqlite3.connect('database.db')
             cursor = connect.cursor()
