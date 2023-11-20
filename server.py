@@ -17,9 +17,8 @@ connect = sqlite3.connect('database.db')
 #connect.execute('DROP TABLE IF EXISTS t_userrs')
 connect.execute('CREATE TABLE IF NOT EXISTS t_users (uname TEXT, password TEXT, privilege TEXT)')
 connect.execute('CREATE TABLE IF NOT EXISTS t_cameras (cname TEXT, port INTEGER, status TEXT, lat FLOAT, lng FLOAT)') 
-# connect.execute('DROP TABLE IF EXISTS t_cameras')
-# connect.execute("INSERT INTO t_users VALUES ('user','user','user'),('admin', 'admin', 'admin')")
-# connect.execute("INSERT INTO t_cameras VALUES ('Cam1', 5001, 'Inactive', 56.181872002369225, 15.591392032746274),\
+#connect.execute("INSERT INTO t_users VALUES ('user','user','user'),('admin', 'admin', 'admin')")
+#connect.execute("INSERT INTO t_cameras VALUES ('Cam1', 5001, 'Inactive', 56.181872002369225, 15.591392032746274),\
 #        ('Cam2', 5002, 'Inactive', 56.181298760504475, 15.592301301593377),\
 #        ('Cam3', 5003, 'Active', 56.181142013179894, 15.59325616798587),\
 #        ('Cam4', 5004, 'Active', 56.18227356514871, 15.590906552911559),\
@@ -28,7 +27,7 @@ connect.execute('CREATE TABLE IF NOT EXISTS t_cameras (cname TEXT, port INTEGER,
 #        ('Cam7', 5007, 'Active', 56.18285574906873, 15.591367892855724),\
 #        ('Cam8', 5008, 'Inactive', 56.18066130753176, 15.590654472780827),\
 #        ('Cam9', 5009, 'Active', 56.182109347917304, 15.593304495257986)")
-# connect.commit()
+#connect.commit()
 
 
 def dict_factory(cursor, row):
@@ -122,7 +121,7 @@ def login_user():
     password = request.form['password'] 
     connect = sqlite3.connect('database.db') 
     cursor = connect.cursor() 
-    cursor.execute(f"SELECT * FROM t_users WHERE `uname` = '{uname}' AND `password` = '{password}'")     
+    cursor.execute(f"SELECT * FROM t_users WHERE `uname` = '{uname}' AND `password` = '{password}'")
     data = cursor.fetchall()
     connect.close()
     if len(data) != 0:

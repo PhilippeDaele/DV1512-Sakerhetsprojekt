@@ -79,7 +79,7 @@ p.sidepanel-urls {
     box-shadow: -2px 2px 2px 0px #45350b1f;
 }
 #log-content p.warning{
-    background: linear-gradient(90deg, rgba(188,0,0,1) 0%, rgba(227,0,0,0.8950980050223214) 57%, rgba(211,0,0,0.642997164686187) 100%);
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,0,0,0.9175069686077556) 50%, rgba(255,0,0,0.642997164686187) 100%); 
     box-shadow: -2px 2px 2px 0px #bdbde345; 
 }
 .fa, .fas, .svg-inline--fa{
