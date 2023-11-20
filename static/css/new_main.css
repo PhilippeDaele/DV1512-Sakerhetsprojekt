@@ -318,7 +318,7 @@ body {
 }
 
 .close-button {
-    position: center;
+    /*position: right;*/
     top: 0;
     right: 0;
     background-color: transparent;
@@ -330,7 +330,7 @@ body {
 }
 
 .refresh-button {
-    position: left;
+    /*position: left;*/
     top: 0;
     right: 0;
     background-color: transparent;
@@ -369,4 +369,22 @@ body {
 
 .popup ul {
     list-style-type: none; /* Remove default bullets */
+}
+
+
+
+/* CSS styles for the delete button */
+.delete-button {
+    padding: 4px 8px; /* Padding around the button text */
+    background-color: #ff0000; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+
+    /* Optional: Add hover effect */
+    &:hover {
+        background-color: #cc0000; /* Darker color on hover */
+    }
 }

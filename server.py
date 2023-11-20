@@ -12,7 +12,9 @@ app.config['SECRET_KEY'] = 'SmartSec'
 app.config['PERMANENT_SESSION_LIFETIME'] = 600
 
 
-connect = sqlite3.connect('database.db') 
+connect = sqlite3.connect('database.db')
+#connect.execute('DROP TABLE IF EXISTS t_cameras')
+#connect.execute('DROP TABLE IF EXISTS t_userrs')
 connect.execute('CREATE TABLE IF NOT EXISTS t_users (uname TEXT, password TEXT, privilege TEXT)')
 connect.execute('CREATE TABLE IF NOT EXISTS t_cameras (cname TEXT, port INTEGER, status TEXT, lat FLOAT, lng FLOAT)') 
 # connect.execute('DROP TABLE IF EXISTS t_cameras')
@@ -50,6 +52,15 @@ def redirect_to_home():
         return redirect('/login')
     return redirect('/camera_hub')
 
+@app.route('/delete_camera',methods=['POST'])
+def delete_camera():
+    cname = request.form['cname']
+    connect = sqlite3.connect('database.db') 
+    connect.execute("DELETE FROM t_cameras WHERE cname = ?", (cname,))
+    connect.commit()
+    connect.close()
+    return redirect('/')
+
 
 @app.route('/add')
 def show_add_page():
@@ -65,7 +76,6 @@ def add_camera():
     longitude = request.form['longitude'] 
     latitude = request.form['latitude'] 
     connect = sqlite3.connect('database.db') 
-    print(f"INSERT INTO t_cameras VALUES ('{cname}', {port}, 'Inactive', {latitude}, {longitude})")
     connect.execute(f"INSERT INTO t_cameras VALUES ('{cname}', {port}, 'Inactive', {latitude}, {longitude})")
     connect.commit()
     connect.close()
@@ -116,15 +126,19 @@ def login_user():
     data = cursor.fetchall()
     connect.close()
     if len(data) != 0:
-        app.logger.info(f"Username: {uname}, Password: {password}, Sent from: {request.remote_addr}, {request}")
+        if len(password) == 0 or "'" in uname:
+            app.logger.warning(f"Possible SQL Attack: Username: {uname}, Password: {password}, Sent from: {request.remote_addr}")
+        else:
+            app.logger.info(f"Username: {uname}, Password: {password}, Sent from: {request.remote_addr}")
+
         session['loggedin_as'] = data[0]
         return redirect('/')
     else:
-        app.logger.warning(f"Username: {uname}, Password: {password}, Sent from: {request.remote_addr}, {request}")
+        app.logger.warning(f"Username: {uname}, Password: {password}, Sent from: {request.remote_addr}")
         flash("Wrong username or password")
         return show_login_page()
 
 
 if __name__ == '__main__':
     
-    app.run(debug=True)
+    app.run(debug=False)
