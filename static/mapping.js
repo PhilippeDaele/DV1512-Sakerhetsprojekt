@@ -28,7 +28,7 @@ async function initMap() {
             if (event && event.hasOwnProperty("latLng")) {
             if (currentContextMenu) {
                 // Close the previous context menu if it exists
-                currentContextMenu.style.display = "none";
+                currentContextMenu.remove();
             }
         
             const customContextMenu = createContextMenu(event);
@@ -36,8 +36,8 @@ async function initMap() {
             
         
             // Set position based on clientX and clientY relative to the map container
-            customContextMenu.style.left = (event.pixel.x + 200) + "px";
-            customContextMenu.style.top = (event.pixel.y - 25) + "px";
+            customContextMenu.style.left = (event.pixel.x + 275) + "px";
+            customContextMenu.style.top = (event.pixel.y) + "px";
             customContextMenu.style.display = "block";
 
             // Store the current context menu reference
@@ -69,6 +69,7 @@ async function initMap() {
         {
             attachLightSwitchEventListener(markerElement, property);
             attachRefreshButtonEventListener(markerElement, property);
+            deleteCamera(markerElement, property);
         }
         
         attachClosedButtonEventListener(markerElement, property);
@@ -189,7 +190,7 @@ function addCamera(clickedLat, clickedLng) {
     localStorage.setItem('longitude', clickedLng);
     
     if (currentContextMenu) {
-        currentContextMenu.style.display = "none";
+        currentContextMenu.remove();
         currentContextMenu = null; // Reset currentContextMenu reference
     }
 
@@ -293,7 +294,6 @@ function attachLightSwitchEventListener(markerElement, property) {
                     checkbox.checked = property.status === 'Active';
                 }
             } else {
-                
                 property.rebooted = false;
                 property.status = 'Inactive';
                 let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
@@ -319,6 +319,38 @@ function toggleStatus(status) {
     return status === 'Active' ? 'Inactive' : 'Active';
 }
 
+function deleteCamera(markerElement, property) {
+    const deleteButton = markerElement.content.querySelector(".delete-button");
+    if (deleteButton) {
+        deleteButton.addEventListener("click", (event) => {
+            if (confirm('Are you sure you want to delete this camera?')) {
+                // Send a POST request to the Flask route with the camera name to delete
+                fetch('/delete_camera', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `cname=${encodeURIComponent(property.description)}`,
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // If deletion is successful, reload the page or handle as needed
+                        window.location.reload();
+                    } else {
+                        // Handle errors or show a message
+                        console.error('Error deleting camera');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+            event.stopPropagation(); // Prevent the click event from propagating to the map
+        });
+    }
+}
+
+
 
 function buildContent(property) {
     const content = document.createElement("div");
@@ -333,17 +365,17 @@ function buildContent(property) {
         <div class="details">
                 <div class="text-container">
                     <div class="button-fade-in">
-                    <div class="popup" id="customPopup${property.id}">
-                        <div class="popup-content">
-                            <p id="popupText${property.id}"></p>
+                        <div class="popup" id="customPopup${property.id}">
+                            <div class="popup-content">
+                                <p id="popupText${property.id}"></p>
+                            </div>
                         </div>
-                    </div>
                         <button class="close-button">X</button>
                         <button class="refresh-button"> 
                             <img src="/static/reboot.png" alt="Image Alt Text">
                         </button>
+                        <button class="delete-button">Delete</button>
                         <h3>Name: ${property.description}</h3>
-                        <h3>IP Address: 192.168.0.1</h3>
                         <h3>Port: ${property.port}</h3>
                         <h3>Status: ${property.status}</h3>
                         <input class="tgl tgl-flat" type="checkbox" id="cb${property.id}" ${property.status === 'Active' ? 'checked' : ''}>
@@ -367,7 +399,6 @@ function buildContent(property) {
                     <div class="button-fade-in">
                         <button class="close-button">X</button>
                         <h3>Name: ${property.description}</h3>
-                        <h3>IP Address: 192.168.0.1</h3>
                         <h3>Port: ${property.port}</h3>
                         <h3>Status: ${property.status}</h3>
                     </div>
