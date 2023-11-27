@@ -149,3 +149,23 @@
 2023-11-20 09:13:44,484 [INFO] Sent from: 127.0.0.1, <Request 'http://127.0.0.1:5009/set_status?new_status=Active' [GET]>
 2023-11-20 09:18:38,821 [WARNING] Possible SQL Attack: Username: ' OR 1=1;--, Password: , Sent from: 127.0.0.1
 2023-11-20 09:18:47,744 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-27 10:43:42,225 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-27 10:45:08,255 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5009/live_feed' [GET]>
+2023-11-27 10:45:15,130 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5007/live_feed' [GET]>
+2023-11-27 10:45:37,534 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5007/live_feed' [GET]>
+2023-11-27 10:45:37,817 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5007/favicon.ico' [GET]>
+2023-11-27 10:46:12,390 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-27 10:46:13,620 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-27 10:46:27,988 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-27 10:46:33,294 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-27 10:46:34,764 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-27 10:49:10,636 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-27 10:49:12,211 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-27 10:49:13,525 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-27 10:49:14,653 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-27 10:49:16,981 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-11-27 10:49:19,271 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-27 10:49:23,606 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.
+2023-11-27 10:49:44,281 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5003/set_status?new_status=Inactive' [GET]>
+2023-11-27 10:49:45,503 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5003/set_status?new_status=Active' [GET]>
+2023-11-27 10:50:11,305 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5008/set_status?new_status=Active' [GET]>
