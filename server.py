@@ -14,7 +14,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = 600
 
 connect = sqlite3.connect('database.db')
 #connect.execute('DROP TABLE IF EXISTS t_cameras')
-#connect.execute('DROP TABLE IF EXISTS t_userrs')
+#connect.execute('DROP TABLE IF EXISTS t_users')
 connect.execute('CREATE TABLE IF NOT EXISTS t_users (uname TEXT, password TEXT, privilege TEXT)')
 connect.execute('CREATE TABLE IF NOT EXISTS t_cameras (cname TEXT, port INTEGER, status TEXT, lat FLOAT, lng FLOAT)') 
 #connect.execute("INSERT INTO t_users VALUES ('user','user','user'),('admin', 'admin', 'admin')")
@@ -27,7 +27,7 @@ connect.execute('CREATE TABLE IF NOT EXISTS t_cameras (cname TEXT, port INTEGER,
 #        ('Cam7', 5007, 'Active', 56.18285574906873, 15.591367892855724),\
 #        ('Cam8', 5008, 'Inactive', 56.18066130753176, 15.590654472780827),\
 #        ('Cam9', 5009, 'Active', 56.182109347917304, 15.593304495257986)")
-#connect.commit()
+connect.commit()
 
 
 def dict_factory(cursor, row):
