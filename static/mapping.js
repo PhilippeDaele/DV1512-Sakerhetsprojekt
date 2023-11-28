@@ -87,15 +87,15 @@ async function initMap() {
                 return;
             } else {
 
-                let url = `http://localhost:${property.port}/get_status`;
-                fetch(url)
+                let url = `http://localhost:${property.port}`;
+                fetch(url+`/get_status`)
                 .then(response => {
                     // Get response as text
                     return response.text();
                 })
                 .then(data => {
                     
-                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
+                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
                     if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
                         property.status = JSON.parse(data).Status;
                         const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
@@ -104,7 +104,9 @@ async function initMap() {
                         if (property.status === 'Inactive') {
                             imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
                         } else {
-                            imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                            // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                            imageElement.src = url+'/video_feed'; // Change the source back to the active image
+
                         }
                         if (checkbox) {
                             checkbox.checked = property.status === 'Active';
@@ -266,10 +268,10 @@ function attachLightSwitchEventListener(markerElement, property) {
         event.stopPropagation(); // Prevent the click event from propagating to the card
 
         const newStatus = toggleStatus(property.status);
-        const url = `http://localhost:${property.port}/set_status?new_status=${newStatus}`;
+        const url = `http://localhost:${property.port}`;
 
         try {
-            const response = await fetch(url);
+            const response = await fetch(url+`/set_status?new_status=${newStatus}`);
             if (response.ok && property.rebooted === true) {
                 // HTTP status code is in the range 200-299
                 const responseText = await response.text();
@@ -283,7 +285,9 @@ function attachLightSwitchEventListener(markerElement, property) {
                     if (property.status === 'Inactive') {
                         imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
                     } else {
-                        imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                        // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                        imageElement.src = url+'/video_feed'; // Change the source back to the active image
+
                     }
                     statusElement.innerHTML = "Status: " + newStatus;
                 }
