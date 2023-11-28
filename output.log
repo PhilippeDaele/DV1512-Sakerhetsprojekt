@@ -169,3 +169,16 @@
 2023-11-27 10:49:44,281 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5003/set_status?new_status=Inactive' [GET]>
 2023-11-27 10:49:45,503 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5003/set_status?new_status=Active' [GET]>
 2023-11-27 10:50:11,305 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5008/set_status?new_status=Active' [GET]>
+2023-11-28 09:18:27,850 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-28 09:20:41,345 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/favicon.ico' [GET]>
+2023-11-28 09:21:10,773 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/favicon.ico' [GET]>
+2023-11-28 09:44:48,026 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-28 09:51:37,631 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/set_status?new_status=Active' [GET]>
+2023-11-28 09:51:45,629 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-11-28 09:57:51,670 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-28 10:12:09,842 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-28 10:36:44,441 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-28 10:47:12,800 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-28 10:48:09,615 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-28 10:49:24,860 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-11-28 10:50:52,796 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1

@@ -14,22 +14,7 @@ logging.basicConfig(filename='output.log', level=logging.INFO, format='%(asctime
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
-camera = cv2.VideoCapture("1321309265-1-100050.mp4")
-camera.set(cv2.CAP_PROP_POS_FRAMES, 3000)
-def gen_frames():  # generate frame by frame from camera
-    while True:
-        # Capture frame-by-frame
-        success, frame = camera.read()  # read the camera frame
-        if not success:
-            # loop play the video
-            camera.set(cv2.CAP_PROP_POS_FRAMES, 3000)
-        else:
-            ret, buffer = cv2.imencode('.jpg', frame)
-            frame = buffer.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
-    cap.release()
-    cv2.destroyAllWindows()
+
 
 def dict_factory(cursor, row):
     d = {}
@@ -77,7 +62,26 @@ def create_app(port):
             return True  # Rate-limited
         
 
-    
+    camera = cv2.VideoCapture(f"static/{port%3}.mp4")
+    # camera.set(cv2.CAP_PROP_POS_FRAMES, 3000)
+    def gen_frames():  # generate frame by frame from camera
+        while True:
+            # Capture frame-by-frame
+            success, frame = camera.read()  # read the camera frame
+            if not success:
+                try:
+                    camera.set(cv2.CAP_PROP_POS_FRAMES,0)
+                    continue
+                except:
+                    break
+            else:
+                ret, buffer = cv2.imencode('.jpg', frame)
+                frame = buffer.tobytes()
+                yield (b'--frame\r\n'
+                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
+        # camera.release()
+        # cv2.destroyAllWindows()
+
     @app.route('/video_feed')
     def video_feed():
         #Video streaming route. Put this in the src attribute of an img tag

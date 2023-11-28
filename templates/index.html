@@ -24,6 +24,21 @@
 <script>
     const camerasData = {{ cameras | tojson }};
     const userData = {{ user[2] | tojson }};
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function(){
+            let videofeeds = document.getElementsByClassName("videofeed");
+            for(let i = 0; i<videofeeds.length; i++)
+            { 
+                setTimeout(function(){videofeeds[i].onclick = function (){
+                    if(videofeeds[i].children[0].hasAttribute("fullscreen"))
+                        document.exitFullscreen()
+                    else videofeeds[i].children[0].requestFullscreen()
+                    videofeeds[i].children[0].toggleAttribute("fullscreen")
+                }},1000);
+                
+            }
+        },1000);
+    });
 </script>
 
 <script type="module" src="{{ url_for('static', filename='mapping.js') }}"></script>
