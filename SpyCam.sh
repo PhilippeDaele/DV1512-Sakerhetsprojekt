@@ -3,9 +3,10 @@
 
 cat Welcome.ascii
 
+defaultChoice="y"
 
-read -p "Do you want to run a port scan for active ports to attack? (Y/N): " yesOrno
-if [ "$yesOrno" == "Y" ] || [ "$yesOrno" == "y" ]; then
+read -p "Do you want to run a port scan for active ports to attack? (Y/n): " yesOrno
+if [ "$yesOrno" == "Y" ] || [ "$yesOrno" == "y" ] || ["$yesOrNo" == ""]; then
     echo -ne "\nChecking for open ports"
 else
     echo "Shutting down..."
@@ -60,8 +61,8 @@ echo "Ports found: ${success_list[@]}"
 
 # Prompt user to remove ports
 if [ ${#success_list[@]} -gt 0 ]; then
-    read -p "Do you want to remove any ports? (Y/N): " decision
-    if [ "$decision" == "Y" ] || [ "$decision" == "y" ]; then
+    read -p "Do you want to remove any ports? (Y/n): " decision
+    if [ "$decision" == "Y" ] || [ "$decision" == "y" ] || ["$decision" == ""]; then
         read -p "Enter the port(s) you want to remove (space-separated): " ports_to_remove
 
         # Create an array from user input
@@ -72,7 +73,7 @@ if [ ${#success_list[@]} -gt 0 ]; then
         for port in "${remove_array[@]}"; do
             filtered_list=(${filtered_list[@]//$port/})
         done
-        echo -e "\n\n"
+        echo -e "\n"
     else
         echo -e "Inccorect input moving on...\n"
     fi
@@ -128,9 +129,9 @@ while [ "$shutdown" = false ]; do
                 done
             fi
         fi
-        shutdown=false
     elif [ "$what_attack" == "2" ]; then
-        read -p "How many packets do you want to send?: " packets_input
+        echo "How many packets do you want to send?"
+        read -p "> " packets_input
         echo -e "\n"
         if [[ $packets_input =~ ^[0-9]+$ ]]; then
             packets=$((packets_input))
@@ -144,10 +145,9 @@ while [ "$shutdown" = false ]; do
                 done
             fi
             echo -e "\n"
-            shutdown=false
         else
             echo -e "Invalid input. Please enter a valid number next time.\n"
-            shutdown=false
+            
         fi
     elif [ "$what_attack" == "3" ]; then
         echo "Shutting down..."
