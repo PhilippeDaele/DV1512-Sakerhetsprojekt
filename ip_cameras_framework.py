@@ -140,7 +140,8 @@ def create_app(port):
 
                 # Convert the dictionary to a JSON object
                 json_data = json.dumps(data)
-                return json_data
+                break
+        return json_data
                 #return f"Name: {cam_name}, Port: {port}, Status: {cam_status}"
     @app.route('/')
     def index():
