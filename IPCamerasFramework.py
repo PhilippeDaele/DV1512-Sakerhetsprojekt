@@ -13,8 +13,21 @@ logging.basicConfig(filename='output.log', level=logging.INFO, format='%(asctime
 
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
+CAMERA_COUNT = 3
 
-
+camera_frame_pos = [i*0 for i in range(CAMERA_COUNT)]
+frame_interval = [None for i in range(CAMERA_COUNT)]
+def increase_frame_pos(num,duration): 
+    camera_frame_pos[num] += duration
+    t = threading.Timer(1.0, increase_frame_pos,(num,duration))
+    t.start()
+    return t
+for i in range(CAMERA_COUNT):
+    camera = cv2.VideoCapture(f"static/{i}.mp4")
+    fps = camera.get(cv2.CAP_PROP_FPS)
+    frame_count = int(camera.get(cv2.CAP_PROP_FRAME_COUNT))
+    duration = frame_count / fps
+    frame_interval[i] = increase_frame_pos(i,duration)
 
 def dict_factory(cursor, row):
     d = {}
@@ -34,7 +47,7 @@ def fetch_all_camera_from_db():
 def create_app(port):
     app = Flask(f'client_{port}')
     CORS(app, resources={r"/*": {"origins": "*"}})
-
+    
     # Rate limiting configuration
     RATE_LIMIT_PERIOD = 60  # 60 seconds
     MAX_REQUESTS = 10  # Maximum requests allowed in the given period
@@ -61,16 +74,19 @@ def create_app(port):
         else:
             return True  # Rate-limited
         
-
-    camera = cv2.VideoCapture(f"static/{port%3}.mp4")
-    # camera.set(cv2.CAP_PROP_POS_FRAMES, 3000)
     def gen_frames():  # generate frame by frame from camera
+        global frame_interval
+        global camera_frame_pos
+        global camera_watching
+        camera = cv2.VideoCapture(f"static/{port%CAMERA_COUNT}.mp4")
+        camera.set(cv2.CAP_PROP_POS_FRAMES, camera_frame_pos[port%CAMERA_COUNT])
         while True:
             # Capture frame-by-frame
             success, frame = camera.read()  # read the camera frame
             if not success:
                 try:
                     camera.set(cv2.CAP_PROP_POS_FRAMES,0)
+                    camera_frame_pos[port%CAMERA_COUNT] = 0
                     continue
                 except:
                     break
@@ -79,9 +95,9 @@ def create_app(port):
                 frame = buffer.tobytes()
                 yield (b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
+                camera_frame_pos[port%CAMERA_COUNT] = camera.get(cv2.CAP_PROP_POS_FRAMES)
         # camera.release()
         # cv2.destroyAllWindows()
-
     @app.route('/video_feed')
     def video_feed():
         #Video streaming route. Put this in the src attribute of an img tag
@@ -181,13 +197,13 @@ def create_app(port):
             app.logger.info(f"Sent from: {request.remote_addr}, {request}")
             response = f"""\nStatus have changed \nName: {cam_name} \nPort: {port} \nStatus: {new_status} \n"""
             return response
-
-    app.run(debug=False, port=port)
+    app.run("0.0.0.0",debug=False, port=port)
 
 def start_camera(port):
     create_app(port)
 
 if __name__ == '__main__':
+ 
     running_camera_ports = set()  # Store running camera ports
 
     def monitor_database_for_new_cameras():
@@ -209,6 +225,9 @@ if __name__ == '__main__':
 
     # Start Flask apps for existing cameras
     Cameras = fetch_all_camera_from_db()
-    for cam_info in Cameras:
-        port = cam_info['port']
-        start_camera(port)
+
+    # for cam_info in Cameras:
+    #     port = cam_info['port']
+    #     start_camera(port)
+
+    

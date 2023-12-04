@@ -182,3 +182,231 @@
 2023-11-28 10:48:09,615 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
 2023-11-28 10:49:24,860 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
 2023-11-28 10:50:52,796 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 13:19:06,408 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 13:19:10,656 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-01 13:37:18,311 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 13:38:37,502 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/set_status?new_status=Active' [GET]>
+2023-12-01 13:48:50,676 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 14:10:17,393 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 14:23:44,433 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:25:48,326 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 14:27:12,317 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:38:11,238 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 14:45:49,229 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:48:47,889 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 14:49:42,049 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:50:24,281 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:50:32,881 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:52:23,869 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:52:49,284 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:52:52,919 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:52:56,177 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:53:15,881 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-01 14:55:35,171 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-12-01 14:55:42,337 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-12-01 14:55:46,480 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam8 is set to Inactive.
+2023-12-01 14:55:54,698 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 14:56:03,310 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 14:56:08,781 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 14:56:16,285 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 14:56:33,797 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 14:56:53,231 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 14:57:42,087 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 14:57:49,251 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 14:58:20,044 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 15:01:03,872 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 15:01:12,227 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 15:01:24,373 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 15:01:28,645 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 15:01:44,671 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5003/' [GET]>
+2023-12-01 15:27:56,186 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 70, in gen_frames
+    camera.set(cv2.CAP_PROP_POS_FRAMES, timestamp%frame_count)
+TypeError: unsupported operand type(s) for %: 'datetime.datetime' and 'int'
+2023-12-01 15:27:56,239 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5005/favicon.ico' [GET]>
+2023-12-01 15:28:48,652 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 68, in gen_frames
+    time = datetime.datetime.now().second()
+TypeError: 'int' object is not callable
+2023-12-01 15:28:48,681 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5005/favicon.ico' [GET]>
+2023-12-01 15:28:56,074 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 68, in gen_frames
+    time = datetime.datetime.now().second()
+TypeError: 'int' object is not callable
+2023-12-01 15:28:56,349 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5005/favicon.ico' [GET]>
+2023-12-01 15:28:58,140 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5005/favicon.ico' [GET]>
+2023-12-01 15:29:10,446 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 68, in gen_frames
+    time = datetime.datetime.now().second()
+TypeError: 'int' object is not callable
+2023-12-01 15:29:10,512 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 15:29:29,858 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 68, in gen_frames
+    time = datetime.datetime.now().second()
+TypeError: 'int' object is not callable
+2023-12-01 15:29:29,892 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 15:29:30,815 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 68, in gen_frames
+    time = datetime.datetime.now().second()
+TypeError: 'int' object is not callable
+2023-12-01 15:29:31,081 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 15:29:31,967 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 68, in gen_frames
+    time = datetime.datetime.now().second()
+TypeError: 'int' object is not callable
+2023-12-01 15:29:32,012 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 15:41:06,085 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 70, in gen_frames
+    time = datetime.datetime.now().second+datetime.datetime.now().min
+TypeError: unsupported operand type(s) for +: 'int' and 'datetime.datetime'
+2023-12-01 15:41:06,158 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 16:41:49,495 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 82, in gen_frames
+    camera.set(cv2.CAP_PROP_POS_FRAMES, camera_frame_pos)
+UnboundLocalError: local variable 'camera_frame_pos' referenced before assignment
+2023-12-01 16:41:49,533 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 16:42:06,193 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 82, in gen_frames
+    camera.set(cv2.CAP_PROP_POS_FRAMES, camera_frame_pos)
+UnboundLocalError: local variable 'camera_frame_pos' referenced before assignment
+2023-12-01 16:42:06,237 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-01 16:48:30,922 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 80, in gen_frames
+    frame_interval.cancel()
+UnboundLocalError: local variable 'frame_interval' referenced before assignment
+2023-12-01 16:48:30,982 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 16:50:05,989 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 16:51:01,753 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 80, in gen_frames
+    frame_interval.cancel()
+UnboundLocalError: local variable 'frame_interval' referenced before assignment
+2023-12-01 16:51:01,794 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 16:51:03,894 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 17:07:13,785 [ERROR] Error on request:
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\serving.py", line 325, in execute
+    for data in application_iter:
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wsgi.py", line 256, in __next__
+    return self._next()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\werkzeug\wrappers\response.py", line 32, in _iter_encoded
+    for item in iterable:
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\IPCamerasFramework.py", line 75, in gen_frames
+    frame_interval.cancel()
+UnboundLocalError: local variable 'frame_interval' referenced before assignment
+2023-12-01 17:07:13,832 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-01 19:54:15,310 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-01 19:54:28,042 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5006/' [GET]>
+2023-12-01 19:54:54,639 [WARNING] Sent from: 127.0.0.1, <Request 'http://localhost:5002/' [GET]>
+2023-12-03 16:54:38,732 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-03 19:08:28,639 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-03 19:19:35,093 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
