@@ -25,20 +25,20 @@ async function initMap() {
     if (userData == 'admin') {
         // Right-click event listener for the map
         map.addListener("rightclick", (event) => {
+            
             if (event && event.hasOwnProperty("latLng")) {
             if (currentContextMenu) {
                 // Close the previous context menu if it exists
                 currentContextMenu.remove();
             }
-        
             const customContextMenu = createContextMenu(event);
-        
             
-        
+            
+            
             // Set position based on clientX and clientY relative to the map container
-            customContextMenu.style.left = (event.pixel.x + 275) + "px";
+            customContextMenu.style.left = (event.pixel.x + window.innerWidth/6.5) + "px";
             customContextMenu.style.top = (event.pixel.y) + "px";
-            customContextMenu.style.display = "block";
+            //customContextMenu.style.display = "block";
 
             // Store the current context menu reference
             currentContextMenu = customContextMenu;
@@ -46,8 +46,8 @@ async function initMap() {
             // Function to close the custom context menu when clicking elsewhere
             map.addListener("click", () => {
                 if (currentContextMenu === customContextMenu) {
-                currentContextMenu.remove();
-                currentContextMenu = null; // Reset currentContextMenu reference
+                    currentContextMenu.remove();
+                    currentContextMenu = null; // Reset currentContextMenu reference
                 }
             });
             }
@@ -87,8 +87,8 @@ async function initMap() {
                 return;
             } else {
 
-                let url = `http://localhost:${property.port}/get_status`;
-                fetch(url)
+                let url = `http://localhost:${property.port}`;
+                fetch(url+`/get_status`)
                 .then(response => {
                     // Get response as text
                     return response.text();
@@ -96,19 +96,24 @@ async function initMap() {
                 .then(data => {
                     
                     let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
+                    let imageElement = markerElement.content.querySelector('.videofeed img');
                     if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
                         property.status = JSON.parse(data).Status;
                         const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
                         statusElement.innerHTML = "Status: " + property.status;
-                        let imageElement = markerElement.content.querySelector('.videofeed img');
                         if (property.status === 'Inactive') {
                             imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
                         } else {
-                            imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                            // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                            imageElement.src = url+'/video_feed'; // Change the source back to the active image
+
                         }
                         if (checkbox) {
                             checkbox.checked = property.status === 'Active';
                         }
+                    }
+                    if (property.status != 'Inactive') {
+                        imageElement.src = url+'/video_feed';; // Change the source to the offline image
                     }
                 })
                 toggleHighlight(markerElement, property);
@@ -122,29 +127,23 @@ function createContextMenu(event) {
     // Create a div element for the context menu
     const customContextMenu = document.createElement("div");
     customContextMenu.className = "popup";
-    //customContextMenu.textContent = "Add Camera";
-    /*
-    customContextMenu.style.position = "absolute";
-    customContextMenu.style.background = "#fff";
-    customContextMenu.style.border = "1px solid #ccc";
-    customContextMenu.style.padding = "10px";
-    */
-    // Create a ul element for the menu items
-    const ul = document.createElement("ul");
-    ul.style.padding = "0";
-    ul.style.margin = "0";
-  
-    // Create a li element for the "Add Camera" option
-    const li = document.createElement("li");
-    li.textContent = "Add Camera";
-    li.style.cursor = "pointer";
-    li.style.padding = "8px 15px";
-    li.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
-    // Pass lat and lng to addCamera function
-  
-    // Append the li to the ul, and ul to the customContextMenu
-    ul.appendChild(li);
-    customContextMenu.appendChild(ul);
+    customContextMenu.style.display = "block";
+    customContextMenu.classList.add("property");
+    
+    customContextMenu.innerHTML = `
+        <div class="icon">
+                <i class="fa fa-icon fa-plus"></i>
+        </div>
+    `;
+    console.log(customContextMenu.innerHTML);
+    //customContextMenu.classList.add("fa", "fa-icon" , "fa-plus");
+    customContextMenu.style.cursor = "pointer";
+    customContextMenu.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
+
+    // class="fa fa-icon fa-${property.type}"
+   
+    
+
 
     const mapContainer = document.getElementById("map");
     mapContainer.appendChild(customContextMenu);
@@ -161,6 +160,7 @@ function createContextMenu(event) {
   
 // Function to create and display a custom popup
 function displayPopup(content) {
+    // class="fa fa-icon fa-${property.type}"
     // Create a div element for the popup container
     const popupContainer = document.createElement("div");
     popupContainer.className = "popup";
@@ -181,11 +181,15 @@ function displayPopup(content) {
 // Function to simulate adding a camera and displaying latitude and longitude
 function addCamera(clickedLat, clickedLng) {
     // Placeholder action - Display a custom popup when "Add Camera" is clicked
-    const content = `Latitude: ${clickedLat}, Longitude: ${clickedLng}`;
+    // const content = `Latitude: ${clickedLat}, Longitude: ${clickedLng}`;
+
+    window.location.href ="/add";
+
+    /*
     const popup = displayPopup(content);
     popup.textContent = "Check the Add camera tab";
     popup.style.display = 'block';
-    
+    */
     localStorage.setItem('latitude', clickedLat);
     localStorage.setItem('longitude', clickedLng);
     
@@ -193,10 +197,11 @@ function addCamera(clickedLat, clickedLng) {
         currentContextMenu.remove();
         currentContextMenu = null; // Reset currentContextMenu reference
     }
-
+    /*
     setTimeout(function() {
         document.body.removeChild(popup); // Remove the popup from the DOM after 3 seconds
     }, 2000); // Adjust the time as needed
+    */
 }
 
 function showPopup(message, property) {
@@ -266,10 +271,10 @@ function attachLightSwitchEventListener(markerElement, property) {
         event.stopPropagation(); // Prevent the click event from propagating to the card
 
         const newStatus = toggleStatus(property.status);
-        const url = `http://localhost:${property.port}/set_status?new_status=${newStatus}`;
+        const url = `http://localhost:${property.port}`;
 
         try {
-            const response = await fetch(url);
+            const response = await fetch(url+`/set_status?new_status=${newStatus}`);
             if (response.ok && property.rebooted === true) {
                 // HTTP status code is in the range 200-299
                 const responseText = await response.text();
@@ -283,7 +288,9 @@ function attachLightSwitchEventListener(markerElement, property) {
                     if (property.status === 'Inactive') {
                         imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
                     } else {
-                        imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                        // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                        imageElement.src = url+'/video_feed'; // Change the source back to the active image
+
                     }
                     statusElement.innerHTML = "Status: " + newStatus;
                 }
@@ -359,7 +366,7 @@ function buildContent(property) {
     if (userData == 'admin') {
         content.innerHTML = `
         <div class="icon">
-                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}"></i>
                 <span class="fa-sr-only">${property.type}</span>
         </div>
         <div class="details">
@@ -391,7 +398,7 @@ function buildContent(property) {
     else {
         content.innerHTML = `
         <div class="icon">
-                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}"></i>
                 <span class="fa-sr-only">${property.type}</span>
         </div>
         <div class="details">

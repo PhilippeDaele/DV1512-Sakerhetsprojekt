@@ -5,13 +5,15 @@ cat Welcome.ascii
 
 defaultChoice="y"
 
-read -p "Do you want to run a port scan for active ports to attack? (Y/n): " yesOrno
-if [ "$yesOrno" == "Y" ] || [ "$yesOrno" == "y" ] || ["$yesOrNo" == ""]; then
+read -p "Do you want to run a port scan for active ports to attack? (Y/n): " yesOrNo
+
+if [ "$yesOrNo" == "Y" ] || [ "$yesOrNo" == "y" ] || [ -z "$yesOrNo" ]; then
     echo -ne "\nChecking for open ports"
 else
     echo "Shutting down..."
     exit
 fi
+
 
 IP_ADDRESS="127.0.0.1"
 PORT_START=1
@@ -62,7 +64,7 @@ echo "Ports found: ${success_list[@]}"
 # Prompt user to remove ports
 if [ ${#success_list[@]} -gt 0 ]; then
     read -p "Do you want to remove any ports? (Y/n): " decision
-    if [ "$decision" == "Y" ] || [ "$decision" == "y" ] || ["$decision" == ""]; then
+    if [ "$decision" == "Y" ] || [ "$decision" == "y" ] || [ -z "$decision" ]; then
         read -p "Enter the port(s) you want to remove (space-separated): " ports_to_remove
 
         # Create an array from user input
