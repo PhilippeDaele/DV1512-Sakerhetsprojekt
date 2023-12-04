@@ -137,7 +137,6 @@ def login_user():
         flash("Wrong username or password")
         return show_login_page()
 
-
 if __name__ == '__main__':
     
-    app.run(debug=False)
+    app.run(debug=True)
