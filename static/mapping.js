@@ -78,7 +78,6 @@ async function initMap() {
 
         markerElement.addListener("click", () => {
             
-            
             if (currentHighlightedMarker && currentHighlightedMarker !== markerElement) {
                 return;
             }
@@ -86,7 +85,7 @@ async function initMap() {
             if (currentHighlightedMarker && currentHighlightedMarker === markerElement) {
                 return;
             } else {
-
+                
                 let url = `http://localhost:${property.port}`;
                 fetch(url+`/get_status`)
                 .then(response => {
@@ -94,23 +93,24 @@ async function initMap() {
                     return response.text();
                 })
                 .then(data => {
-                    
-                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(5)').nextElementSibling;
+                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
+                    let imageElement = markerElement.content.querySelector('.videofeed img');
                     if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
                         property.status = JSON.parse(data).Status;
                         const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
                         statusElement.innerHTML = "Status: " + property.status;
-                        let imageElement = markerElement.content.querySelector('.videofeed img');
                         if (property.status === 'Inactive') {
                             imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
                         } else {
                             // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
                             imageElement.src = url+'/video_feed'; // Change the source back to the active image
-
                         }
                         if (checkbox) {
                             checkbox.checked = property.status === 'Active';
                         }
+                    }
+                    if (property.status != 'Inactive') {
+                        imageElement.src = url+'/video_feed';; // Change the source to the offline image
                     }
                 })
                 toggleHighlight(markerElement, property);
@@ -257,6 +257,7 @@ function attachClosedButtonEventListener(markerElement, property) {
 function toggleHighlight(markerView, property) {
     const highlightZIndex = 1; // Set a value higher than other markers
     if (markerView.content.classList.contains("highlight")) {
+        markerView.content.querySelector(".videofeed>img").src = markerView.content.querySelector(".videofeed>img").src.replace("/video_feed","");
         markerView.content.classList.remove("highlight");
         markerView.zIndex = null;
     } else {
@@ -269,7 +270,6 @@ function attachLightSwitchEventListener(markerElement, property) {
     const lightSwitch = markerElement.content.querySelector(".tgl");
     lightSwitch.addEventListener("click", async (event) => {
         event.stopPropagation(); // Prevent the click event from propagating to the card
-
         const newStatus = toggleStatus(property.status);
         const url = `http://localhost:${property.port}`;
 
@@ -366,7 +366,7 @@ function buildContent(property) {
     if (userData == 'admin') {
         content.innerHTML = `
         <div class="icon">
-                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}"></i>
                 <span class="fa-sr-only">${property.type}</span>
         </div>
         <div class="details">
