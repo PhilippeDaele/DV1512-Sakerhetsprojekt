@@ -112,8 +112,9 @@ def add_camera():
     add_connect.execute(insert_camera_query, camera_values)
     #connect.execute(f"INSERT INTO t_cameras VALUES('{cname}',
     # {port}, 'Inactive', {latitude}, {longitude})")
-    connect.commit()
-    connect.close()
+    add_connect.commit()
+    add_connect.close()
+    app.logger.info(f"Camera created: {cname}, {port}")
     return redirect('/')
 
 @app.route('/camera_hub')

@@ -25,20 +25,20 @@ async function initMap() {
     if (userData == 'admin') {
         // Right-click event listener for the map
         map.addListener("rightclick", (event) => {
-            
             if (event && event.hasOwnProperty("latLng")) {
             if (currentContextMenu) {
                 // Close the previous context menu if it exists
                 currentContextMenu.remove();
             }
+        
             const customContextMenu = createContextMenu(event);
+        
             
-            
-            
+        
             // Set position based on clientX and clientY relative to the map container
-            customContextMenu.style.left = (event.pixel.x + window.innerWidth/6.5) + "px";
-            customContextMenu.style.top = (event.pixel.y) + "px";
-            //customContextMenu.style.display = "block";
+            customContextMenu.style.left = (event.pixel.x + window.innerWidth/6.7) + "px";
+            customContextMenu.style.top = (event.pixel.y - 25) + "px";
+            customContextMenu.style.display = "block";
 
             // Store the current context menu reference
             currentContextMenu = customContextMenu;
@@ -46,15 +46,15 @@ async function initMap() {
             // Function to close the custom context menu when clicking elsewhere
             map.addListener("click", () => {
                 if (currentContextMenu === customContextMenu) {
-                    currentContextMenu.remove();
-                    currentContextMenu = null; // Reset currentContextMenu reference
+                currentContextMenu.remove();
+                currentContextMenu = null; // Reset currentContextMenu reference
                 }
             });
             }
         });
     }
     
-      
+
 
     for (const property of properties) {
         const markerElement = new google.maps.marker.AdvancedMarkerElement({
@@ -78,7 +78,6 @@ async function initMap() {
 
         markerElement.addListener("click", () => {
             
-            
             if (currentHighlightedMarker && currentHighlightedMarker !== markerElement) {
                 return;
             }
@@ -86,7 +85,7 @@ async function initMap() {
             if (currentHighlightedMarker && currentHighlightedMarker === markerElement) {
                 return;
             } else {
-
+                
                 let url = `http://localhost:${property.port}`;
                 fetch(url+`/get_status`)
                 .then(response => {
@@ -94,7 +93,6 @@ async function initMap() {
                     return response.text();
                 })
                 .then(data => {
-                    
                     let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                     let imageElement = markerElement.content.querySelector('.videofeed img');
                     if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
@@ -106,7 +104,6 @@ async function initMap() {
                         } else {
                             // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
                             imageElement.src = url+'/video_feed'; // Change the source back to the active image
-
                         }
                         if (checkbox) {
                             checkbox.checked = property.status === 'Active';
@@ -120,50 +117,70 @@ async function initMap() {
                 currentHighlightedMarker = markerElement;
             }
         });
+
     }
 }
 
+function placeMarkerAndPanTo(latLng, map) {
+    new google.maps.Marker({
+        position: latLng,
+        map: map,
+    });
+    map.panTo(latLng);
+}
+
+
+
+{/* <div class="icon">
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <span class="fa-sr-only">${property.type}</span>
+        </div> */}
+
 function createContextMenu(event) {
+    
     // Create a div element for the context menu
     const customContextMenu = document.createElement("div");
-    customContextMenu.className = "popup";
-    customContextMenu.style.display = "block";
-    customContextMenu.classList.add("property");
-    
-    customContextMenu.innerHTML = `
-        <div class="icon">
-                <i class="fa fa-icon fa-plus"></i>
-        </div>
-    `;
-    console.log(customContextMenu.innerHTML);
-    //customContextMenu.classList.add("fa", "fa-icon" , "fa-plus");
+    customContextMenu.className = "popup-icon";
+    customContextMenu.zIndex = 1;
+
+    const div1 = document.createElement("div");
+    div1.className = "property";
+
+    // Create an i element for the Font Awesome icon
+    const icon = document.createElement("i");
+    icon.className = "fa fa-plus-circle";
+    icon.setAttribute("aria-hidden", "true");
+    icon.style.width = "25px";
+    icon.style.height = "25px";
+
+    // Append the icon to div2
+    div1.appendChild(icon);
+
+    div1.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
+    // Pass lat and lng to addCamera function
+
+    customContextMenu.appendChild(div1);
     customContextMenu.style.cursor = "pointer";
-    customContextMenu.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
-
-    // class="fa fa-icon fa-${property.type}"
-   
-    
-
 
     const mapContainer = document.getElementById("map");
     mapContainer.appendChild(customContextMenu);
-  
+
     // Append the customContextMenu to the body
     document.body.appendChild(customContextMenu);
-  
+    
+
     return customContextMenu;
     
 }
 
 
-  
-  
 // Function to create and display a custom popup
 function displayPopup(content) {
-    // class="fa fa-icon fa-${property.type}"
     // Create a div element for the popup container
     const popupContainer = document.createElement("div");
     popupContainer.className = "popup";
+    popupContainer.style.left = window.innerWidth/2 + "px";
+    popupContainer.style.top = "100px";
     
     // Create a div for the popup content
     const popupContent = document.createElement("div");
@@ -180,16 +197,8 @@ function displayPopup(content) {
 
 // Function to simulate adding a camera and displaying latitude and longitude
 function addCamera(clickedLat, clickedLng) {
-    // Placeholder action - Display a custom popup when "Add Camera" is clicked
-    // const content = `Latitude: ${clickedLat}, Longitude: ${clickedLng}`;
+    window.location.href= "/add";
 
-    window.location.href ="/add";
-
-    /*
-    const popup = displayPopup(content);
-    popup.textContent = "Check the Add camera tab";
-    popup.style.display = 'block';
-    */
     localStorage.setItem('latitude', clickedLat);
     localStorage.setItem('longitude', clickedLng);
     
@@ -197,11 +206,6 @@ function addCamera(clickedLat, clickedLng) {
         currentContextMenu.remove();
         currentContextMenu = null; // Reset currentContextMenu reference
     }
-    /*
-    setTimeout(function() {
-        document.body.removeChild(popup); // Remove the popup from the DOM after 3 seconds
-    }, 2000); // Adjust the time as needed
-    */
 }
 
 function showPopup(message, property) {
@@ -212,10 +216,10 @@ function showPopup(message, property) {
     const popupText = document.getElementById('popupText'+ propertyId);
     popupText.textContent = message;
     popupElement.style.display = 'block';
-  
+
     // Close the popup after 2 seconds
     setTimeout(() => {
-      closePopup(property);
+        closePopup(property);
     }, 2000);
 }
 
@@ -257,6 +261,7 @@ function attachClosedButtonEventListener(markerElement, property) {
 function toggleHighlight(markerView, property) {
     const highlightZIndex = 1; // Set a value higher than other markers
     if (markerView.content.classList.contains("highlight")) {
+        markerView.content.querySelector(".videofeed>img").src = markerView.content.querySelector(".videofeed>img").src.replace("/video_feed","");
         markerView.content.classList.remove("highlight");
         markerView.zIndex = null;
     } else {
@@ -269,7 +274,6 @@ function attachLightSwitchEventListener(markerElement, property) {
     const lightSwitch = markerElement.content.querySelector(".tgl");
     lightSwitch.addEventListener("click", async (event) => {
         event.stopPropagation(); // Prevent the click event from propagating to the card
-
         const newStatus = toggleStatus(property.status);
         const url = `http://localhost:${property.port}`;
 

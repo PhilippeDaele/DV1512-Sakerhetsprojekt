@@ -10,8 +10,8 @@ from flask import Flask, request, Response
 from flask_cors import CORS
 import cv2
 
-logging.basicConfig(filename='output.log',
-                    level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
+logging.basicConfig(filename='output.log',level=logging.INFO,
+                    format='%(asctime)s [%(levelname)s] %(message)s')
 
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
@@ -57,7 +57,6 @@ def create_app(port):
 
     # Rate limiting configuration
     rate_limit_period = 60
-    #MAX_REQUESTS = 10  # Maximum requests allowed in the given period
     max_requests = 10
     tokens = max_requests
     last_request_time = time()
@@ -70,16 +69,19 @@ def create_app(port):
         current_time = time()
         elapsed_time = current_time - last_request_time
 
-        # Refill tokens based on elapsed time
-        tokens += elapsed_time * (max_requests / rate_limit_period)
-        tokens = min(max_requests, tokens)
+        if elapsed_time > rate_limit_period:
+            # Refill tokens based on elapsed time only if time period elapsed
+            tokens += (elapsed_time // rate_limit_period) * max_requests
+            tokens = min(max_requests, tokens)
+            last_request_time = current_time  # Update last request time
 
         # Check if there are enough tokens for the request
         if tokens >= 1:
             tokens -= 1
-            last_request_time = current_time
             return False  # Not rate-limited
+
         return True  # Rate-limited
+
 
     def gen_frames():  # generate frame by frame from camera
         #global frame_interval
