@@ -33,6 +33,8 @@ async function initMap() {
         
             const customContextMenu = createContextMenu(event);
         
+            
+        
             // Set position based on clientX and clientY relative to the map container
             customContextMenu.style.left = (event.pixel.x + window.innerWidth/6.7) + "px";
             customContextMenu.style.top = (event.pixel.y - 25) + "px";
@@ -51,6 +53,7 @@ async function initMap() {
             }
         });
     }
+    
 
 
     for (const property of properties) {
@@ -70,6 +73,8 @@ async function initMap() {
         }
         
         attachClosedButtonEventListener(markerElement, property);
+        
+        
 
         markerElement.addListener("click", () => {
             
@@ -124,23 +129,29 @@ function placeMarkerAndPanTo(latLng, map) {
     map.panTo(latLng);
 }
 
+
+
 function createContextMenu(event) {
     
     // Create a div element for the context menu
     const customContextMenu = document.createElement("div");
-    customContextMenu.className = "popup";
-    
-    // Create a ul element for the menu items
-    const ul = document.createElement("ul");
-    ul.style.padding = "0";
-    ul.style.margin = "0";
+    customContextMenu.className = "popup-icon";
+    customContextMenu.zIndex = 1;
 
-    // Create a li element for the "Add Camera" option
-    const li = document.createElement("li");
-    li.textContent = "Add Camera";
-    li.style.cursor = "pointer";
-    li.style.padding = "8px 15px";
-    li.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
+    const div1 = document.createElement("div");
+    div1.className = "property";
+
+    // Create an i element for the Font Awesome icon
+    const icon = document.createElement("i");
+    icon.className = "fa fa-plus-circle";
+    icon.setAttribute("aria-hidden", "true");
+    icon.style.width = "25px";
+    icon.style.height = "25px";
+
+    // Append the icon to div2
+    div1.appendChild(icon);
+
+    div1.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
     // Pass lat and lng to addCamera function
 
     customContextMenu.appendChild(div1);
@@ -151,6 +162,7 @@ function createContextMenu(event) {
 
     // Append the customContextMenu to the body
     document.body.appendChild(customContextMenu);
+    
 
     return customContextMenu;
     
@@ -307,6 +319,8 @@ function attachLightSwitchEventListener(markerElement, property) {
     });
 }
 
+
+
 function toggleStatus(status) {
     return status === 'Active' ? 'Inactive' : 'Active';
 }
@@ -341,6 +355,8 @@ function deleteCamera(markerElement, property) {
         });
     }
 }
+
+
 
 function buildContent(property) {
     const content = document.createElement("div");
@@ -399,6 +415,7 @@ function buildContent(property) {
         </div>
         `;
     }
+    
 
     return content;
 }
