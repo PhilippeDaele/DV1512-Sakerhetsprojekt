@@ -136,35 +136,55 @@ function placeMarkerAndPanTo(latLng, map) {
                 <span class="fa-sr-only">${property.type}</span>
         </div> */}
 
+function placeMarkerAndPanTo(latLng, map) {
+    new google.maps.Marker({
+        position: latLng,
+        map: map,
+    });
+    map.panTo(latLng);
+}
+
+
+
+{/* <div class="icon">
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <span class="fa-sr-only">${property.type}</span>
+        </div> */}
+
 function createContextMenu(event) {
+    
     // Create a div element for the context menu
     const customContextMenu = document.createElement("div");
-    customContextMenu.className = "popup-icon";
-
-    const div1 = document.createElement("div");
-    div1.className = "property";
-
-    // Create an i element for the Font Awesome icon
-    const icon = document.createElement("i");
-    icon.className = "fa fa-plus-circle";
-    icon.setAttribute("aria-hidden", "true");
-    icon.style.width = "25px";
-    icon.style.height = "25px";
-
-    // Append the icon to div2
-    div1.appendChild(icon);
-
-    div1.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
+    customContextMenu.className = "popup";
+    //customContextMenu.textContent = "Add Camera";
+    /*
+    customContextMenu.style.position = "absolute";
+    customContextMenu.style.background = "#fff";
+    customContextMenu.style.border = "1px solid #ccc";
+    customContextMenu.style.padding = "10px";
+    */
+    // Create a ul element for the menu items
+    const ul = document.createElement("ul");
+    ul.style.padding = "0";
+    ul.style.margin = "0";
+  
+    // Create a li element for the "Add Camera" option
+    const li = document.createElement("li");
+    li.textContent = "Add Camera";
+    li.style.cursor = "pointer";
+    li.style.padding = "8px 15px";
+    li.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
     // Pass lat and lng to addCamera function
 
     customContextMenu.appendChild(div1);
+    customContextMenu.style.cursor = "pointer";
 
     const mapContainer = document.getElementById("map");
     mapContainer.appendChild(customContextMenu);
 
     // Append the customContextMenu to the body
     document.body.appendChild(customContextMenu);
-
+  
     return customContextMenu;
     
 }
@@ -398,7 +418,7 @@ function buildContent(property) {
     else {
         content.innerHTML = `
         <div class="icon">
-                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}"></i>
                 <span class="fa-sr-only">${property.type}</span>
         </div>
         <div class="details">
