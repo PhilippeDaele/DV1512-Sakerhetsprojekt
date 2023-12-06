@@ -9,6 +9,7 @@ import time as tm
 from flask import Flask, request, Response
 from flask_cors import CORS
 import cv2
+from cv2 import cv2
 
 logging.basicConfig(filename='output.log',level=logging.INFO,
                     format='%(asctime)s [%(levelname)s] %(message)s')
@@ -26,6 +27,7 @@ def increase_frame_pos(num, frame_duration):
     t = threading.Timer(1.0, increase_frame_pos,(num,frame_duration))
     t.start()
     return t
+
 for i in range(CAMERA_COUNT):
     camera = cv2.VideoCapture(f"static/{i}.mp4")
     fps = camera.get(cv2.CAP_PROP_FPS)
@@ -84,9 +86,6 @@ def create_app(port):
 
 
     def gen_frames():  # generate frame by frame from camera
-        #global frame_interval
-        #global camera_frame_pos
-        #global camera_watching
         video_camera = cv2.VideoCapture(f"static/{port%CAMERA_COUNT}.mp4")
         video_camera.set(cv2.CAP_PROP_POS_FRAMES, camera_frame_pos[port%CAMERA_COUNT])
         while True:
@@ -105,10 +104,9 @@ def create_app(port):
                 frame = buffer.tobytes()
                 # concat frame one by one and show result
                 yield (b'--frame\r\n'
-                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  
+                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+                #tm.sleep(0.01)
                 camera_frame_pos[port%CAMERA_COUNT] = video_camera.get(cv2.CAP_PROP_POS_FRAMES)
-        # camera.release()
-        # cv.destroyAllWindows()
     @app.route('/video_feed')
     def video_feed():
         #Video streaming route. Put this in the src attribute of an img tag
@@ -205,8 +203,8 @@ def create_app(port):
         connect.close()
         app.logger.info("Sent from: %s, %s", request.remote_addr, request)
         for cam_info in fetch_all_camera_from_db():
-                if port == cam_info['port']:
-                    response = (
+            if port == cam_info['port']:
+                response = (
                     f"""\nStatus have changed \nName: {cam_info['cname']} \nPort: {port} """
                     f"""\nStatus: {new_status} \n"""
                 )
