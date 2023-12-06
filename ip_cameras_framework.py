@@ -1,6 +1,6 @@
 """Handeling the IP Cameras"""
 
-from time import time
+from time import sleep, time
 import threading
 import logging
 import sqlite3
@@ -106,7 +106,9 @@ def create_app(port):
                 # concat frame one by one and show result
                 yield (b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  
-                camera_frame_pos[port%CAMERA_COUNT] = video_camera.get(cv2.CAP_PROP_POS_FRAMES)
+                curr_pos = video_camera.get(cv2.CAP_PROP_POS_FRAMES)
+                sleep(0.01)
+                camera_frame_pos[port%CAMERA_COUNT] = curr_pos
         # camera.release()
         # cv.destroyAllWindows()
     @app.route('/video_feed')
