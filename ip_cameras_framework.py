@@ -108,7 +108,7 @@ def create_app(port):
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  
                 camera_frame_pos[port%CAMERA_COUNT] = video_camera.get(cv2.CAP_PROP_POS_FRAMES)
         # camera.release()
-        # cv2.destroyAllWindows()
+        # cv.destroyAllWindows()
     @app.route('/video_feed')
     def video_feed():
         #Video streaming route. Put this in the src attribute of an img tag
