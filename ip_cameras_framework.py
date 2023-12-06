@@ -204,10 +204,12 @@ def create_app(port):
         connect.commit()
         connect.close()
         app.logger.info("Sent from: %s, %s", request.remote_addr, request)
-        response = (
-            f"""\nStatus have changed \nName: {cam_name} \nPort: {port} """
-            f"""\nStatus: {new_status} \n"""
-        )
+        for cam_info in fetch_all_camera_from_db():
+                if port == cam_info['port']:
+                    response = (
+                    f"""\nStatus have changed \nName: {cam_info['cname']} \nPort: {port} """
+                    f"""\nStatus: {new_status} \n"""
+                )
         return response
 
     app.run(debug=False, port=port)
