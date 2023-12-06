@@ -142,63 +142,61 @@ def create_app(port):
                 json_data = json.dumps(data)
                 break
         return json_data
-                #return f"Name: {cam_name}, Port: {port}, Status: {cam_status}"
     @app.route('/')
     def index():
-        for cam_info in fetch_all_camera_from_db():
-            if port == cam_info['port']:
-                cam_name = cam_info['cname']
         if is_rate_limited('/'):
             connect = sqlite3.connect('database.db')
             cursor = connect.cursor()
             cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
             connect.commit()
             connect.close()
-            app.logger.warning(
-                "Sent from: %s, Rate limit exceeded. %s is set to Inactive.",
-                request.remote_addr,
-                cam_name
-            )
+            for cam_info in fetch_all_camera_from_db():
+                if port == cam_info['port']:
+                    app.logger.warning(
+                        "Sent from: %s, Rate limit exceeded. %s is set to Inactive.",
+                        request.remote_addr,
+                        cam_info['cname']
+                    )
             return "Rate limit exceeded. Please try again later.\n", 429
         app.logger.info("Sent from: %s, %s", request.remote_addr, request)
         return "The path / does not exist or is not handled."
+
     @app.route('/<path:path>', methods=['GET', 'POST'])  # Catch-all route for undefined paths
     def catch_all(path):
-        for cam_info in fetch_all_camera_from_db():
-            if port == cam_info['port']:
-                cam_name = cam_info['cname']
         if is_rate_limited('/<path:path>'):
             connect = sqlite3.connect('database.db')
             cursor = connect.cursor()
             cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
             connect.commit()
             connect.close()
-            app.logger.warning(
-                "Sent from: %s, Rate limit exceeded. %s is set to Inactive.",
-                request.remote_addr,
-                cam_name
-            )
-            return "Rate limit exceeded. Please try again later.\n", 429
+            for cam_info in fetch_all_camera_from_db():
+                if port == cam_info['port']:
+                    app.logger.warning(
+                        "Sent from: %s, Rate limit exceeded. %s is set to Inactive.",
+                        request.remote_addr,
+                        cam_info['cname']
+                    )
+            return "Rate limit exceeded. Please call admin to reboot Camera.\n", 429
         app.logger.info("Sent from: %s, %s", request.remote_addr, request)
         return f"The path '{path}' does not exist or is not handled."
+
     @app.route('/set_status', methods=['GET'])
     def set_status():
-        # Check rate limit before processing the request
-        for cam_info in fetch_all_camera_from_db():
-            if port == cam_info['port']:
-                cam_name = cam_info['cname']
         if is_rate_limited('/set_status'):
             connect = sqlite3.connect('database.db')
             cursor = connect.cursor()
             cursor.execute(f"UPDATE t_cameras SET status='Inactive' WHERE port = '{port}'")
             connect.commit()
             connect.close()
-            app.logger.warning(
-                "Sent from: %s, Rate limit exceeded. %s is set to Inactive.",
-                request.remote_addr,
-                cam_name
-            )
+            for cam_info in fetch_all_camera_from_db():
+                if port == cam_info['port']:
+                    app.logger.warning(
+                        "Sent from: %s, Rate limit exceeded. %s is set to Inactive.",
+                        request.remote_addr,
+                        cam_info['cname']
+                    )
             return "Rate limit exceeded. Please try again later.\n", 429
+        # Check rate limit before processing the request
         new_status = request.args.get('new_status')
         connect = sqlite3.connect('database.db')
         cursor = connect.cursor()
@@ -210,7 +208,6 @@ def create_app(port):
             f"""\nStatus have changed \nName: {cam_name} \nPort: {port} """
             f"""\nStatus: {new_status} \n"""
         )
-
         return response
 
     app.run(debug=False, port=port)
