@@ -3,7 +3,7 @@ from flask_cors import CORS
 import threading
 import logging
 import sqlite3
-import cv2
+import cv2 as cv
 from time import sleep, time
 from io import BytesIO
 import json
@@ -23,9 +23,9 @@ def increase_frame_pos(num,duration):
     t.start()
     return t
 for i in range(CAMERA_COUNT):
-    camera = cv2.VideoCapture(f"static/{i}.mp4")
-    fps = camera.get(cv2.CAP_PROP_FPS)
-    frame_count = int(camera.get(cv2.CAP_PROP_FRAME_COUNT))
+    camera = cv.VideoCapture(f"static/{i}.mp4")
+    fps = camera.get(cv.CAP_PROP_FPS)
+    frame_count = int(camera.get(cv.CAP_PROP_FRAME_COUNT))
     duration = frame_count / fps
     frame_interval[i] = increase_frame_pos(i,duration)
 
@@ -78,26 +78,28 @@ def create_app(port):
         global frame_interval
         global camera_frame_pos
         global camera_watching
-        camera = cv2.VideoCapture(f"static/{port%CAMERA_COUNT}.mp4")
-        camera.set(cv2.CAP_PROP_POS_FRAMES, camera_frame_pos[port%CAMERA_COUNT])
+        camera = cv.VideoCapture(f"static/{port%CAMERA_COUNT}.mp4")
+        camera.set(cv.CAP_PROP_POS_FRAMES, camera_frame_pos[port%CAMERA_COUNT])
         while True:
             # Capture frame-by-frame
             success, frame = camera.read()  # read the camera frame
             if not success:
                 try:
-                    camera.set(cv2.CAP_PROP_POS_FRAMES,0)
+                    camera.set(cv.CAP_PROP_POS_FRAMES,0)
                     camera_frame_pos[port%CAMERA_COUNT] = 0
                     continue
                 except:
                     break
             else:
-                ret, buffer = cv2.imencode('.jpg', frame)
+                ret, buffer = cv.imencode('.jpg', frame)
                 frame = buffer.tobytes()
                 yield (b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
-                camera_frame_pos[port%CAMERA_COUNT] = camera.get(cv2.CAP_PROP_POS_FRAMES)
+                curr_frame = camera.get(cv.CAP_PROP_POS_FRAMES)
+                sleep(0.01)
+                camera_frame_pos[port%CAMERA_COUNT] = curr_frame
         # camera.release()
-        # cv2.destroyAllWindows()
+        # cv.destroyAllWindows()
     @app.route('/video_feed')
     def video_feed():
         #Video streaming route. Put this in the src attribute of an img tag
