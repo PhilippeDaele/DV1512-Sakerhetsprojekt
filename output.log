@@ -136,3 +136,6 @@
 2023-11-18 17:23:08,927 [WARNING] Possible SQL Attack: Username: admin' AND 1=1;--, Password: , Sent from: 127.0.0.1
 2023-11-18 17:23:42,622 [WARNING] Possible SQL Attack: Username: ' OR 1=1;--, Password: , Sent from: 127.0.0.1
 2023-11-18 17:24:47,183 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-06 13:12:44,156 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-06 13:16:16,045 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-06 13:16:44,548 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>

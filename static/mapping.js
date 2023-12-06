@@ -131,38 +131,12 @@ function placeMarkerAndPanTo(latLng, map) {
 
 
 
-{/* <div class="icon">
-                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
-                <span class="fa-sr-only">${property.type}</span>
-        </div> */}
-
-function placeMarkerAndPanTo(latLng, map) {
-    new google.maps.Marker({
-        position: latLng,
-        map: map,
-    });
-    map.panTo(latLng);
-}
-
-
-
-{/* <div class="icon">
-                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
-                <span class="fa-sr-only">${property.type}</span>
-        </div> */}
-
 function createContextMenu(event) {
     
     // Create a div element for the context menu
     const customContextMenu = document.createElement("div");
     customContextMenu.className = "popup";
-    //customContextMenu.textContent = "Add Camera";
-    /*
-    customContextMenu.style.position = "absolute";
-    customContextMenu.style.background = "#fff";
-    customContextMenu.style.border = "1px solid #ccc";
-    customContextMenu.style.padding = "10px";
-    */
+    
     // Create a ul element for the menu items
     const ul = document.createElement("ul");
     ul.style.padding = "0";
