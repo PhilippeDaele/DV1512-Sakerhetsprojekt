@@ -84,7 +84,7 @@ p.sidepanel-urls {
 }
 .fa, .fas, .svg-inline--fa{
     padding: 2px;
-    margin-right: 8px;
+    margin-right: 6px;
     margin-left: 6px;
     text-shadow: 1px 1px 2px #1d1d19;
     color: #ffffff;
@@ -100,42 +100,9 @@ p.sidepanel-urls {
     height: 30px;
 }
 
-/*
-
-body::before{
-    content: ' ';
-    position: fixed;
-    top: 0px;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    filter: blur(3px) opacity(0.9);
-    background-image: url('/static/background2.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position-y: -160px;
-    z-index: -1;
-
-}
-body::after{
-    content: ' ';
-    position: fixed;
-    top: 0px;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background: gray;
-    z-index: -1;
-    filter: opacity(0.6);
-}
-
-*/
 
 #style-3 {
 	position: relative;
-
 
 	&::before {
 		content: '';
@@ -185,7 +152,6 @@ body::after{
     display: grid;
     grid-template-columns: repeat(4,auto);
     justify-content: center;
-    /*max-width: fit-content;*/
     font-family: 'Lato', sans-serif;
     max-height: 90%;
     overflow-y: auto;
@@ -238,17 +204,6 @@ body::after{
 }
 
 .device-container{
-    
-    /* float: left;
-    display: block;
-    width: fit-content;
-    height: 300px;
-    margin: 20px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 25px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35); */
-
-    
     float: left;
     display: block;
     width:  fit-content;
@@ -293,8 +248,6 @@ body::after{
     margin-left: 10%;
     background-color: white;
 }
-
-
 
 .tgl {
 	display: none;

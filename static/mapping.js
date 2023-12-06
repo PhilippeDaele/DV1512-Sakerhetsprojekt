@@ -36,8 +36,8 @@ async function initMap() {
             
         
             // Set position based on clientX and clientY relative to the map container
-            customContextMenu.style.left = (event.pixel.x + 275) + "px";
-            customContextMenu.style.top = (event.pixel.y) + "px";
+            customContextMenu.style.left = (event.pixel.x + window.innerWidth/6.7) + "px";
+            customContextMenu.style.top = (event.pixel.y - 25) + "px";
             customContextMenu.style.display = "block";
 
             // Store the current context menu reference
@@ -54,7 +54,7 @@ async function initMap() {
         });
     }
     
-      
+
 
     for (const property of properties) {
         const markerElement = new google.maps.marker.AdvancedMarkerElement({
@@ -117,55 +117,65 @@ async function initMap() {
                 currentHighlightedMarker = markerElement;
             }
         });
+
     }
 }
 
+function placeMarkerAndPanTo(latLng, map) {
+    new google.maps.Marker({
+        position: latLng,
+        map: map,
+    });
+    map.panTo(latLng);
+}
+
+
+
 function createContextMenu(event) {
+    
     // Create a div element for the context menu
     const customContextMenu = document.createElement("div");
-    customContextMenu.className = "popup";
-    //customContextMenu.textContent = "Add Camera";
-    /*
-    customContextMenu.style.position = "absolute";
-    customContextMenu.style.background = "#fff";
-    customContextMenu.style.border = "1px solid #ccc";
-    customContextMenu.style.padding = "10px";
-    */
-    // Create a ul element for the menu items
-    const ul = document.createElement("ul");
-    ul.style.padding = "0";
-    ul.style.margin = "0";
-  
-    // Create a li element for the "Add Camera" option
-    const li = document.createElement("li");
-    li.textContent = "Add Camera";
-    li.style.cursor = "pointer";
-    li.style.padding = "8px 15px";
-    li.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
+    customContextMenu.className = "popup-icon";
+    customContextMenu.zIndex = 1;
+
+    const div1 = document.createElement("div");
+    div1.className = "property";
+
+    // Create an i element for the Font Awesome icon
+    const icon = document.createElement("i");
+    icon.className = "fa fa-plus-circle";
+    icon.setAttribute("aria-hidden", "true");
+    icon.style.width = "25px";
+    icon.style.height = "25px";
+
+    // Append the icon to div2
+    div1.appendChild(icon);
+
+    div1.addEventListener("click", () => addCamera(event.latLng.lat(), event.latLng.lng())); 
     // Pass lat and lng to addCamera function
-  
-    // Append the li to the ul, and ul to the customContextMenu
-    ul.appendChild(li);
-    customContextMenu.appendChild(ul);
+
+    customContextMenu.appendChild(div1);
+    customContextMenu.style.cursor = "pointer";
 
     const mapContainer = document.getElementById("map");
     mapContainer.appendChild(customContextMenu);
-  
+
     // Append the customContextMenu to the body
     document.body.appendChild(customContextMenu);
-  
+    
+
     return customContextMenu;
     
 }
 
 
-  
-  
 // Function to create and display a custom popup
 function displayPopup(content) {
     // Create a div element for the popup container
     const popupContainer = document.createElement("div");
     popupContainer.className = "popup";
+    popupContainer.style.left = window.innerWidth/2 + "px";
+    popupContainer.style.top = "100px";
     
     // Create a div for the popup content
     const popupContent = document.createElement("div");
@@ -182,12 +192,8 @@ function displayPopup(content) {
 
 // Function to simulate adding a camera and displaying latitude and longitude
 function addCamera(clickedLat, clickedLng) {
-    // Placeholder action - Display a custom popup when "Add Camera" is clicked
-    const content = `Latitude: ${clickedLat}, Longitude: ${clickedLng}`;
-    const popup = displayPopup(content);
-    popup.textContent = "Check the Add camera tab";
-    popup.style.display = 'block';
-    
+    window.location.href= "/add";
+
     localStorage.setItem('latitude', clickedLat);
     localStorage.setItem('longitude', clickedLng);
     
@@ -195,10 +201,6 @@ function addCamera(clickedLat, clickedLng) {
         currentContextMenu.remove();
         currentContextMenu = null; // Reset currentContextMenu reference
     }
-
-    setTimeout(function() {
-        document.body.removeChild(popup); // Remove the popup from the DOM after 3 seconds
-    }, 2000); // Adjust the time as needed
 }
 
 function showPopup(message, property) {
@@ -209,9 +211,10 @@ function showPopup(message, property) {
     const popupText = document.getElementById('popupText'+ propertyId);
     popupText.textContent = message;
     popupElement.style.display = 'block';
+
     // Close the popup after 2 seconds
     setTimeout(() => {
-      closePopup(property);
+        closePopup(property);
     }, 2000);
 }
 
@@ -394,7 +397,7 @@ function buildContent(property) {
     else {
         content.innerHTML = `
         <div class="icon">
-                <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+                <i aria-hidden="true" class="fa fa-icon fa-${property.type}"></i>
                 <span class="fa-sr-only">${property.type}</span>
         </div>
         <div class="details">
