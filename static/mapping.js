@@ -33,8 +33,6 @@ async function initMap() {
         
             const customContextMenu = createContextMenu(event);
         
-            
-        
             // Set position based on clientX and clientY relative to the map container
             customContextMenu.style.left = (event.pixel.x + window.innerWidth/6.7) + "px";
             customContextMenu.style.top = (event.pixel.y - 25) + "px";
@@ -53,7 +51,6 @@ async function initMap() {
             }
         });
     }
-    
 
 
     for (const property of properties) {
@@ -73,8 +70,6 @@ async function initMap() {
         }
         
         attachClosedButtonEventListener(markerElement, property);
-        
-        
 
         markerElement.addListener("click", () => {
             
@@ -129,8 +124,6 @@ function placeMarkerAndPanTo(latLng, map) {
     map.panTo(latLng);
 }
 
-
-
 function createContextMenu(event) {
     
     // Create a div element for the context menu
@@ -141,7 +134,7 @@ function createContextMenu(event) {
     const ul = document.createElement("ul");
     ul.style.padding = "0";
     ul.style.margin = "0";
-  
+
     // Create a li element for the "Add Camera" option
     const li = document.createElement("li");
     li.textContent = "Add Camera";
@@ -158,7 +151,7 @@ function createContextMenu(event) {
 
     // Append the customContextMenu to the body
     document.body.appendChild(customContextMenu);
-  
+
     return customContextMenu;
     
 }
@@ -314,8 +307,6 @@ function attachLightSwitchEventListener(markerElement, property) {
     });
 }
 
-
-
 function toggleStatus(status) {
     return status === 'Active' ? 'Inactive' : 'Active';
 }
@@ -350,8 +341,6 @@ function deleteCamera(markerElement, property) {
         });
     }
 }
-
-
 
 function buildContent(property) {
     const content = document.createElement("div");
@@ -410,7 +399,6 @@ function buildContent(property) {
         </div>
         `;
     }
-    
 
     return content;
 }
