@@ -114,7 +114,7 @@ def add_camera():
     # {port}, 'Inactive', {latitude}, {longitude})")
     add_connect.commit()
     add_connect.close()
-    app.logger.info(f"Camera created: {cname}, {port}")
+    app.logger.info("Camera created: %s, %s", cname, port)
     return redirect('/')
 
 @app.route('/camera_hub')
@@ -196,5 +196,4 @@ def login_user():
     return show_login_page()
 
 if __name__ == '__main__':
-    
     app.run(debug=True)
