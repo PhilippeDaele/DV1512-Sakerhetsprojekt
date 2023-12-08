@@ -85,7 +85,10 @@ def create_app(port):
 
 
     def gen_frames():  # generate frame by frame from camera
-        video_camera = cv2.VideoCapture(f"static/{port%CAMERA_COUNT}.mp4")
+        if json.loads(get_status())["Status"] == "Active":
+            video_camera = cv2.VideoCapture(f"static/{port%CAMERA_COUNT}.mp4")
+        else:
+            video_camera = cv2.VideoCapture(f"static/CameraOffline.mp4")
         video_camera.set(cv2.CAP_PROP_POS_FRAMES, camera_frame_pos[port%CAMERA_COUNT])
         while True:
             # Capture frame-by-frame
@@ -104,14 +107,12 @@ def create_app(port):
                 # concat frame one by one and show result
                 yield (b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-                #tm.sleep(0.01)
+                tm.sleep(0.008)
                 camera_frame_pos[port%CAMERA_COUNT] = video_camera.get(cv2.CAP_PROP_POS_FRAMES)
     @app.route('/video_feed')
     def video_feed():
         #Video streaming route. Put this in the src attribute of an img tag
-        if json.loads(get_status())["Status"] == "Active":
-            return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-        else: return "Camera is Inactive"
+        return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
     @app.route('/reset-rate-limit')
     def reset_rate_limit_route():
