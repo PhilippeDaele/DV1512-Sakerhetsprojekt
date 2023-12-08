@@ -42,7 +42,7 @@ make clean
 ## Authors
 
 - [Philippe Van Daele](https://www.github.com/PhilippeDaele)
-- [Marcus Björnbäck](https://www.github.com/PhilippeDaele)
+- [Marcus Björnbäck](https://github.com/maRkyB0019)
 - [Xiao Zhu](https://www.github.com/PhilippeDaele)
 - [Le Hoang Long Bui](https://www.github.com/PhilippeDaele)
 - [Al Ghaith Ahmad](https://www.github.com/PhilippeDaele)
