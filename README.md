@@ -8,6 +8,7 @@ In today's digital landscape, security is paramount for any software development
    * Reboot cameras if they are down
    * See log for changes
    * Change status for each camera
+   * See the camera feed
 - As a normal user you are able to
    * See status for each camera
 - Functional database
