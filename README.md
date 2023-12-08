@@ -35,7 +35,7 @@ make clean
     
 ## Acknowledgements
 
-- [Blekinge Institute of Technology](www.bth.se)
+- [Blekinge Institute of Technology] (www.bth.se)
 - [Oleksandr Adamov](https://www.bth.se/?s=Oleksandr%20Adamov&searchtype=employee)
 - [Nina Dzamashvili Fogelström](https://www.bth.se/?s=Oleksandr+Adamov&searchtype=employee&employee-filter=&s=Nina+Dzamashvili+Fogelstr%C3%B6m+)
 
