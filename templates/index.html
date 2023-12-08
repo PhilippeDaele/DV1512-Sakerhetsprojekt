@@ -5,6 +5,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/new_main.css')}}">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // This script will dynamically load the mapping.js file
+    const mappingScript = document.createElement('script');
+    mappingScript.type = 'module';
+    mappingScript.src = '{{ url_for('static', filename='mapping.js') }}';
+    document.head.appendChild(mappingScript);
+</script>
 {% endblock %}
 
 {% block body %}    
@@ -39,6 +46,6 @@
         },1000);
     });
 </script>
-
-<script type="module" src="{{ url_for('static', filename='mapping.js') }}"></script>
+<!--Dont forget to remove this in the future-->
+<!--<script type="module" src="{{ url_for('static', filename='control.js') }}"></script>-->
 {% endblock %}
