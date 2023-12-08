@@ -9,7 +9,6 @@ import time as tm
 from flask import Flask, request, Response
 from flask_cors import CORS
 import cv2
-from cv2 import cv2
 
 logging.basicConfig(filename='output.log',level=logging.INFO,
                     format='%(asctime)s [%(levelname)s] %(message)s')
