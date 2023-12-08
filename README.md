@@ -43,7 +43,7 @@ make clean
 
 - [Philippe Van Daele](https://www.github.com/PhilippeDaele)
 - [Marcus Björnbäck](https://github.com/maRkyB0019)
-- [Xiao Zhu](https://www.github.com/PhilippeDaele)
-- [Le Hoang Long Bui](https://www.github.com/PhilippeDaele)
-- [Al Ghaith Ahmad](https://www.github.com/PhilippeDaele)
+- [Xiao Zhu](https://github.com/imsanqian)
+- [Le Hoang Long Bui](https://github.com/LeHoangLong2610)
+- [Al Ghaith Ahmad](hhttps://github.com/ghaithahmad)
 
