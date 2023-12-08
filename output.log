@@ -139,3 +139,206 @@
 2023-12-06 13:12:44,156 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
 2023-12-06 13:16:16,045 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
 2023-12-06 13:16:44,548 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:02:59,744 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-08 14:03:26,123 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-08 14:04:00,593 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-08 14:04:03,769 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    if get_status()["Status"] == "Active":
+TypeError: string indices must be integers
+2023-12-08 14:04:03,865 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-08 14:04:13,876 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    if get_status()["Status"] == "Active":
+TypeError: string indices must be integers
+2023-12-08 14:04:13,958 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:04:44,065 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 113, in video_feed
+    if get_status()["Status"] == "Active":
+TypeError: string indices must be integers
+2023-12-08 14:04:44,131 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:05:02,294 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(get_status()["Status"])
+TypeError: string indices must be integers
+2023-12-08 14:05:02,344 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:05:39,788 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(get_status().Status)
+AttributeError: 'str' object has no attribute 'Status'
+2023-12-08 14:05:39,835 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:07:08,744 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(json.load(get_status()).Status)
+  File "C:\Users\sanqian\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2023-12-08 14:07:08,792 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:07:27,901 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(json.load(get_status()).Status)
+  File "C:\Users\sanqian\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2023-12-08 14:07:27,946 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:07:29,653 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(json.load(get_status()).Status)
+  File "C:\Users\sanqian\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2023-12-08 14:07:29,958 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:09:05,224 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5004/favicon.ico' [GET]>
+2023-12-08 14:09:08,050 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5005/favicon.ico' [GET]>
+2023-12-08 14:09:27,419 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5005/favicon.ico' [GET]>
+2023-12-08 14:18:52,738 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-08 14:19:01,351 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5008/' [GET]>
+2023-12-08 14:19:03,195 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:19:26,090 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-08 14:22:58,692 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:23:01,660 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5004/' [GET]>
+2023-12-08 14:23:04,059 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5004/' [GET]>
+2023-12-08 14:23:08,039 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5004/' [GET]>
+2023-12-08 14:23:16,738 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5004/' [GET]>
+2023-12-08 14:23:24,050 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5004/' [GET]>
+2023-12-08 14:23:27,240 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:23:30,238 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:23:30,877 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:23:32,137 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:23:48,405 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:23:59,923 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:24:03,122 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:24:05,464 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:24:13,431 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:24:14,701 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:24:18,755 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:24:21,131 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:24:59,463 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:25:17,572 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:26:35,058 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:26:37,891 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:26:40,416 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:27:01,397 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5004/' [GET]>
+2023-12-08 14:27:03,420 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:27:05,115 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:27:05,826 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:27:26,042 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
+2023-12-08 14:27:29,898 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:27:31,727 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:27:31,912 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:28:19,910 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:28:21,314 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:28:22,875 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:29:36,568 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/' [GET]>
+2023-12-08 14:29:39,465 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:29:43,109 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:29:43,723 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:30:48,421 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:30:52,287 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:31:11,276 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:31:12,884 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:31:25,488 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:31:28,922 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:31:30,643 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:31:39,815 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:31:43,947 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:31:45,295 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:32:00,296 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:32:01,946 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:32:06,223 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:32:08,981 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:32:32,590 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:32:33,928 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:32:37,953 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:32:39,315 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:32:41,083 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Inactive' [GET]>
+2023-12-08 14:32:43,037 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/set_status?new_status=Active' [GET]>
+2023-12-08 14:32:45,685 [WARNING] Sent from: 127.0.0.1, Rate limit exceeded. Cam1 is set to Inactive.

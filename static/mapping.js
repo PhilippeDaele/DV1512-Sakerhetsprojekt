@@ -99,19 +99,17 @@ async function initMap() {
                         property.status = JSON.parse(data).Status;
                         const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
                         statusElement.innerHTML = "Status: " + property.status;
-                        if (property.status === 'Inactive') {
-                            imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
-                        } else {
+                        // if (property.status === 'Inactive') {
+                        //     imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
+                        // } else {
                             // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
                             imageElement.src = url+'/video_feed'; // Change the source back to the active image
-                        }
+                        // }
                         if (checkbox) {
                             checkbox.checked = property.status === 'Active';
                         }
                     }
-                    if (property.status != 'Inactive') {
-                        imageElement.src = url+'/video_feed';; // Change the source to the offline image
-                    }
+                    imageElement.src = url+'/video_feed';; // Change the source to the offline image
                 })
                 toggleHighlight(markerElement, property);
                 currentHighlightedMarker = markerElement;
@@ -284,13 +282,15 @@ function attachLightSwitchEventListener(markerElement, property) {
                 let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
                 if (statusElement) {
-                    if (property.status === 'Inactive') {
-                        imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
-                    } else {
-                        // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
-                        imageElement.src = url+'/video_feed'; // Change the source back to the active image
+                    imageElement.src = ''; // Change the source to the offline image
 
-                    }
+                    // if (property.status === 'Inactive') {
+                    //     imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
+                    // } else {
+                        // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                        setTimeout(function(){imageElement.src = url+'/video_feed';},1)// Change the source back to the active image
+
+                    // }
                     statusElement.innerHTML = "Status: " + newStatus;
                 }
 
@@ -305,6 +305,7 @@ function attachLightSwitchEventListener(markerElement, property) {
                 let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
                 imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
+                // imageElement.src = url+'/video_feed';
                 statusElement.innerHTML = "Status: " + property.status;
                 const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
                 if (checkbox) {
