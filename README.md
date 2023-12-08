@@ -45,5 +45,5 @@ make clean
 - [Marcus Björnbäck](https://github.com/maRkyB0019)
 - [Xiao Zhu](https://github.com/imsanqian)
 - [Le Hoang Long Bui](https://github.com/LeHoangLong2610)
-- [Al Ghaith Ahmad](hhttps://github.com/ghaithahmad)
+- [Al Ghaith Ahmad](https://github.com/ghaithahmad)
 
