@@ -3,7 +3,13 @@
 In today's digital landscape, security is paramount for any software development project, especially when it involves web applications. This project will delve into a software development project with a primary focus on security. The project aims to create a website that simulates surveillance cameras and provides users the ability to switch them on and off at will. However, the unique aspect of this project lies in its emphasis on identifying and mitigating potential security vulnerabilities through attack simulations.
 
 ## Features
-- Ability to add cameras
+- As Admin you are able to
+   * Ability to add and delete cameras
+   * Reboot cameras if they are down
+   * See log for changes
+   * Change status for each camera
+- As a normal user you are able to
+   * See status for each camera
 - Functional database
 - Responsive website
 - Google Maps
