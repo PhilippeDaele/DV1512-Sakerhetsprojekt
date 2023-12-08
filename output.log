@@ -139,3 +139,143 @@
 2023-12-06 13:12:44,156 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
 2023-12-06 13:16:16,045 [INFO] Username: admin, Password: admin, Sent from: 127.0.0.1
 2023-12-06 13:16:44,548 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/' [GET]>
+2023-12-08 14:02:59,744 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-08 14:03:26,123 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-08 14:04:00,593 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-08 14:04:03,769 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    if get_status()["Status"] == "Active":
+TypeError: string indices must be integers
+2023-12-08 14:04:03,865 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5001/favicon.ico' [GET]>
+2023-12-08 14:04:13,876 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    if get_status()["Status"] == "Active":
+TypeError: string indices must be integers
+2023-12-08 14:04:13,958 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:04:44,065 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 113, in video_feed
+    if get_status()["Status"] == "Active":
+TypeError: string indices must be integers
+2023-12-08 14:04:44,131 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:05:02,294 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(get_status()["Status"])
+TypeError: string indices must be integers
+2023-12-08 14:05:02,344 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:05:39,788 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(get_status().Status)
+AttributeError: 'str' object has no attribute 'Status'
+2023-12-08 14:05:39,835 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:07:08,744 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(json.load(get_status()).Status)
+  File "C:\Users\sanqian\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2023-12-08 14:07:08,792 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:07:27,901 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(json.load(get_status()).Status)
+  File "C:\Users\sanqian\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2023-12-08 14:07:27,946 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:07:29,653 [ERROR] Exception on /video_feed [GET]
+Traceback (most recent call last):
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\.venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\sanqian\Desktop\S\xe4kerhetsprojekt\DV1512-Sakerhetsprojekt\ip_cameras_framework.py", line 112, in video_feed
+    print(json.load(get_status()).Status)
+  File "C:\Users\sanqian\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2023-12-08 14:07:29,958 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5002/favicon.ico' [GET]>
+2023-12-08 14:09:05,224 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5004/favicon.ico' [GET]>
+2023-12-08 14:09:08,050 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5005/favicon.ico' [GET]>
+2023-12-08 14:09:27,419 [INFO] Sent from: 127.0.0.1, <Request 'http://localhost:5005/favicon.ico' [GET]>

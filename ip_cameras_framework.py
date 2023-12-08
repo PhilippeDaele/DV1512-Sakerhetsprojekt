@@ -9,7 +9,6 @@ import time as tm
 from flask import Flask, request, Response
 from flask_cors import CORS
 import cv2
-from cv2 import cv2
 
 logging.basicConfig(filename='output.log',level=logging.INFO,
                     format='%(asctime)s [%(levelname)s] %(message)s')
@@ -110,7 +109,9 @@ def create_app(port):
     @app.route('/video_feed')
     def video_feed():
         #Video streaming route. Put this in the src attribute of an img tag
-        return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+        if json.loads(get_status())["Status"] == "Active":
+            return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+        else: return "Camera is Inactive"
 
     @app.route('/reset-rate-limit')
     def reset_rate_limit_route():
