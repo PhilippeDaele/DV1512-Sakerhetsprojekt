@@ -93,23 +93,35 @@ async function initMap() {
                     return response.text();
                 })
                 .then(data => {
-                    let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                     let imageElement = markerElement.content.querySelector('.videofeed img');
-                    if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
-                        property.status = JSON.parse(data).Status;
-                        const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
-                        statusElement.innerHTML = "Status: " + property.status;
-                        // if (property.status === 'Inactive') {
-                        //     imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
-                        // } else {
-                            // imageElement.src = '/static/video-evidence-900.jpg'; // Change the source back to the active image
+                    if (userData == 'admin') {
+                        let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
+                        if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
+                            property.status = JSON.parse(data).Status;
+                            const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
+                            statusElement.innerHTML = "Status: " + property.status;
                             imageElement.src = url+'/video_feed'; // Change the source back to the active image
-                        // }
-                        if (checkbox) {
-                            checkbox.checked = property.status === 'Active';
+                            
+                            if (checkbox) {
+                                checkbox.checked = property.status === 'Active';
+                            }
                         }
+                        imageElement.src = url+'/video_feed';; // Change the source to the offline image
                     }
-                    imageElement.src = url+'/video_feed';; // Change the source to the offline image
+                    else {
+                        let statusElement = markerElement.content.querySelector('.details h3:nth-child(3)').nextElementSibling;
+                        if (statusElement.innerHTML !== "Status: " + JSON.parse(data).Status){
+                            property.status = JSON.parse(data).Status;
+                            const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
+                            statusElement.innerHTML = "Status: " + property.status;
+                            imageElement.src = url+'/video_feed'; // Change the source back to the active image
+                            
+                            if (checkbox) {
+                                checkbox.checked = property.status === 'Active';
+                            }
+                        }
+                        imageElement.src = url+'/video_feed';; // Change the source to the offline image
+                    }
                 })
                 toggleHighlight(markerElement, property);
                 currentHighlightedMarker = markerElement;
