@@ -41,13 +41,15 @@ The last 2 attacks were implemented in a bash script that can be run in the cons
 
 * chmod +x SpyCam.sh
 * ./SpyCam.sh
-  The script will explain each step you have to take to run a successfull attack against the simulation.
+
+The script will explain each step you have to take to run a successfull attack against the simulation.
+
 But you can also run it in the browser if you move into the folder called pyxtermjs or check out this github https://github.com/cs01/pyxtermjs.
 If you clone the project from his repository you need to change the port it starts to from port 5000 to something like 7000. (This is done already in the folder provided in our repository)
 
 
 ## High-level overview
-The project is mainly written with python3, JS, HTML and CSS with google maps used for the map seen on the front page overview.
+The project is mainly written with python3, JS, HTML and CSS with google maps used for the map seen on the front page overview. Should be run within ubuntu on a VM of your choosing. 
 The cameras and frontend is run with python flask. Since we cant simulate real cameras we had to create a framework that acted as the cameras. 
 This made the simulation almost entirely work with the http-request as the communication protocol. 
 
