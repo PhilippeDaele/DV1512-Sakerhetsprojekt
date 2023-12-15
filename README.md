@@ -41,8 +41,7 @@ The last 2 attacks were implemented in a bash script that can be run in the cons
 
 * chmod +x SpyCam.sh
 * ./SpyCam.sh
-But you can also run it in the browser if you move into the folder called pyxtermjs or check out this github \n
-https://github.com/cs01/pyxtermjs
+But you can also run it in the browser if you move into the folder called pyxtermjs or check out this github https://github.com/cs01/pyxtermjs.
 If you clone the project from his repository you need to change the port it starts to from port 5000 to something like 7000. (This is done already in the folder provided in our repository)
 The script will explain each step you have to take to run a successfull attack against the simulation.
 
