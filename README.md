@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```
 To run the simulation
 ```bash
-  make
+make
 ```
 To turn off and clean up the running processes
 ```
