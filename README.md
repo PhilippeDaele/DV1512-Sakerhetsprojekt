@@ -24,7 +24,7 @@ In today's digital landscape, security is paramount for any software development
 ## Installation
 
 Download/clone the project and run in terminal
-```bash
+1. ```bash
 pip install -r requirements.txt
 ```
 
