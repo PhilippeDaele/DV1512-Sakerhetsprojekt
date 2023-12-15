@@ -266,7 +266,7 @@ function attachClosedButtonEventListener(markerElement, property) {
 function toggleHighlight(markerView, property) {
     const highlightZIndex = 1; // Set a value higher than other markers
     if (markerView.content.classList.contains("highlight")) {
-        markerView.content.querySelector(".videofeed>img").src = markerView.content.querySelector(".videofeed>img").src.replace("/video_feed","");
+        markerView.content.querySelector(".videofeed img").src = markerView.content.querySelector(".videofeed img").src.replace("/video_feed","");
         markerView.content.classList.remove("highlight");
         markerView.zIndex = null;
     } else {
@@ -316,8 +316,8 @@ function attachLightSwitchEventListener(markerElement, property) {
                 property.status = 'Inactive';
                 let statusElement = markerElement.content.querySelector('.details h3:nth-child(6)').nextElementSibling;
                 let imageElement = markerElement.content.querySelector('.videofeed img');
-                imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
-                // imageElement.src = url+'/video_feed';
+                //imageElement.src = '/static/cameraoffline.jpg'; // Change the source to the offline image
+                imageElement.src = url+'/video_feed';
                 statusElement.innerHTML = "Status: " + property.status;
                 const checkbox = markerElement.content.querySelector(`#cb${property.id}`);
                 if (checkbox) {
