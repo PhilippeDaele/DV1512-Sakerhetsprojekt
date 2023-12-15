@@ -5,7 +5,7 @@ In today's digital landscape, security is paramount for any software development
 ## Features
 - Login page
 - As Admin you are able to
-   * Ability to add and delete cameras
+   * Ability to add and delete cameras (Add cameras with rightclick)
    * Reboot cameras if they are down
    * See log for changes
    * Change status for each camera
@@ -48,8 +48,13 @@ The script will explain each step you have to take to run a successfull attack a
 The project is mainly written with python3, JS, HTML and CSS with google maps used for the map seen on the front page overview.
 The cameras and frontend is run with python flask. Since we cant simulate real cameras we had to create a framework that acted as the cameras. 
 This made the simulation almost entirely work with the http-request as the communication protocol. 
-![bild](https://github.com/PhilippeDaele/DV1512-Sakerhetsprojekt/assets/99668019/0b9295e4-19f4-4c7e-8d66-4e15f4c4eb51)
 
+![bild](https://github.com/PhilippeDaele/DV1512-Sakerhetsprojekt/assets/99668019/0b9295e4-19f4-4c7e-8d66-4e15f4c4eb51)
+This is what the user sees when the login page is accessed, we have created 2 users.
+1. User with the highest access, with the credentials admin:admin. This user can change the status for the camera, add and delete cameras and also reboots them with a push of a button.
+2. A normal level user with the credentials user:user that is used mainly for checking the live feed from the cameras. This is what the attacker will use for the entry point.
+![bild](https://github.com/PhilippeDaele/DV1512-Sakerhetsprojekt/assets/99668019/3712f287-9f48-4495-bda9-5bfd8e4f8a83)
+This is what is seen when the user have logged in as admin. Here the user that move around the map, check the status and live feed for each camera, add and delete cameras. The user can also check the log file in the log tab to see if anything fishy have happend to the site.
 
     
 ## Acknowledgements
