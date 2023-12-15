@@ -28,7 +28,7 @@ Download/clone the project and run in terminal
 ```bash
   make
 ```
-To turn off
+To turn off and clean up the running processes
 ```
 make clean
 ```
