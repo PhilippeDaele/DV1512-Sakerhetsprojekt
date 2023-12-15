@@ -58,7 +58,7 @@ This is what the user sees when the login page is accessed, we have created 2 us
 1. User with the highest access, with the credentials admin:admin. This user can change the status for the camera, add and delete cameras and also reboots them with a push of a button.
 2. A normal level user with the credentials user:user that is used mainly for checking the live feed from the cameras. This is what the attacker will use for the entry point.
 ![bild](https://github.com/PhilippeDaele/DV1512-Sakerhetsprojekt/assets/99668019/3712f287-9f48-4495-bda9-5bfd8e4f8a83)
-This is what is seen when the user have logged in as admin. Here the user that move around the map, check the status and live feed for each camera, add and delete cameras. The user can also check the log file in the log tab to see if anything fishy have happend to the site.
+This is what is seen when the user have logged in as admin. Here the user can move around the map, check the status and live feed for each camera, add and delete cameras. The user can also check the log file in the log tab to see if anything fishy have happend to the site.
 
     
 ## Acknowledgements
