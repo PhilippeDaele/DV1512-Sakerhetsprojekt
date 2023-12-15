@@ -24,10 +24,10 @@ In today's digital landscape, security is paramount for any software development
 ## Installation
 
 Download/clone the project and run in terminal
-1. ```bash
+```bash
 pip install -r requirements.txt
 ```
-
+To run the simulation
 ```bash
   make
 ```
