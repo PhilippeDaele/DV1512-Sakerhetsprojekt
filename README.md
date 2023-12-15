@@ -32,6 +32,17 @@ To turn off
 ```
 make clean
 ```
+## Attack scenarios
+Since this is a simulation of IP Surveillance systems we have implemented 3 attack scenarios that are likley to happen in the wild.
+1. SQL Injection on the login page
+2. (D)DoS Attack against Cameras
+3. Be able to switch them on and off as a none admin user
+The last 2 attacks were implemented in a bash script that can be run in the console. This script is called SpyCam.sh and this can be run as followed.
+
+* chmod +x SpyCam.sh
+* ./SpyCam.sh
+
+The script will explain each step you have to take to run a successfull attack against the simulation.
     
 ## Acknowledgements
 
