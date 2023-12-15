@@ -43,6 +43,14 @@ The last 2 attacks were implemented in a bash script that can be run in the cons
 * ./SpyCam.sh
 
 The script will explain each step you have to take to run a successfull attack against the simulation.
+
+## High-level overview
+The project is mainly written with python3, JS, HTML and CSS with google maps used for the map seen on the front page overview.
+The cameras and frontend is run with python flask. Since we cant simulate real cameras we had to create a framework that acted as the cameras. 
+This made the simulation almost entirely work with the http-request as the communication protocol. 
+![bild](https://github.com/PhilippeDaele/DV1512-Sakerhetsprojekt/assets/99668019/0b9295e4-19f4-4c7e-8d66-4e15f4c4eb51)
+
+
     
 ## Acknowledgements
 
